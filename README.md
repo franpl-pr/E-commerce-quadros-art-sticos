@@ -34,3 +34,7 @@ O objetivo do desenvolvimento é criar um e-commerce para a comercialização de
 ## Diagrama de Classe do E-commerce
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
 
+## Diagrama de Máquina de estado
+![diagramaMaquinaEstado drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/630eb95c-ec7e-4c4b-a51b-8e6aaaec46f3)
+
+
