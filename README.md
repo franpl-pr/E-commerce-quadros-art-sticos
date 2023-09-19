@@ -72,8 +72,26 @@ o sistema de software.
 
 
 
-## Diagrama de Classe do E-commerce
+---
+
+## 🎲Diagrama de Classes
+
+ O diagrama de classes é composto por caixas retangulares que
+representam as classes, linhas que indicam os relacionamentos entre as
+classes e os símbolos que representam os atributos e métodos das
+classes.
+
+
+As classes são as entidades principais do diagrama e representam
+objetos do mundo real ou conceitos abstratos presentes no sistema.
+Cada classe possui atributos, que são características ou propriedades
+dos objetos daquela classe, e métodos, que são as ações ou operações
+que os objetos da classe podem realizar.
+
+
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
+
+---
 
 ## Diagrama de Máquina de estado
 ![diagramaMaquinaEstado drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/630eb95c-ec7e-4c4b-a51b-8e6aaaec46f3)
