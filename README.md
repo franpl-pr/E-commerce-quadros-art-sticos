@@ -148,7 +148,7 @@ que os objetos da classe podem realizar.
 
 ---
 
-## Diagrama de Máquina de estado
+## 🚦Diagrama de máquina de estado
 
 Ele representa o comportamento dinâmico de um objeto, componente ou sistema em resposta
 a diferentes eventos à medida que ele passa por diversos estados. Ou seja,
@@ -164,8 +164,17 @@ Veja a visulização para o **Estado Pagamento**:
 ---
 
 ## Diagrama de sequência
+
+Serve para descrever a ordem e o fluxo de mensagens (ou chamadas de método)
+entre os objetos ao longo do tempo. 
+
+São usados para projetar a lógica de funcionamento de um sistema, 
+ajudando os desenvolvedores a entender como as classes e objetos se
+relacionam e como os métodos são chamados.
+
 ![DiagramaSequenciaE-commerce-Quadros drawio (1)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/e77a122c-7d49-48b0-8692-d05d1cbe933b)
 
+👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
 ---
 
