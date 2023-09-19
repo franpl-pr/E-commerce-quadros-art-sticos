@@ -87,7 +87,9 @@ necessariamente o que deve fazer.
 O caso de uso descreve uma sequência de ações que os
 atores realizarão para alcançar um objetivo específico no sistema.
 Ele mostra como o sistema responde a essas ações e quais
-resultados são esperados. O objetivo do diagrama de caso de uso,
+resultados são esperados.
+
+O objetivo do diagrama de caso de uso,
 em **UML (Unified Modeling Language - Linguagem de Modelagem Unificada)**, 
 é demonstrar as diferentes maneiras que o usuário pode
 interagir com o sistema.
