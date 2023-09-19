@@ -1,4 +1,21 @@
 # E-commerce
+
+---
+
+## 💻Visao do Projeto
+
+<p align="left"> :octocat: O projeto consiste em desenvolver um <strong>sistema de comércio eletrônico (E-commerce) </strong>
+  cujo objetivo é <strong>vendas de quadros artísticos e pinturas</strong>. Esse sistema será desenvolvido para atender 
+  às necessidades de vários artistas ou empresas que querem divulgar suas obras e por consequência vendê-las online. 
+ </p>
+
+<p align="left"> O artista (sendo o usuário vendedor) poderá cadastrar suas próprias artes ou 
+  quadros de outros artistas. O e-commerce permite o cadastro de várias empresas ou microempreendedores a qual queiram vender suas artes por meio de uma plataforma digital.</p>
+
+<p align="left">Além disso, será aberto para variados tipos de pinturas, desde pintura óleo, acrílica, giz etc. O e-commerce disponibiliza categorias distintas, tamanhos diversos agregando todo tipo de pinturas em quadros.</p>
+
+
+---
 Visão do projeto:: Comercialização de quadros artísticos
 
 O objetivo do desenvolvimento é criar um e-commerce para a comercialização de quadros com pinturas artística. O E-commerce permitirá que artistas autônomos, ou empresas que trabalham nesse ramo da arte, tenham uma plataforma digital para venda de suas criações artísticas.
