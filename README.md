@@ -81,7 +81,7 @@ necessariamente o que deve fazer.
 
 ---
 
-## 🎲Diagrama de Casos de Uso
+## :small_blue_diamond:Diagrama de Casos de Uso
 
 O caso de uso descreve uma sequência de ações que os
 atores realizarão para alcançar um objetivo específico no sistema.
