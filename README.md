@@ -140,7 +140,19 @@ que os objetos da classe podem realizar.
 ---
 
 ## Diagrama de Máquina de estado
-![diagramaMaquinaEstado drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/630eb95c-ec7e-4c4b-a51b-8e6aaaec46f3)
+
+Ele representa o comportamento dinâmico de um objeto, componente ou sistema em resposta
+a diferentes eventos à medida que ele passa por diversos estados. Ou seja,
+são úteis para modelar comportamentos entre estados diferentes.
+
+Veja a visulização para o **Estado Pagamento**:
+
+![diagramaMaquinaEstadoPagamento drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/a67b7cec-56f2-4502-8712-f3a2ccc2fdc6)
+
+
+👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1zIDFE4g0lxG-eA_HsV97CrqtDOERCzvR) 
+
+---
 
 ## Diagrama de sequência
 ![DiagramaSequenciaE-commerce-Quadros drawio (1)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/e77a122c-7d49-48b0-8692-d05d1cbe933b)
