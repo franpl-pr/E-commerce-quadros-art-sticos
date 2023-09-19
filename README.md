@@ -19,7 +19,7 @@
 - [Requisitos Funcionais](#requisitos-funcionais)
 - [Requisitos Nao Funcionais](#requisitos-nao-funcionais)
 - [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
-
+- [DER](#DER)
 
 
 ---
