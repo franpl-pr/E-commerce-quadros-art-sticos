@@ -18,7 +18,7 @@
 - [Stakeholders](#stakeholders)
 - [Requisitos Funcionais](#requisitos-funcionais)
 - [Requisitos Nao Funcionais](#requisitos-nao-funcionais)
-- [Casos de Uso](#casos-de-uso)
+- [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
 
 
 
@@ -85,7 +85,7 @@ necessariamente o que deve fazer.
 
 ---
 
-## 🔷Diagrama de Casos de Uso
+## 🔷Diagrama de Caso de Uso
 
 O caso de uso descreve uma sequência de ações que os
 atores realizarão para alcançar um objetivo específico no sistema.
