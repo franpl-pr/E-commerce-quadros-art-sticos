@@ -118,6 +118,15 @@ dentro do sistema. Diagramas ER são mais utilizados para projetar ou depurar o 
 
 ---
 
+
+## 🗂️Banco de Dados fisico
+
+Para visualizar o Banco de Dados completo é só [clicar aqui]() e baixá-lo.
+
+Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
+
+---
+
 ## 🎲Diagrama de Classes
 
  O diagrama de classes é composto por caixas retangulares que
