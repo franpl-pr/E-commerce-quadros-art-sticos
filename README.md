@@ -9,6 +9,16 @@
 
 ---
 
+## 🏷️ Tópicos da Modelagem 
+
+- [Visao do Projeto](#visao-do-projeto)
+- [Dominio de Negocio](#dominio-de-negocio)
+- [Stakeholders](#stakeholders)
+
+
+
+---
+
 ## 💻Visao do Projeto
 
 <p align="left"> :octocat: O projeto consiste em desenvolver um <strong>sistema de comércio eletrônico (E-commerce) </strong>
