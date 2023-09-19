@@ -127,7 +127,7 @@ Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
 
-## 🎲Diagrama de Classes
+## ♦️Diagrama de Classes
 
  O diagrama de classes é composto por caixas retangulares que
 representam as classes, linhas que indicam os relacionamentos entre as
@@ -146,6 +146,8 @@ que os objetos da classe podem realizar.
 
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
 
+👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/tags=%7B%7D&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload)
+
 ---
 
 ## 🚦Diagrama de máquina de estado
@@ -162,7 +164,7 @@ Veja a visulização para o **Estado Pagamento**:
 
 ---
 
-## Diagrama de sequência
+## 🔶Diagrama de sequência
 
 Serve para descrever a ordem e o fluxo de mensagens (ou chamadas de método)
 entre os objetos ao longo do tempo. 
