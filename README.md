@@ -16,6 +16,9 @@
 - [Visao do Projeto](#visao-do-projeto)
 - [Dominio de Negocio](#dominio-de-negocio)
 - [Stakeholders](#stakeholders)
+- [Requisitos Funcionais](#requisitos-funcionais)
+- [Requisitos Nao Funcionais](#requisitos-nao-funcionais)
+- [Casos de Uso](#casos-de-uso)
 
 
 
