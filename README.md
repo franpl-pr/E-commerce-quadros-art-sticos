@@ -94,6 +94,14 @@ interagir com o sistema.
 
 ## Casos de Usos estendidos
 
+ Já os casos de usos estendidos servem para cenários mais detalhados 
+ ou específicos que estão relacionados a um caso de uso principal. 
+ 
+ O objetivo é visualizar as funcionalidades adicionais ou variações do comportamento principal 
+ do sistema, sem a necessidade de sobrecarregar o caso de uso principal com muitos detalhes.
+
+ 👉Para visualizar a **lista completa** dos Casos de usos estendidos acesse:
+ 
 ![cadastro](https://github.com/franpl-pr/E-commerce/assets/52611643/12647a41-cc48-44ae-83eb-925c3b7b67df)
 ![adicionar produtos](https://github.com/franpl-pr/E-commerce/assets/52611643/2304c2a5-199c-4078-9bc5-7519464b702d)
 ![realizar compra](https://github.com/franpl-pr/E-commerce/assets/52611643/189e7c32-4562-482c-8d37-761dde12b57b)
