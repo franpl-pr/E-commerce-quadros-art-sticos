@@ -49,11 +49,10 @@
 Eles fornecerão informações valiosas sobre a usabilidade e funcionalidade do sistema além de ajudarem a
 garantir que os requisitos sejam práticos e atendam às suas necessidades.
 
-- **Vendedores:** Os desenvolvedores são responsáveis por implementar os requisitos e construir
+- **Vendedores:** Os vendedores são responsáveis por vender os produtos no sistema.
+
+- **Desenvolvedores:** Os desenvolvedores são responsáveis por implementar os requisitos e construir
 o sistema de software.
-
-- **Desenvolvedores:** Os vendedores são responsáveis por vender os produtos no sistema.
-
 ---
 
 ## Requisitos Funcionais e não funcionais
