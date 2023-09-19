@@ -54,21 +54,24 @@ o sistema de software.
 ![5](https://github.com/franpl-pr/E-commerce/assets/52611643/cff185e1-a3e3-4271-a638-058ce7ae23ca)
 ![7](https://github.com/franpl-pr/E-commerce/assets/52611643/1a1a7dd7-57d6-49c4-9ff3-f32bfdaaf331)
 
+---
 
+## 🎲Diagrama de Casos de Uso
+
+O caso de uso descreve uma sequência de ações que os
+atores realizarão para alcançar um objetivo específico no sistema.
+Ele mostra como o sistema responde a essas ações e quais
+resultados são esperados. O objetivo do diagrama de caso de uso,
+em UML (Unified Modeling Language - Linguagem de Modelagem Unificada), é demonstrar as diferentes maneiras que o usuário pode
+interagir com o sistema.
+
+![imagem do diagrama de caso de uso do sistema.](![e-commerceQuadros drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/3a3841e8-a33b-475e-97df-e139856e9fc1))
 
 ## Casos de Usos estendidos
 
 ![cadastro](https://github.com/franpl-pr/E-commerce/assets/52611643/12647a41-cc48-44ae-83eb-925c3b7b67df)
 ![adicionar produtos](https://github.com/franpl-pr/E-commerce/assets/52611643/2304c2a5-199c-4078-9bc5-7519464b702d)
 ![realizar compra](https://github.com/franpl-pr/E-commerce/assets/52611643/189e7c32-4562-482c-8d37-761dde12b57b)
-
-
-
-
-## Diagrama de Caso de Uso do E-commerce
-
-![imagem do diagrama de caso de uso do sistema.](![e-commerceQuadros drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/3a3841e8-a33b-475e-97df-e139856e9fc1)
-)
 
 
 
