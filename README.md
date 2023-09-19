@@ -1,4 +1,11 @@
-# E-commerce
+<h1 align="center">
+    <a>🔗 Projeto E-commerce modelagem</a>
+</h1> 
+
+<h4 align="center"> 
+	🚧 Em andamento 🛠️ 🚧
+</h4>
+<h5 align="center">Disciplina de Engenharia de Software ||| </h5>
 
 ---
 
@@ -16,9 +23,26 @@
 
 
 ---
-Visão do projeto:: Comercialização de quadros artísticos
 
-O objetivo do desenvolvimento é criar um e-commerce para a comercialização de quadros com pinturas artística. O E-commerce permitirá que artistas autônomos, ou empresas que trabalham nesse ramo da arte, tenham uma plataforma digital para venda de suas criações artísticas.
+## 🎲Dominio de Negocio
+  
+**E-commerce:** sistemas de software que dão suporte a compras online, gerenciamento de
+  estoque e processamento de pedidos.
+
+---
+
+## 👨‍👨‍👦‍👦Stakeholders
+
+ - **Usuários**: Os usuários são os indivíduos que usarão o sistema web uma vez desenvolvido.
+Eles fornecerão informações valiosas sobre a usabilidade e funcionalidade do sistema além de ajudarem a
+garantir que os requisitos sejam práticos e atendam às suas necessidades.
+
+- **Vendedores:** Os desenvolvedores são responsáveis por implementar os requisitos e construir
+o sistema de software.
+
+- **Desenvolvedores:** Os vendedores são responsáveis por vender os produtos no sistema.
+
+---
 
 ## Requisitos Funcionais e não funcionais
 
@@ -56,5 +80,33 @@ O objetivo do desenvolvimento é criar um e-commerce para a comercialização de
 
 ## Diagrama de sequência
 ![DiagramaSequenciaE-commerce-Quadros drawio (1)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/e77a122c-7d49-48b0-8692-d05d1cbe933b)
+
+
+---
+
+## ⚒️Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+-   Draw.io - Diagrama de Classes
+-   BrModelo - Diagrama Entidade e Relacionamento (DER)
+-   Banco de Dados: MySQL PhPMyAdmin
+-   Figma - Interface
+
+---
+
+
+## 📝Autores
+
+Este projeto está sobre a licença [MIT](./LICENSE).
+
+Feito com ❤️ por 
+- Cassia Xavier
+- Franciele Procopio
+- Letícia
+- Maria Clara
+
+Entre em contato! 👋🏽👋🏽
+
 
 
