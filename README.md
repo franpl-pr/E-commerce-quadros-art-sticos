@@ -76,7 +76,7 @@ São as qualidades ou atributos que o sistema deve possuir, mas que não estão
 diretamente relacionados à sua funcionalidade específica. Como deve funcionar, não
 necessariamente o que deve fazer.
 
-👉Para visualizar a **lista completa** dos Requisitos Funcionais e Não Funcionais do e-commerce acesse: ([requisitosFuncionais.pdf](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12665596/requisitosFuncionais.pdf))
+👉Para visualizar a **lista completa** dos Requisitos Funcionais e Não Funcionais do e-commerce acesse: [requisitosFuncionais.pdf](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12665596/requisitosFuncionais.pdf)
 
 
 ---
