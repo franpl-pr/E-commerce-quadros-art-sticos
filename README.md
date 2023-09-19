@@ -53,17 +53,31 @@ garantir que os requisitos sejam práticos e atendam às suas necessidades.
 
 - **Desenvolvedores:** Os desenvolvedores são responsáveis por implementar os requisitos e construir
 o sistema de software.
+
 ---
 
-## Requisitos Funcionais e não funcionais
+## 🔎Requisitos Funcionais
 
-![Requisitos Funcionais](https://github.com/franpl-pr/E-commerce/assets/52611643/833daf1c-d1d5-4e8c-adaf-eacd27784e3a)
-![Requisitos Funcionais (2)](https://github.com/franpl-pr/E-commerce/assets/52611643/b6997094-c65c-45e5-8535-8ce710fcae58)
-![políticas de uso e transporte](https://github.com/franpl-pr/E-commerce/assets/52611643/f61ab01f-ecb9-43ab-ae11-2164fffc9305)
-![pagamento](https://github.com/franpl-pr/E-commerce/assets/52611643/e5eea55e-26e2-433c-9407-a60378d26cb5)
-![4](https://github.com/franpl-pr/E-commerce/assets/52611643/70c35a1c-5218-4908-8dd1-844132aa0aec)
-![5](https://github.com/franpl-pr/E-commerce/assets/52611643/cff185e1-a3e3-4271-a638-058ce7ae23ca)
-![7](https://github.com/franpl-pr/E-commerce/assets/52611643/1a1a7dd7-57d6-49c4-9ff3-f32bfdaaf331)
+Eles definem as ações específicas que o sistema deve
+executar e como deve responder a várias entradas e eventos.
+
+
+##### Exemplos de alguns RF do sistema:
+| Código | Identificação | Ator | Descrição |
+| --- | --- | --- | --- |
+| RF001 | Histórico de Pedidos | Usuário | Os usuários poderão visualizar o histórico de pedidos anteriores também rastreiem remessas e gerenciar devoluções ou trocas. |	
+| RF002 | Verificar lista de pedidos recebido | Vendedor | Verificar a lista de pedidos recebidos  e providenciar o envio do produto. |
+|RF003 | Número de rastreio do pedido | Transportadora |A transportadora deve disponibilizar um número de rastreamento que permita que os clientes acompanhem o progresso de suas encomendas em tempo real.|
+
+
+## Requisitos Nao Funcionais
+
+São as qualidades ou atributos que o sistema deve possuir, mas que não estão
+diretamente relacionados à sua funcionalidade específica. Como deve funcionar, não
+necessariamente o que deve fazer.
+
+👉Para visualizar a **lista completa** dos Requisitos Funcionais e Não Funcionais do e-commerce [clique aqui!]()
+
 
 ---
 
