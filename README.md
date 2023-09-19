@@ -88,6 +88,8 @@ Cada classe possui atributos, que são características ou propriedades
 dos objetos daquela classe, e métodos, que são as ações ou operações
 que os objetos da classe podem realizar.
 
+**Visualização:**
+
 
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
 
