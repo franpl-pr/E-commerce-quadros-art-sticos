@@ -37,4 +37,7 @@ O objetivo do desenvolvimento é criar um e-commerce para a comercialização de
 ## Diagrama de Máquina de estado
 ![diagramaMaquinaEstado drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/630eb95c-ec7e-4c4b-a51b-8e6aaaec46f3)
 
+## Diagrama de sequência
+![DiagramaSequenciaE-commerce-Quadros drawio (1)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/e77a122c-7d49-48b0-8692-d05d1cbe933b)
+
 
