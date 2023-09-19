@@ -54,6 +54,7 @@ garantir que os requisitos sejam práticos e atendam às suas necessidades.
 - **Desenvolvedores:** Os desenvolvedores são responsáveis por implementar os requisitos e construir
 o sistema de software.
 
+
 ---
 
 ## 🔎Requisitos Funcionais
@@ -87,7 +88,8 @@ O caso de uso descreve uma sequência de ações que os
 atores realizarão para alcançar um objetivo específico no sistema.
 Ele mostra como o sistema responde a essas ações e quais
 resultados são esperados. O objetivo do diagrama de caso de uso,
-em UML (Unified Modeling Language - Linguagem de Modelagem Unificada), é demonstrar as diferentes maneiras que o usuário pode
+em **UML (Unified Modeling Language - Linguagem de Modelagem Unificada)**, 
+é demonstrar as diferentes maneiras que o usuário pode
 interagir com o sistema.
 
 ![imagem do diagrama de caso de uso do sistema.](![e-commerceQuadros drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/3a3841e8-a33b-475e-97df-e139856e9fc1))
@@ -102,11 +104,8 @@ interagir com o sistema.
 
  👉Para visualizar a **lista completa** dos Casos de usos estendidos acesse: [casosUsosEstendidos (1).pdf](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12665816/casosUsosEstendidos.1.pdf)
  
-![cadastro](https://github.com/franpl-pr/E-commerce/assets/52611643/12647a41-cc48-44ae-83eb-925c3b7b67df)
-![adicionar produtos](https://github.com/franpl-pr/E-commerce/assets/52611643/2304c2a5-199c-4078-9bc5-7519464b702d)
-![realizar compra](https://github.com/franpl-pr/E-commerce/assets/52611643/189e7c32-4562-482c-8d37-761dde12b57b)
-
 ---
+
 
 ## 🎲DER
 O Diagrama Entidade Relacionamento (DER) é um tipo de fluxograma que ilustra como as “entidades”, se relacionam entre si 
