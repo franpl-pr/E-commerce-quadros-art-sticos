@@ -10,9 +10,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p>
-<a href="https://github.com/franpl-pr/E-commerce-quadros-art-sticos/graphs/contributors">
+   <a href="https://github.com/franpl-pr/E-commerce-quadros-art-sticos/graphs/contributors">
 	<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/E-commerce-quadros-art-sticos/" />
-</a>	
+   </a>	
 </p>
 
     
