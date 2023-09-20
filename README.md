@@ -98,6 +98,7 @@ em **UML (Unified Modeling Language - Linguagem de Modelagem Unificada)**,
 é demonstrar as diferentes maneiras que o usuário pode
 interagir com o sistema.
 
+**Visualização do Caso de Uso**
 ![imagem do diagrama de caso de uso do sistema.](![e-commerceQuadros drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/3a3841e8-a33b-475e-97df-e139856e9fc1))
 
 ## Casos de Usos estendidos
@@ -145,8 +146,7 @@ Cada classe possui atributos, que são características ou propriedades
 dos objetos daquela classe, e métodos, que são as ações ou operações
 que os objetos da classe podem realizar.
 
-**Visualização:**
-
+**Visualização do diagrama de classes**
 
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
 
@@ -177,9 +177,11 @@ São usados para projetar a lógica de funcionamento de um sistema,
 ajudando os desenvolvedores a entender como as classes e objetos se
 relacionam e como os métodos são chamados.
 
+**Visualização do Diagrama de sequência**
+
 ![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/1f6b9320-bffa-4223-8559-3084ecd52ed6)
 
-👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
+👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
 ---
 
