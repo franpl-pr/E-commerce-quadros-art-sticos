@@ -14,10 +14,10 @@
 ## 🏷️ Tópicos da Modelagem 
 
 - [Visão do Projeto](#visão-do-projeto)
-- [Dominio de Negocio](#dominio-de-negocio)
+- [Domínio de Negócio](#domínio-de-negócio)
 - [Stakeholders](#stakeholders)
 - [Requisitos Funcionais](#requisitos-funcionais)
-- [Requisitos Nao Funcionais](#requisitos-nao-funcionais)
+- [Requisitos Não Funcionais](#requisitos-não-funcionais)
 - [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
 - [DER](#DER)
 - [Autores](#Autores)
@@ -40,7 +40,7 @@
 
 ---
 
-## 🎲Dominio de Negocio
+## 🎲Domínio de Negócio
   
 **E-commerce:** sistemas de software que dão suporte a compras online, gerenciamento de
   estoque e processamento de pedidos.
@@ -75,7 +75,7 @@ executar e como deve responder a várias entradas e eventos.
 |RF003 | Número de rastreio do pedido | Transportadora |A transportadora deve disponibilizar um número de rastreamento que permita que os clientes acompanhem o progresso de suas encomendas em tempo real.|
 
 
-## Requisitos Nao Funcionais
+## Requisitos Não Funcionais
 
 São as qualidades ou atributos que o sistema deve possuir, mas que não estão
 diretamente relacionados à sua funcionalidade específica. Como deve funcionar, não
