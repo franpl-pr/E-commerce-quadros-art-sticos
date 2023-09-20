@@ -99,7 +99,9 @@ em **UML (Unified Modeling Language - Linguagem de Modelagem Unificada)**,
 interagir com o sistema.
 
 **Visualização do Caso de Uso**
-![imagem do diagrama de caso de uso do sistema.](![e-commerceQuadros drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/3a3841e8-a33b-475e-97df-e139856e9fc1))
+![casoUso drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/cf87acf2-0c04-4324-8633-db0aad43405d)
+
+👉Para visualizar melhor o caso de uso [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=e-commerceQuadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1NGqZem0uXzkIqzyiEnzuh2M5aoUQ8IQ2%26export%3Ddownload) 
 
 ## Casos de Usos estendidos
 
