@@ -22,10 +22,10 @@
 - [Casos de usos estendidos](#Casos-de-usos-estendidos)
 - [DER](#DER)
 - [Banco de Dados físico](#banco-de-dados-físico)
-- [Diagrama de Classes](#diagrama-de-classes)
+- [Diagrama de Classe](#diagrama-de-classe)
 - [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
-- [Tecnologias](#Tecnologias)
+- [Tecnologias](#tecnologias)
 - [Autores](#Autores)
 
 
@@ -140,7 +140,7 @@ Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
 
-## ♦️Diagrama de Classes
+## ♦️Diagrama de Classe
 
  O diagrama de classes é composto por caixas retangulares que
 representam as classes, linhas que indicam os relacionamentos entre as
