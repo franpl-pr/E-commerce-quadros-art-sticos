@@ -21,9 +21,9 @@
 - [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
 - [Casos de usos estendidos](#Casos-de-usos-estendidos)
 - [DER](#DER)
-- [Banco de Dados fisico](#banco-de-dados-fisico)
+- [Banco de Dados físico](#banco-de-dados-físico)
 - [Diagrama de Classes](#diagrama-de-classes)
-- [Diagrama de máquina de estado](#diagrama-de-maquina-de-estado)
+- [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
 - [Tecnologias](#tecnologias)
 - [Autores](#Autores)
@@ -204,7 +204,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ---
 
-
 ## 📝Autores
 
 Este projeto está sobre a licença [MIT](./LICENSE).
@@ -218,6 +217,6 @@ Feito com ❤️ por
 
 Entre em contato! 👋🏽👋🏽
 
-
+---
 
 
