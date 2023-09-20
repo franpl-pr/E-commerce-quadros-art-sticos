@@ -8,13 +8,6 @@
 <h5 align="center">Disciplina de Engenharia de Software ||| </h5>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-<p>
-   <a href="https://github.com/franpl-pr/E-commerce-quadros-art-sticos/graphs/contributors">
-	<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/E-commerce-quadros-art-sticos/" />
-   </a>	
-</p>
-
     
 ---
 
@@ -215,6 +208,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## 📝Autores
 
 Este projeto está sobre a licença [MIT](./LICENSE).
+
+O projeto foi desenvolvido por meio da disciplina de Engenharia de Software ||| - 4°
+Semestre, professor Anderson Barbosa na Fatec de Campinas.
 
 Feito com ❤️ por 
 - Cassia Xavier
