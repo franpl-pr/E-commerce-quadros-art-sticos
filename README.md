@@ -13,7 +13,7 @@
 
 ## 🏷️ Tópicos da Modelagem 
 
-- [Visao do Projeto](#visao-do-projeto)
+- [Visão do Projeto](#visão-do-projeto)
 - [Dominio de Negocio](#dominio-de-negocio)
 - [Stakeholders](#stakeholders)
 - [Requisitos Funcionais](#requisitos-funcionais)
@@ -25,7 +25,7 @@
 
 ---
 
-## 💻Visao do Projeto
+## 💻Visão do Projeto
 
 <p align="left"> :octocat: O projeto consiste em desenvolver um <strong>sistema de comércio eletrônico (E-commerce) </strong>
   cujo objetivo é <strong>vendas de quadros artísticos e pinturas</strong>. Esse sistema será desenvolvido para atender 
