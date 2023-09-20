@@ -140,7 +140,7 @@ Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
 
-## ♦️Diagrama de Classes
+## ♦️ Diagrama de Classes
 
  O diagrama de classes é composto por caixas retangulares que
 representam as classes, linhas que indicam os relacionamentos entre as
