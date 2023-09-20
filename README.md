@@ -25,7 +25,7 @@
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
-- [Tecnologias](#tecnologias)
+- [Tecnologias](#Tecnologias)
 - [Autores](#Autores)
 
 
