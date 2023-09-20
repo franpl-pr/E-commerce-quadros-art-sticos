@@ -132,7 +132,7 @@ dentro do sistema. Diagramas ER são mais utilizados para projetar ou depurar o 
 ---
 
 
-## 🗂️Banco de Dados fisico
+## 🗂️Banco de Dados físico
 
  👉Para baixar o Banco de Dados SQL completo clique aqui: [BancoDadosEcommerceQuadros.zip](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12666163/BancoDadosEcommerceQuadros.zip)
 
