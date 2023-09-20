@@ -8,8 +8,14 @@
 <h5 align="center">Disciplina de Engenharia de Software ||| </h5>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitLab commit count](https://badgen.net/gitlab/commits/NickBusey/HomelabOS/)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/commits/main)
 
+<p>
+	<a href="https://github.com/franpl-pr/E-commerce-quadros-art-sticos/graphs/contributors">
+		<img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/E-commerce-quadros-art-sticos/" />
+	</a>	
+</p>
+
+    
 ---
 
 
