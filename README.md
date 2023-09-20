@@ -8,7 +8,7 @@
 <h5 align="center">Disciplina de Engenharia de Software ||| </h5>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitLab commit count](https://badgen.net/gitlab/commits/NickBusey/HomelabOS/)](https://gitlab.com/NickBusey/HomelabOS/-/commits)
+[![GitLab commit count](https://badgen.net/gitlab/commits/NickBusey/HomelabOS/)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/commits/main)
 ---
 
 
