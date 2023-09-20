@@ -19,7 +19,13 @@
 - [Requisitos Funcionais](#requisitos-funcionais)
 - [Requisitos Não Funcionais](#requisitos-não-funcionais)
 - [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
+- [Casos de usos estendidos](#Casos-de-usos-estendidos)
 - [DER](#DER)
+- [Banco de Dados fisico](#banco-de-dados-fisico)
+- [Diagrama de Classes](#diagrama-de-classes)
+- [Diagrama de máquina de estado](#diagrama-de-maquina-de-estado)
+- [Diagrama de sequência](#diagrama-de-sequência)
+- [Tecnologias](#tecnologias)
 - [Autores](#Autores)
 
 
@@ -103,7 +109,7 @@ interagir com o sistema.
 
 👉Para visualizar melhor o caso de uso [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=e-commerceQuadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1NGqZem0uXzkIqzyiEnzuh2M5aoUQ8IQ2%26export%3Ddownload) 
 
-## Casos de Usos estendidos
+## Casos de usos estendidos
 
  Já os casos de usos estendidos servem para cenários mais detalhados 
  ou específicos que estão relacionados a um caso de uso principal. 
