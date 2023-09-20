@@ -22,7 +22,7 @@
 - [Casos de usos estendidos](#Casos-de-usos-estendidos)
 - [DER](#DER)
 - [Banco de Dados físico](#banco-de-dados-físico)
-- [Diagrama de Classes](#Diagrama-de-Classes)
+- [Diagrama de Classes](#diagrama-de-classes)
 - [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
 - [Tecnologias](#tecnologias)
