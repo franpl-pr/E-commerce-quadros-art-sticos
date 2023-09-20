@@ -177,9 +177,9 @@ São usados para projetar a lógica de funcionamento de um sistema,
 ajudando os desenvolvedores a entender como as classes e objetos se
 relacionam e como os métodos são chamados.
 
-![DiagramaSequenciaE-commerce-Quadros drawio (1)](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/e77a122c-7d49-48b0-8692-d05d1cbe933b)
+![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/1f6b9320-bffa-4223-8559-3084ecd52ed6)
 
-👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
+👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
 ---
 
