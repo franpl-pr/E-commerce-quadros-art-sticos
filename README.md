@@ -160,7 +160,8 @@ que os objetos da classe podem realizar.
 
 **Visualização do diagrama de classes**
 
-![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce/assets/52611643/01b3b380-47d3-46b4-80bd-0e6ab46abb0f)
+![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/8314fc25-1280-48bb-a53a-e22c152d9b19)
+
 
 👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload)
 
@@ -191,7 +192,7 @@ relacionam e como os métodos são chamados.
 
 **Visualização do Diagrama de sequência**
 
-![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/1f6b9320-bffa-4223-8559-3084ecd52ed6)
+![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/f1d86c5a-c466-4dce-ae18-e3476b63db02)
 
 👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
