@@ -29,6 +29,7 @@
 - [Diagrama de Classe](#diagrama-de-classe)
 - [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
+- [Interface](#interface)
 - [Tecnologias](#tecnologias)
 - [Autores](#Autores)
 
@@ -197,6 +198,11 @@ relacionam e como os métodos são chamados.
 👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
 ---
+
+## 🎲Interface
+
+
+
 
 ## ⚒️Tecnologias
 
