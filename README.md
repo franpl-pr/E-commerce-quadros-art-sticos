@@ -29,6 +29,7 @@
 - [Diagrama de Classe](#diagrama-de-classe)
 - [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
 - [Diagrama de sequência](#diagrama-de-sequência)
+- [Heurísticas](#heurísticas)
 - [Interface](#interface)
 - [Tecnologias](#tecnologias)
 - [Autores](#Autores)
@@ -199,10 +200,18 @@ relacionam e como os métodos são chamados.
 
 ---
 
+## 🎲Heurísticas
+
+
+
+---
+
 ## 🎲Interface
 
+A interface foi desenvolvida pela ferramenta figma estando disponível para visualização, apenas [clicando aqui](https://www.figma.com/file/B4y3A4KQFpUyObu1T8a8j8/E-commerceQuadros?type=design&node-id=0%3A1&mode=design&t=ki0TWIpEYO1NJjhb-1)
 
 
+---
 
 ## ⚒️Tecnologias
 
