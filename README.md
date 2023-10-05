@@ -212,7 +212,7 @@ relacionam e como os métodos são chamados.
 
 ## 🎲Interface
 
-#Tela inicial do sistema
+### Tela inicial do sistema
 
 ![Tela Home](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/706b8f99-d2ce-4c52-859b-877483a5e5fb)
 
