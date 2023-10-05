@@ -201,12 +201,20 @@ relacionam e como os métodos são chamados.
 ---
 
 ## 🎲Heurísticas
-
+1. Foram colocada mensagens de estado ou feedbacks para o usuário, como por exemplo, identificação da página em que o usuário se encontra.
+2.  O sistema não possui termos técnicos, sendo acessível a todos tipos deusuários. Além disso, os elemento do layout estão posicionados seguindo o padrão dos layouts de sistemas web, contendo ícones universais, como "lupa", elementos do menu no header, "coração" para indicar produtos favoritos e muito mais.
+3.  O usuário possui liberdade ao utilizar o sistema como poder remover produtos do carrinho e cancelar pedidos.
+4.  O sistema segue padronizado e com consistência. Isso é evidente com a posição dos botões, as cores e os simbolos são padronizados.
+5.  Prevenção de erros: permite que usuários cancele operações.
 
 
 ---
 
 ## 🎲Interface
+
+#Tela inicial do sistema
+
+![Tela Home](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/706b8f99-d2ce-4c52-859b-877483a5e5fb)
 
 A interface foi desenvolvida pela ferramenta figma estando disponível para visualização, apenas [clicando aqui](https://www.figma.com/file/B4y3A4KQFpUyObu1T8a8j8/E-commerceQuadros?type=design&node-id=0%3A1&mode=design&t=ki0TWIpEYO1NJjhb-1)
 
