@@ -3,15 +3,10 @@
 </h1> 
 
 <h4 align="center"> 
-	🚧 Em andamento 🛠️ 🚧
+	🚧 Concluído 🛠️ 🚧
 </h4>
 
-<h5 align="center">Disciplina de Engenharia de Software ||| </h5>
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
- 
-
-    
+<h5 align="center">Disciplina de Engenharia de Software ||| </h5>  
 ---
 
 
