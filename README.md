@@ -137,7 +137,11 @@ dentro do sistema. Diagramas ER são mais utilizados para projetar ou depurar o 
 ## 🗂️Banco de Dados físico
 
  👉Para baixar o Banco de Dados SQL completo clique aqui: [BancoDadosEcommerceQuadros.zip](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12666163/BancoDadosEcommerceQuadros.zip)
-https://github.com/franpl-pr/E-commerce-quadros-art-sticos/issues/10#issue-1936574802
+ 
+ Aqui está um print da visulização das tabelas realizadas no phpMyAdmin, ao total foram criadas 29 tabelas aplicando os conceitos
+ de normalização.
+ 
+[TabelasBancoDados](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/issues/10#issue-1936574802)
 Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
