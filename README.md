@@ -140,8 +140,9 @@ dentro do sistema. Diagramas ER são mais utilizados para projetar ou depurar o 
  
  Aqui está um print da visulização das tabelas realizadas no phpMyAdmin, ao total foram criadas 29 tabelas aplicando os conceitos
  de normalização.
- 
-[TabelasBancoDados](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/issues/10#issue-1936574802)
+
+![bancoDados](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/ef0b3f8d-b246-49b5-acd0-90fe4f32246e)
+
 Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
