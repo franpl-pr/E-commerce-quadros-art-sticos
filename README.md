@@ -161,7 +161,7 @@ que os objetos da classe podem realizar.
 ![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/8314fc25-1280-48bb-a53a-e22c152d9b19)
 
 
-👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload)
+👉Para visualizar melhor [clique aqui]([https://viewer.diagrams.net/tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload](https://drive.google.com/file/d/1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1/view?usp=sharing))
 
 ---
 
