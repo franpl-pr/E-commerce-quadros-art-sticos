@@ -129,7 +129,11 @@ interagir com o sistema.
 O Diagrama Entidade Relacionamento (DER) é um tipo de fluxograma que ilustra como as “entidades”, se relacionam entre si 
 dentro do sistema. Diagramas ER são mais utilizados para projetar ou depurar o Bancos de dados relacionais.
 
+**Visualização do DER**
+![derQuadros](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/872f0856-7943-4b8b-b4fe-d948320e24f5)
+
  👉O diagrama foi desenvolvido na ferramenta 'BrModelo' e está disponível para baixá-lo, [clique aqui](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/blob/main/derQuadros.brM3).
+
 
 ---
 
