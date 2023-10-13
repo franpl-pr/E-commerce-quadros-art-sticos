@@ -119,7 +119,7 @@ interagir com o sistema.
  O objetivo é visualizar as funcionalidades adicionais ou variações do comportamento principal 
  do sistema, sem a necessidade de sobrecarregar o caso de uso principal com muitos detalhes.
 
- 👉Para visualizar a **lista completa** dos Casos de usos estendidos acesse: [casosUsosEstendidos (1).pdf](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12665816/casosUsosEstendidos.1.pdf)
+ 👉Para visualizar a **lista completa** dos Casos de usos estendidos acesse: [casosDeUsosEstendidos.pdf](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/files/12896403/casosDeUsosEstendidos.pdf)
  
 ---
 
