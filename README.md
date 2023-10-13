@@ -79,7 +79,7 @@ executar e como deve responder a várias entradas e eventos.
 | Código | Identificação | Ator | Descrição |
 | --- | --- | --- | --- |
 | RF001 | Histórico de Pedidos | Usuário | Os usuários poderão visualizar o histórico de pedidos anteriores também rastreiem remessas e gerenciar devoluções ou trocas. |	
-| RF002 | Verificar lista de pedidos recebido | Vendedor | Verificar a lista de pedidos recebidos  e providenciar o envio do produto. |
+| RF002 | Lista de pedidos recebido | Vendedor | Verificar a lista de pedidos recebidos  e providenciar o envio do produto. |
 |RF003 | Número de rastreio do pedido | Transportadora |A transportadora deve disponibilizar um número de rastreamento que permita que os clientes acompanhem o progresso de suas encomendas em tempo real.|
 
 
