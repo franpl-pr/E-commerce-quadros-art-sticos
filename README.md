@@ -207,11 +207,12 @@ relacionam e como os métodos são chamados.
 ---
 
 ## 🎲Heurísticas
-1. Foram colocada mensagens de estado ou feedbacks para o usuário, como por exemplo, identificação da página em que o usuário se encontra.
-2.  O sistema não possui termos técnicos, sendo acessível a todos tipos deusuários. Além disso, os elemento do layout estão posicionados seguindo o padrão dos layouts de sistemas web, contendo ícones universais, como "lupa", elementos do menu no header, "coração" para indicar produtos favoritos e muito mais.
-3.  O usuário possui liberdade ao utilizar o sistema como poder remover produtos do carrinho e cancelar pedidos.
-4.  O sistema segue padronizado e com consistência. Isso é evidente com a posição dos botões, as cores e os simbolos são padronizados.
-5.  Prevenção de erros: permite que usuários cancele operações.
+
+**1.** Foram colocada mensagens de estado ou feedbacks para o usuário, como por exemplo, identificação da página em que o usuário se encontra.
+ **2.**  O sistema não possui termos técnicos, sendo acessível a todos tipos deusuários. Além disso, os elemento do layout estão posicionados seguindo o padrão dos layouts de sistemas web, contendo ícones universais, como "lupa", elementos do menu no header, "coração" para indicar produtos favoritos e muito mais.
+**3.** O usuário possui liberdade ao utilizar o sistema como poder remover produtos do carrinho e cancelar pedidos.
+**4.** O sistema segue padronizado e com consistência. Isso é evidente com a posição dos botões, as cores e os simbolos são padronizados.
+**5.**  Prevenção de erros: permite que usuários cancele operações.
 
 
 ---
