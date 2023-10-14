@@ -7,11 +7,16 @@
 </h4>
 
 <h5 align="center">Disciplina de Engenharia de Software ||| </h5>  
+<h5 align="center">E-commerce quadros artísticos </h5>  
 
 ---
 
 
 ## 🏷️ Tópicos da Modelagem 
+
+
+👉 Para ver a **apresentação** do projeto [clique aqui!](https://www.canva.com/design/DAFwPeXclsI/H-BFBIf_bAeVxVgYp2hrZw/view?utm_content=DAFwPeXclsI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 
 
 **ETAPA 1 - Requisitos**
@@ -135,6 +140,30 @@ interagir com o sistema.
  
 ---
 
+## ♦️Diagrama de Classe
+
+ O diagrama de classes é composto por caixas retangulares que
+representam as classes, linhas que indicam os relacionamentos entre as
+classes e os símbolos que representam os atributos e métodos das
+classes.
+
+
+As classes são as entidades principais do diagrama e representam
+objetos do mundo real ou conceitos abstratos presentes no sistema.
+Cada classe possui atributos, que são características ou propriedades
+dos objetos daquela classe, e métodos, que são as ações ou operações
+que os objetos da classe podem realizar.
+
+**Visualização do diagrama de classes**
+
+![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/981b189f-9350-4ead-b33e-ff9df6ad079a)
+
+
+👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload)
+
+
+---
+
 
 ## 🎲DER
 
@@ -163,27 +192,20 @@ Desenvolvido no phpMyAdmin SQL Dump - version 5.2.1
 
 ---
 
-## ♦️Diagrama de Classe
+## 🔶Diagrama de sequência
 
- O diagrama de classes é composto por caixas retangulares que
-representam as classes, linhas que indicam os relacionamentos entre as
-classes e os símbolos que representam os atributos e métodos das
-classes.
+Serve para descrever a ordem e o fluxo de mensagens (ou chamadas de método)
+entre os objetos ao longo do tempo. 
 
+São usados para projetar a lógica de funcionamento de um sistema, 
+ajudando os desenvolvedores a entender como as classes e objetos se
+relacionam e como os métodos são chamados.
 
-As classes são as entidades principais do diagrama e representam
-objetos do mundo real ou conceitos abstratos presentes no sistema.
-Cada classe possui atributos, que são características ou propriedades
-dos objetos daquela classe, e métodos, que são as ações ou operações
-que os objetos da classe podem realizar.
+**Visualização do Diagrama de sequência**
 
-**Visualização do diagrama de classes**
+![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/f1d86c5a-c466-4dce-ae18-e3476b63db02)
 
-![diagramaClasseEcommerce drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/981b189f-9350-4ead-b33e-ff9df6ad079a)
-
-
-👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=diagramaClasseEcommerce.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1_hEOJTQuIZHO7xF10SwxGJycDgFrBUH1%26export%3Ddownload)
-
+👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
 
 ---
 
@@ -202,22 +224,7 @@ Veja a visulização para o **Estado Pagamento**:
 
 ---
 
-## 🔶Diagrama de sequência
 
-Serve para descrever a ordem e o fluxo de mensagens (ou chamadas de método)
-entre os objetos ao longo do tempo. 
-
-São usados para projetar a lógica de funcionamento de um sistema, 
-ajudando os desenvolvedores a entender como as classes e objetos se
-relacionam e como os métodos são chamados.
-
-**Visualização do Diagrama de sequência**
-
-![DiagramaSequenciaE-commerce-Quadros drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/52611643/f1d86c5a-c466-4dce-ae18-e3476b63db02)
-
-👉Para visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DiagramaSequenciaE-commerce-Quadros.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1mPO8-T0YoXEwSSqTQQ5HdvPZI6wn1DKL%26export%3Ddownload)
-
----
 
 ## 🎲Heurísticas
 
@@ -249,7 +256,7 @@ A interface foi desenvolvida pela ferramenta figma estando disponível para visu
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
--   Draw.io - Diagrama de Classes
+-   Draw.io - Diagrama de Classes, máquina de estado, sequência, casos de uso
 -   BrModelo - Diagrama Entidade e Relacionamento (DER)
 -   Banco de Dados: MySQL PhPMyAdmin
 -   Figma - Interface
@@ -266,7 +273,7 @@ Semestre, professor Anderson Barbosa na Fatec de Campinas.
 Feito com ❤️ por 
 - Cassia Xavier
 - Franciele Procopio
-- Letícia
+- Letícia Almeida
 - Maria Clara
 
 
