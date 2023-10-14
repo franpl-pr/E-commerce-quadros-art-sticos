@@ -226,7 +226,7 @@ Veja a visulização para o **Estado Pagamento**:
 
 
 
-## 🎲Heurísticas
+## 🔎Heurísticas
 
 **1.** Foram colocada mensagens de estado ou feedbacks para o usuário, como por exemplo, identificação da página em que o usuário se encontra.
 
@@ -241,7 +241,7 @@ Veja a visulização para o **Estado Pagamento**:
 
 ---
 
-## 🎲Interface
+## 📟Interface
 
 ### Tela inicial do sistema
 
