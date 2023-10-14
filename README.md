@@ -13,6 +13,9 @@
 
 ## 🏷️ Tópicos da Modelagem 
 
+
+**ETAPA 1 - Requisitos**
+
 - [Visão do Projeto](#visão-do-projeto)
 - [Domínio de Negócio](#domínio-de-negócio)
 - [Stakeholders](#stakeholders)
@@ -20,11 +23,20 @@
 - [Requisitos Não Funcionais](#requisitos-não-funcionais)
 - [Diagrama de Caso de Uso](#diagrama-de-caso-de-uso)
 - [Casos de usos estendidos](#Casos-de-usos-estendidos)
+  
+**ETAPA 2 - Projeto de Banco de Dados**
+
+- [Diagrama de Classe](#diagrama-de-classe)
 - [DER](#DER)
 - [Banco de Dados físico](#banco-de-dados-físico)
-- [Diagrama de Classe](#diagrama-de-classe)
-- [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
+
+**ETAPA 3 - Projeto Funcional**
+
 - [Diagrama de sequência](#diagrama-de-sequência)
+- [Diagrama de máquina de estado](#diagrama-de-máquina-de-estado)
+
+**ETAPA 4 - Projeto de Interface**
+
 - [Heurísticas](#heurísticas)
 - [Interface](#interface)
 - [Tecnologias](#tecnologias)
