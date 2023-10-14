@@ -33,8 +33,8 @@
 
 - [Diagrama de Classe](#diagrama-de-classe)
 - [DER](#DER)
-- [Banco de Dados físico](#Banco-de-Dados-físico)
-Banco de Dados físico
+- [Banco de Dados físico](#banco-de-dados-físico)
+
 **ETAPA 3 - Projeto Funcional**
 
 - [Diagrama de sequência](#Diagrama-de-sequência)
