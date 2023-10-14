@@ -183,9 +183,10 @@ são úteis para modelar comportamentos entre estados diferentes.
 
 Veja a visulização para o **Estado Pagamento**:
 
-![diagramaMaquinaEstadoPagamento drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/a67b7cec-56f2-4502-8712-f3a2ccc2fdc6)
 
-👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&target=blank&highlight=0000ff&edit=_blank&layers=1&nav=1#G1zIDFE4g0lxG-eA_HsV97CrqtDOERCzvR) 
+![diagramaMaquinaEstado drawio](https://github.com/franpl-pr/E-commerce-quadros-art-sticos/assets/99376161/446125cf-74aa-4cfd-b06b-fe8025508e1a)
+
+👉Caso, queira visualizar melhor [clique aqui](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1zIDFE4g0lxG-eA_HsV97CrqtDOERCzvR) 
 
 ---
 
