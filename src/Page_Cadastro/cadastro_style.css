@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.cadastro_Container{
+    width: 55%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background: #FFFDF3;
+    overflow-x: hidden;
+}
+
+.cadastro_box{
+    width: 850px;
+    height: 100vh;
+}
+
+.cadastro_box h1{
+    font-size: 66px;
+    margin-top:35px;
+    margin-bottom: 35px;
+    font-weight: normal;
+    font-family: "Viaoda Libre", serif;
+    color: #484848;
+    font-weight: bold;
+}
+
+.cadastro_box h2{
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.cadastro_atalho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.cadastro_atalho button{
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.cadastro_atalho button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cadastro_atalho_inside{
+    width: 390px;
+    height: 55px;
+    background: white;
+    border: 1px solid #0B9692;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cadastro_atalho_inside img{
+    width: 36px;
+    margin: 5px;
+    display: inline;
+    margin-left: 25px;
+}
+
+.cadastro_atalho_inside p{
+    display: inline;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin-left: 20px;
+    letter-spacing: 1px;
+}
+
+.cadastro_div_or{
+    margin-bottom: 20px;
+}
+
+.cadastro_div_or  h2{
+    margin:0px auto;
+    padding: 0px;
+    width: 46px;
+    font-family: 'Poppins', sans-serif;
+    color: #9D9D9D;
+    font-weight: bold;
+}
+
+.cadastro_divs_inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 23px;
+    justify-content: space-between;
+}
+
+.cadastro_input{
+    display: inline;
+    width: 411px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+}
+
+.cadastro_input_menor{
+    width: 190px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+}
+
+.cadastro_termos{
+    margin-top: 30px;
+    width: 439px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro_checkbox_termos[type="checkbox"]{
+    appearance: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #0CADA7;
+}
+
+.cadastro_checkbox_termos[type="checkbox"]:checked{
+    background-image: url(../img/Image_checkbox.png);
+    background-size: 110%;
+    background-position: center;
+}
+
+.cadastro_termos label{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+}
+
+.cadastro_cadastrar{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+    border-radius: 5px;
+    background: #0CADA7 ;
+    border: #0CADA7;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+    letter-spacing: 8%;
+}
+
+.cadastro_cadastrar:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cadastro_div_conta{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cadastro_div_conta span{
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.cadastro_div_conta a{
+    text-decoration: none;
+    color: #0CADA7;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.cadastro_div_conta a:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cadastro_input input,
+.cadastro_input_menor input{
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+}
+
+.cadastro_input input::placeholder,
+.cadastro_input_menor input::placeholder{
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    outline: none;
+    color: #484848;
+}
+
+.cadastro_input input:focus,
+.cadastro_input_menor input:focus{
+    outline: none;
+}
+
+@keyframes moverImagemDireita {
+    0%{
+        transform: translateX(100%);
+        height: 100%;
+        position: absolute;
+        width: 45%;
+    }100%{
+        transform: translateX(0%);
+        width: 55%;
+        height: 100vh;
+        position: absolute;
+    }
+}
+
+.animateDireita{
+    animation: moverImagemDireita 2s ease;
+    animation-fill-mode: forwards;
+}
