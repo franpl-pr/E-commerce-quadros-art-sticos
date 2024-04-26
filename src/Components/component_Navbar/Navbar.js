@@ -10,9 +10,13 @@ function Navbar(){
     const navigate = useNavigate();
     const [carrinhoAberto, setcarrinhoAberto] = useState(false);
 
-    const estadoCarrinho = () => {
-        setcarrinhoAberto(!carrinhoAberto);
+    const abrirCarrinho = () => {
+        setcarrinhoAberto(true);
     };
+
+    const fecharCarrinho = () => {
+        setcarrinhoAberto(false);
+    }
     
 
     return(
@@ -29,13 +33,13 @@ function Navbar(){
             <div className="div_icons">
                 <IoSearch className="icons" size={32}/>
                 <FaRegHeart className="icons" size={32}/>
-                <HiOutlineShoppingCart onClick={estadoCarrinho} className="icons" size={32}/>
+                <HiOutlineShoppingCart onMouseOver={abrirCarrinho} className="icons" size={32}/>
                 {carrinhoAberto && (
-                    <div className="carrinho_container" onClick={estadoCarrinho}>
-                        <div className="carrinho_box">
-                            
+                        <div onMouseLeave={fecharCarrinho} className="carrinho_box">
+                            <div className="carrinho_div">
+
+                            </div>
                         </div>
-                    </div>
                 )}
                 {true ? <MdOutlinePerson className="icons" size={32}/> : <button>Entrar</button>}
             </div>

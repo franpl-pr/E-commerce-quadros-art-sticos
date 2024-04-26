@@ -17,27 +17,6 @@
     background-image: url(../img/image_login-cadastro.png);
     background-size: cover;
     background-position: center;
-    position: absolute;
-    z-index: 1;
-}
-
-.animateEsquerda{
-    animation: moverImagemEsquerda 2s ease;
-    animation-fill-mode: forwards;
-}
-
-@keyframes moverImagemEsquerda {
-    0%{
-        transform: translateX(0);
-        height: 100%;
-        position: absolute;
-        width: 55%;
-    }100%{
-        transform: translateX(122%);
-        width: 45%;
-        height: 100%;
-        position: absolute;
-    }
 }
 
 .box2{

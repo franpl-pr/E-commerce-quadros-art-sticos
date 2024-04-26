@@ -3,21 +3,14 @@ import './login_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import Cadastro from '../Page_Cadastro/Cadastro';
 import { useNavigate } from 'react-router-dom';
  
 function Login() {
   const [alterarSenha, setAlterarSenha] = useState(true);
   const navigate = useNavigate();
 
-  function moverImagemEsquerda(){
-    const animarImagem = document.getElementById('box1');
-    animarImagem.classList.add('animateEsquerda');
-  } 
-
   return (
     <div className="container">
-      <Cadastro/>
       <div className="box1" id='box1'></div>
       <div className="box2">
         <div className='box2_box'>
@@ -56,11 +49,11 @@ function Login() {
               <input type='checkbox' className='Checkbox_LembMim' id='Lembrar'/>
               <label className='label_LebMim'>Lembrar login</label>
             </div>
-            <a href='#'>Esqueceu a senha?</a>
+            <a>Esqueceu a senha?</a>
           </div>
           <div className='div_button'>
-            <button onclick={() => navigate("/Home")} type="submit" className='entrar'>Entrar</button>
-            <button onClick={moverImagemEsquerda} id='cadastrar' type="submit" className='cadastrar'>Cadastrar agora</button>
+            <button onClick={() => navigate("/Home")} type="submit" className='entrar'>Entrar</button>
+            <button onClick={() => navigate("/Cadastro")} id='cadastrar' type="submit" className='cadastrar'>Cadastrar agora</button>
           </div>
         </div>
       </div>

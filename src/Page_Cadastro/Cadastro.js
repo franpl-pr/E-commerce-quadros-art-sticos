@@ -2,12 +2,11 @@ import React from 'react';
 import './cadastro_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
+import { useNavigate } from 'react-router-dom';
+import conectar from '../Backend/server';
 
 function Cadastro(){
-    function moverImagemDireita(){
-        const animarImagemDireita = document.getElementById('box1');
-        animarImagemDireita.classList.add('animateDireita');
-      }
+    const navigate = useNavigate();
 
     return(
         <div className='cadastro_Container'>
@@ -77,13 +76,14 @@ function Cadastro(){
                     <label>Eu concordo com os termos e condições</label>
                 </div>
                 <div className='cadastro_div_button'>
-                    <button type="submit" className='cadastro_cadastrar'>Entrar</button>
+                    <button type="submit" className='cadastro_cadastrar'>Cadastrar</button>
                 </div>
                 <div className='cadastro_div_conta'>
                     <span>Já possui uma conta?</span>
-                    <a href='#' onClick={moverImagemDireita}>Faça login</a>
+                    <a onClick={() => navigate("/Login")}>Faça login</a>
                 </div>
             </div>
+            <div className='cadastro_box_2'></div>
         </div>
     );
 }

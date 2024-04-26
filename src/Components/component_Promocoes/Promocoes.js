@@ -4,8 +4,10 @@ import image_inicial_wiscky from "../../img/image_inicial_wiscky.png";
 import image_inicial_maos from "../../img/image_incial_maos.png";
 import image_inicial_animais from "../../img/image_inicial_animais.png";
 import image_inicial_torre from "../../img/image_inicial_torre.png";
+import { useNavigate } from "react-router-dom";
 
 function Promocoes(){
+    const navigete = useNavigate();
 
     const itens = [
     {tilulo: "Quadro Jogo de Feras", autor: "Sofia Silva", precoNomal: 277.80, precoPromo: 277.90}
@@ -15,7 +17,7 @@ function Promocoes(){
         <div className="promocoes_container">
             <div className="inicial_box_promocoes">
                 <div className="inicial_promocoes">
-                    {itens.map(item => (<div className="inicial_promocoes_elementos">
+                    {itens.map(item => (<div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
                         <div className="inicial_imagem_promocoes">
                             <img src={image_inicial_animais}/>
                         </div>
@@ -28,7 +30,7 @@ function Promocoes(){
                             </div>
                         </div>
                     </div>))}
-                    <div className="inicial_promocoes_elementos">
+                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
                         <div className="inicial_imagem_promocoes">
                             <img src={image_inicial_wiscky}/>
                         </div>
@@ -41,7 +43,7 @@ function Promocoes(){
                             </div>
                         </div>
                     </div>
-                    <div className="inicial_promocoes_elementos">
+                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
                         <div className="inicial_imagem_promocoes">
                             <img src={image_inicial_maos}/>
                         </div>
@@ -54,8 +56,8 @@ function Promocoes(){
                             </div>
                         </div>    
                     </div>
-                    <div className="inicial_promocoes_elementos">
-                        <div className="inicial_imagem_promocoes">
+                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
+                        <div className="inicial_imagem_promocoes">  
                             <img src={image_inicial_torre}/>
                         </div>
                         <div className="inicial_informacoes_promocoes">
