@@ -20,7 +20,7 @@ app.post("/Login", (req, res) => {
     const senha = req.body.senha;
     const telefone = req.body.telefone;
 
-    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('16' , ?, ?, ?, ?)"
+    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('20' , ?, ?, ?, ?)"
 
     db.query(SQL, [nome, email, senha, telefone], (err, result) => {
         console.log(err);
