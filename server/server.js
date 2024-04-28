@@ -11,7 +11,7 @@ const mysql = require("mysql");
 
 
 app.get('/', (req, res) => {
-    bd.query("INSERT INTO usuarios (ID_usuarios, nome, email, senha, confirmarSenha, login, telefone, tipo) VALUES ('12', 'diogene', 'gabriel@gmail.com', '123456', '123456', 'diogene01', '9873459812', 'Cliente')")
+    res.send("hello word")
 })
 
 app.listen(3001, () => {
