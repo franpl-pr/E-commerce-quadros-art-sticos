@@ -18,9 +18,9 @@ app.post("/Login", (req, res) => {
     const nome = req.body.nome;
     const email = req.body.email;
     const senha = req.body.senha;
-    const telefone = req.body.senha;
+    const telefone = req.body.telefone;
 
-    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('14' , ?, ?, ?, ?)"
+    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('16' , ?, ?, ?, ?)"
 
     db.query(SQL, [nome, email, senha, telefone], (err, result) => {
         console.log(err);
