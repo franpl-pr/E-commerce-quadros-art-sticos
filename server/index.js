@@ -14,12 +14,17 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/register", (req, res) => {
-    const {name} = req.body;
-    const {cost} = req.body;
-    const {category} = req.body;
+    const {email} = req.body;
+    const {senha} = req.body;
+
+    let SQL = "INSERT INTO usuarios (ID_usuarios, email, senha) VALUES ('14', ?, ?)"
+
+    db.query(SQL, [email, senha], (err, result) => {
+        console.log(err);
+    })
 })
 
-console.log(name)
+
 
 app.listen(3001, () => {
     console.log("Rodando porta 3001");
