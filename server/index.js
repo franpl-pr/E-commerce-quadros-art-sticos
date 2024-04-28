@@ -15,12 +15,14 @@ app.use(cors());
 app.use(express.json());
 
 app.post("/Login", (req, res) => {
-    const {email} = req.body;
-    const {senha} = req.body;
+    const nome = req.body.nome;
+    const email = req.body.email;
+    const senha = req.body.senha;
+    const telefone = req.body.senha;
 
-    let SQL = "INSERT INTO usuarios (email, senha) VALUES (?, ?)"
+    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('14' , ?, ?, ?, ?)"
 
-    db.query(SQL, [email, senha], (err, result) => {
+    db.query(SQL, [nome, email, senha, telefone], (err, result) => {
         console.log(err);
     })
 
