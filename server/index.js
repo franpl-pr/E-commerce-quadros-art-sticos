@@ -10,22 +10,28 @@ const db = mysql.createPool({
     database: "quadrarts"
 })
 
+
 app.use(cors());
 app.use(express.json());
 
-app.post("/", (req, res) => {
+app.post("/Login", (req, res) => {
     const {email} = req.body;
     const {senha} = req.body;
 
-    let SQL = "INSERT INTO usuarios (ID_usuarios, email, senha) VALUES ('14', ?, ?)"
+    let SQL = "INSERT INTO usuarios (email, senha) VALUES (?, ?)"
 
     db.query(SQL, [email, senha], (err, result) => {
         console.log(err);
     })
+
+
 })
 
-
+app.get("/", (req, res) => {
+    res.send("Servidor Quadrarts está rodando!");
+});
 
 app.listen(3001, () => {
     console.log("Rodando porta 3001");
+
 });
