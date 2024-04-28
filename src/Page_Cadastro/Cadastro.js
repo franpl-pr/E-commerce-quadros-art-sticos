@@ -1,12 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './cadastro_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { useNavigate } from 'react-router-dom';
-import conectar from '../Backend/server';
+import Axios from "axios";
 
 function Cadastro(){
     const navigate = useNavigate();
+    const [values, setValues] = useState()
+
+    const lidarMudancaValores = (value) => {
+        setValues((prevValue) => ({
+          ...prevValue,
+          [value.target.name]: value.target.value,
+        }))
+      } 
+    
+      const clickButton = () =>{
+        Axios.post("http://localhost:3001/Login", {
+            nome: values.nome,
+            email: values.email,
+            senha: values.senha,
+            telefone: values.telefone,       
+        }).then((response) => {
+          console.log(response);
+        })
+      }
 
     return(
         <div className='cadastro_Container'>
@@ -32,43 +51,108 @@ function Cadastro(){
                 </div>
                 <div className='cadastro_divs_inputs'>
                     <div className='cadastro_input'>
-                        <input type='text' placeholder='Nome Completo'/>
+                        <input  
+                            type='text' 
+                            placeholder='Nome Completo'
+                            name="nome"
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='text' placeholder='E-mail'/>
+                        <input 
+                            type='text' 
+                            placeholder='E-mail'
+                            name='email'
+                            onChange={lidarMudancaValores} 
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='text' placeholder='CPF'/>
+                        <input 
+                            type='text' 
+                            placeholder='CPF'
+                            name='CPF'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='text' placeholder='Telefone'/>
+                        <input 
+                            type='text' 
+                            placeholder='Telefone'
+                            name='telefone'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='CEP'/>
+                        <input 
+                            type='text' 
+                            placeholder='CEP'
+                            name='CEP'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='Número'/>
+                        <input 
+                            type='text' 
+                            placeholder='Número'
+                            name='numero'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='text' placeholder='Endereço'/>
+                        <input 
+                            type='text' 
+                            placeholder='Endereço'
+                            name='endereco'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='País'/>
+                        <input 
+                            type='text' 
+                            placeholder='País'
+                            name='pais'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='Estado'/>
+                        <input 
+                            type='text' 
+                            placeholder='Estado'
+                            name='estado'
+                            onChange={lidarMudancaValores}
+                            />'
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='Cidade'/>
+                        <input 
+                            type='text'
+                            placeholder='Cidade'
+                            name='cidade'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input_menor'>
-                        <input type='text' placeholder='Bairro, Avenida...'/>
+                        <input 
+                            type='text' 
+                            placeholder='Bairro, Avenida...'
+                            name='bairro'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='password' placeholder='Senha'/>
+                        <input 
+                            type='password' 
+                            placeholder='Senha'
+                            name='senha'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                     <div className='cadastro_input'>
-                        <input type='password' placeholder='Confirme a senha'/>
+                        <input 
+                            type='password' 
+                            placeholder='Confirme a senha'
+                            name='confirma_senha'
+                            onChange={lidarMudancaValores}
+                            />
                     </div>
                 </div>
                 <div className='cadastro_termos'>
@@ -76,7 +160,7 @@ function Cadastro(){
                     <label>Eu concordo com os termos e condições</label>
                 </div>
                 <div className='cadastro_div_button'>
-                    <button type="submit" className='cadastro_cadastrar'>Cadastrar</button>
+                    <button onClick={clickButton} type="submit" className='cadastro_cadastrar'>Cadastrar</button>
                 </div>
                 <div className='cadastro_div_conta'>
                     <span>Já possui uma conta?</span>

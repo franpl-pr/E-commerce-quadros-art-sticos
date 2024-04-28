@@ -30,13 +30,20 @@ function Login() {
             <h2>OU</h2>
           </div>
           <div className='div_input'>
-            <input type="email"  placeholder='E-mail' className='email'></input>
+            <input 
+              type="email"  
+              placeholder='E-mail' 
+              className='email'
+              name="email" 
+              />
             <div className='linha'></div>
-            <input type={alterarSenha ? 'password' : 'text'} 
-            placeholder='Senha' 
-            className='senha'
-            id='senha'>
-            </input>
+            <input 
+              type={alterarSenha ? 'password' : 'text'} 
+              placeholder='Senha' 
+              className='senha'
+              id='senha'
+              name="senha"
+            />
             <button onClick={() => setAlterarSenha(!alterarSenha)} 
             className='olho'
             id='mostrarSenha'>
@@ -52,7 +59,7 @@ function Login() {
             <a>Esqueceu a senha?</a>
           </div>
           <div className='div_button'>
-            <button onClick={() => navigate("/Home")} type="submit" className='entrar'>Entrar</button>
+            <button type="submit" className='entrar'>Entrar</button>
             <button onClick={() => navigate("/Cadastro")} id='cadastrar' type="submit" className='cadastrar'>Cadastrar agora</button>
           </div>
         </div>
