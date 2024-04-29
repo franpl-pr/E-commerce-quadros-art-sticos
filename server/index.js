@@ -14,20 +14,34 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 
-app.post("/Login", (req, res) => {
+app.post("/Regiter", (req, res) => {
     const nome = req.body.nome;
     const email = req.body.email;
     const senha = req.body.senha;
     const telefone = req.body.telefone;
 
-    let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('20' , ?, ?, ?, ?)"
+    let consultSQL = "SELECT * FROM usuarios WHERE email = ?"
 
-    db.query(SQL, [nome, email, senha, telefone], (err, result) => {
-        console.log(err);
+    db.query(consultSQL, [email], (err, result) => {
+        if(err){
+            res.send(err)
+        }
+        if(result.lenght == 0){
+            let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('21' , ?, ?, ?, ?)";
+
+            db.query(SQL, [nome, email, senha, telefone], (err, result) => {
+                if(err){
+                    res.send(err);
+                }
+                alert("Email cadastrado com sucesso")
+            })
+        }
+        else{
+            alert("Email já dadastrado, tente novamente");
+        }
     })
-
-
 })
+
 
 app.get("/", (req, res) => {
     res.send("Servidor Quadrarts está rodando!");
