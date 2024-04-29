@@ -1281,7 +1281,9 @@ ALTER TABLE `perfilartista`
 --
 ALTER TABLE `suportecliente`
   MODIFY `ID_suporte` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+--
+ALTER TABLE `usuario`
+  MODIFY `ID_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restrições para despejos de tabelas
 --
