@@ -37,9 +37,7 @@ app.post("/Register", (req, res) => {
             })
         }
         else{
-            app.get("/mensagem", (req, res) => {
-                res.send({ mensagem: "Email já cadastrado, tente novamente." });
-            });
+            res.status(400).send({ error: "Email já cadastrado, tente novamente." });
         }
     })
 })
