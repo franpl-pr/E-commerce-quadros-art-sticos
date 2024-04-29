@@ -17,7 +17,7 @@ function Cadastro(){
       } 
     
       const clickButton = () =>{
-        Axios.post("http://localhost:3001/Login", {
+        Axios.post("http://localhost:3001/Registro", {
             nome: values.nome,
             email: values.email,
             senha: values.senha,
