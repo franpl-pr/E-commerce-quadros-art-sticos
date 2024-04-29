@@ -7,7 +7,7 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "123456",
-    database: "quadrarts"
+    database: "quadrartes"
 })
 
 
@@ -21,17 +21,6 @@ app.post("/Registro", (req, res) => {
     const telefone = req.body.telefone;
 
     let consultSQL = "SELECT * FROM usuarios WHERE email = ?"
-    let ultimoID = "SELECT COUNT(*) FROM usuarios"
-
-    db.query(ultimoID, (err, result) => {
-        if(err){
-            res.send(err)
-        }else{
-            res.send({msg: "Ultimo ID"})
-            res.send(result)
-
-        }
-    })
 
     db.query(consultSQL, [email], (err, result) => {
         if(err){
