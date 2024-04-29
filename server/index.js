@@ -25,9 +25,9 @@ app.post("/Registro", (req, res) => {
 
     db.query(ultimoID, (err, result) => {
         if(err){
-            console.log(err)
+            res.send(err)
         }else{
-            console.log(result)
+            res.send({msg: "Ultimo ID"}, result)
         }
     })
 
@@ -36,7 +36,7 @@ app.post("/Registro", (req, res) => {
             res.send(err)
         }
         if(result.length == 0){
-            let SQL = "INSERT INTO usuarios (nomeCompleto, email, senha, telefone) VALUES ( ?, ?, ?, ?)";
+            let SQL = "INSERT INTO usuarios (ID_usuarios, nomeCompleto, email, senha, telefone) VALUES ('23' ,?, ?, ?, ?)";
 
             db.query(SQL, [nome, email, senha, telefone], (err, result) => {
                 if(err){
