@@ -27,7 +27,7 @@ app.post("/Register", (req, res) => {
             res.send(err)
         }
         if(result.length == 0){
-            let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('21' , ?, ?, ?, ?)";
+            let SQL = "INSERT INTO usuarios (nomeCompleto, email, senha, telefone) VALUES ( ?, ?, ?, ?)";
 
             db.query(SQL, [nome, email, senha, telefone], (err, result) => {
                 if(err){
@@ -37,9 +37,13 @@ app.post("/Register", (req, res) => {
             })
         }
         else{
-            res.status(400).send({ error: "Email já cadastrado, tente novamente." });
+            res.send({msg: "Email já cadastrado, tente novamente"})
         }
     })
+})
+
+app.post("/Consultar", (req, res) => {
+
 })
 
 
