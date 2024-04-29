@@ -44,7 +44,7 @@ app.post("/Regiter", (req, res) => {
 
 
 app.get("/", (req, res) => {
-    res.send("Servidor Quadrarts está rodando!");
+    res.send("Servidor Quadrarts está rodando KKKK!");
 });
 
 app.listen(3001, () => {
