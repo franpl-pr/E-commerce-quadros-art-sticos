@@ -14,7 +14,7 @@ const db = mysql.createPool({
 app.use(cors());
 app.use(express.json());
 
-app.post("/Register", (req, res) => {
+app.post("/Registro", (req, res) => {
     const nome = req.body.nome;
     const email = req.body.email;
     const senha = req.body.senha;
