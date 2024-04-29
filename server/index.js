@@ -21,6 +21,15 @@ app.post("/Registro", (req, res) => {
     const telefone = req.body.telefone;
 
     let consultSQL = "SELECT * FROM usuarios WHERE email = ?"
+    let ultimoID = "SELECT LAST_INSERT_ID() FROM usuarios"
+
+    db.query(ultimoID, (err, result) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log(result)
+        }
+    })
 
     db.query(consultSQL, [email], (err, result) => {
         if(err){
@@ -40,10 +49,6 @@ app.post("/Registro", (req, res) => {
             res.send({msg: "Email já cadastrado, tente novamente"})
         }
     })
-})
-
-app.post("/Consultar", (req, res) => {
-
 })
 
 
