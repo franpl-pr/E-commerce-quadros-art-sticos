@@ -33,11 +33,11 @@ app.post("/Register", (req, res) => {
                 if(err){
                     res.send(err);
                 }
-                alert("Email cadastrado com sucesso")
+                res.send({msg: "Email cadastrado com sucesso"})
             })
         }
         else{
-            alert("Email já dadastrado, tente novamente");
+            res.send({msg: "Email já dadastrado, tente novamente"});
         }
     })
 })
