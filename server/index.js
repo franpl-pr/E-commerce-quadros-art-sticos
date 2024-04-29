@@ -26,7 +26,7 @@ app.post("/Register", (req, res) => {
         if(err){
             res.send(err)
         }
-        if(result.lenght == 0){
+        if(result.length == 0){
             let SQL = "INSERT INTO usuarios (ID_usuarios ,nomeCompleto, email, senha, telefone) VALUES ('21' , ?, ?, ?, ?)";
 
             db.query(SQL, [nome, email, senha, telefone], (err, result) => {
@@ -44,7 +44,7 @@ app.post("/Register", (req, res) => {
 
 
 app.get("/", (req, res) => {
-    res.send("Servidor Quadrarts está rodando KKKK!");
+    res.send("Servidor Quadrarts está rodando!");
 });
 
 app.listen(3001, () => {
