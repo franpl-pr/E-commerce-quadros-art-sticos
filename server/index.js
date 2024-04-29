@@ -21,7 +21,7 @@ app.post("/Registro", (req, res) => {
     const telefone = req.body.telefone;
 
     let consultSQL = "SELECT * FROM usuarios WHERE email = ?"
-    let ultimoID = "SELECT LAST_INSERT_ID() FROM usuarios"
+    let ultimoID = "SELECT COUNT(*) FROM usuarios"
 
     db.query(ultimoID, (err, result) => {
         if(err){
