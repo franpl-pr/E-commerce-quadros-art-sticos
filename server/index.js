@@ -27,7 +27,9 @@ app.post("/Registro", (req, res) => {
         if(err){
             res.send(err)
         }else{
-            res.send({msg: "Ultimo ID"}, result)
+            res.send({msg: "Ultimo ID"})
+            res.send(result)
+
         }
     })
 
