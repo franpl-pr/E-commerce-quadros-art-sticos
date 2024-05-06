@@ -27,7 +27,7 @@ app.post("/Registro", (req, res) => {
             res.send(err)
         }
         if(result.length == 0){
-            let SQL = "INSERT INTO usuarios (ID_usuarios, nomeCompleto, email, senha, telefone) VALUES ('23' ,?, ?, ?, ?)";
+            let SQL = "INSERT INTO usuarios ( nomeCompleto, email, senha, telefone) VALUES (?, ?, ?, ?)";
 
             db.query(SQL, [nome, email, senha, telefone], (err, result) => {
                 if(err){
