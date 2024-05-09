@@ -1,5 +1,6 @@
 {
-  "name": "e-commerce-quadros-art-sticos",
+
+  "name": "quadrartes",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,6 +35,13 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.0"
+    }
   }
 }

@@ -1,0 +1,233 @@
+.checkout_container{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFDF3;
+}
+
+.checkout_box_sessoes{
+    background-color: #F9F1E7;
+    height: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout_div_sessoes{
+    width: 967px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout_sessoes_div1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout_sessoes_div1 span{
+    font-size: 16px;
+}
+
+.checkout_sessoes_span1{
+    color: black;
+}
+
+.checkout_sessoes_span2,
+.checkout_sessoes_span3{
+    color: #9F9F9F;
+}
+
+.checkout_sessoes_div2{
+    width: 870px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.checkout_div_bolinha_preta{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.checkout_div_bolinha_cinza{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid #9F9F9F;
+}
+
+.checkout_div_linha_menor{
+    width: 320px;
+    border: 1px solid #9F9F9F;
+}
+
+.checkout_div_linha_maior{
+    width: 373px;
+    border: 1px solid #9F9F9F;
+}
+
+.checkout_box_informacoes{
+    width: 1520px;
+    height: 1308px;
+    margin: 32px auto 140px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checkout_div_cadastro_entrega{
+    width: 630px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout_div_carrinho_compra{
+    width: 605px;
+    height: 100%;
+    border: 1px solid blue;
+}
+
+.checkout_div_cadastro_entrega h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.checkout_linha{
+    width: 128px;
+    border: 1px solid black;
+}
+
+.checkout_div_contato{
+    height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout_div_contato input{
+    width: 99%;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #333333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 16px;
+}
+
+.checkout_div_contato input:focus{
+    outline: none;
+}
+
+.checkout_div_contato input::placeholder{
+    color: #484848;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkout_div_endereco{
+    height: 723px;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkout_div_endereco p{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #333333;
+}
+
+.checkout_input_maior{
+    width: 99%;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #333333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 16px;
+}
+
+.checkout_input_menor{
+    width: 122px;
+    height: 60px;
+    background-color: white;
+    border: 1px solid #333333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 16px;
+}
+
+.checkout_tipo_endereco{
+    width: 300px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.checkout_endereco_select{
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #333333;
+}
+
+.checkout_div_endereco input:focus{
+    outline: none;
+}
+
+.checkout_div_endereco select{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    padding: 0 16px;
+}
+
+.checkout_div_endereco option{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.checkout_div_endereco select:focus{
+    outline: none;
+}
+
+.checkout_novo_endereco{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checkout_div_novo_endereco{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkout_novo_endereco input{
+    width: 15px;
+    height: 15px;
+}
+
+.checkout_novo_endereco input[type="radio"]:checked{
+    background-color: #0B9692;
+}
+
+.checkout_novo_endereco span{
+    margin-left: 10px;
+    color: #333333;
+}
+
+
