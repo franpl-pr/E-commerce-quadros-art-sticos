@@ -7,6 +7,7 @@ import Home from "./Page_Home/Home";
 import Quadros from "./Page_Quadros/Quadros";
 import Cadastro from "./Page_Cadastro/Cadastro";
 import Produto from "./Page_Produto/Produto";
+import Checkout from "./Page_Checkout/Checkout"
 
 function App(){
     return(
@@ -18,6 +19,7 @@ function App(){
                 <Route path="/Quadros" element={<Quadros/>}/>
                 <Route path="/Cadastro" element={<Cadastro/>}/>
                 <Route path="/Produto" element={<Produto/>}/>
+                <Route path="/Checkout" element={<Checkout/>}/>
             </Routes>
         </Router>
     )
