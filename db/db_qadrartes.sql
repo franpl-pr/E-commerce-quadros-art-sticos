@@ -17,6 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+Create database qadrartes;
+use qadrartes;
 --
 -- Banco de dados: `qadrartes`
 --
@@ -1282,8 +1284,8 @@ ALTER TABLE `perfilartista`
 ALTER TABLE `suportecliente`
   MODIFY `ID_suporte` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
-ALTER TABLE `usuario`
-  MODIFY `ID_usuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `usuarios`
+  MODIFY `ID_usuarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Restrições para despejos de tabelas
 --
