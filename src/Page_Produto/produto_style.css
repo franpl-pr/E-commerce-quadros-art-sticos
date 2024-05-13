@@ -25,6 +25,13 @@
     color: #9F9F9F;
 }
 
+.produto_localizar a:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+
 .produto_localizar span{
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
@@ -313,6 +320,12 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     color: #999999;
+}
+
+.poduto_navegacao_detalhes a:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
 }
 
 .produto_detalhes_conteudo{
