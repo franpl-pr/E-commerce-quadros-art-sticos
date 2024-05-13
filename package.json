@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "quadrartes",
   "version": "0.1.0",
   "private": true,
@@ -39,13 +38,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-=======
+    ],
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "mysql": "^2.18.1",
     "nodemon": "^3.1.0"
->>>>>>> 41ffd6c1aee145c023b6986758943218fdc0f657
+  }
   }
 }

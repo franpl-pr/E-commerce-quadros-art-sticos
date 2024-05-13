@@ -14,9 +14,19 @@ def inserir_usuario():
     dados = request.json
     nome = dados['nome']
     email = dados['email']
+    cpf = dados['CPF']
+    telefone = dados['telefone']
+    cep = dados['CEP']
+    numero = dados['numero']
+    endereco = dados['endereco']
+    pais = dados['pais']
+    estado = dados['estado']
+    cidade = dados['cidade']
+    bairro = dados['bairro']
     senha = dados['senha']
-
-    # Conectar ao banco de dados
+    confSenha = dados['confSenha']
+    
+        # Conectar ao banco de dados
     conexao = mysql.connector.connect(
         host='localhost',
         user='root',
@@ -30,25 +40,21 @@ def inserir_usuario():
     resultado = cursor.fetchone()
 
     if resultado:
-        return jsonify({'mensagem': 'Usuário já cadastrado tente novamente'})
-    
+        return jsonify({'mensagem': 'Usuário já cadastrado, tente novamente'})
 
     else:
-    # Montar e executar o comando SQL para inserir o usuário
+        # Montar e executar o comando SQL para inserir o usuário
         comando_inserir_dados = f"INSERT INTO usuarios (nomeCompleto, email, senha) VALUES ('{nome}', '{email}', '{senha}')"
         cursor.execute(comando_inserir_dados)
         conexao.commit() # edita o banco de dados
-        
-    cursor.close()
-    conexao.close()
+            
+        cursor.close()
+        conexao.close()
 
-    # Retornar uma resposta JSON indicando sucesso
-    return jsonify({'mensagem': 'Usuário cadastrado com sucesso'})
+        # Retornar uma resposta JSON indicando sucesso
+        return jsonify({'mensagem': 'Usuário cadastrado com sucesso'})
 
-    # Fechar o cursor e a conexão com o banco de dados
-
-
-
+        # Fechar o cursor e a conexão com o banco de dados
 
 
 #------------------------- Login ----------------------------
