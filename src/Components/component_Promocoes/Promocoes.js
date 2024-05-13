@@ -10,16 +10,19 @@ function Promocoes(){
     const navigete = useNavigate();
 
     const itens = [
-    {tilulo: "Quadro Jogo de Feras", autor: "Sofia Silva", precoNomal: 277.80, precoPromo: 277.90}
+    {tilulo: "Quadro Jogo de Feras", img: image_inicial_animais ,autor: "Sofia Silva", precoNomal: "277,80", precoPromo: "277,90", id: "pEDRP"},
+    {tilulo: "Quadro Wiscky Gelado", img: image_inicial_wiscky, autor: "Sofia Silva", precoNomal: "277,80", precoPromo: "277,80", id: "DOIS"},
+    {tilulo: "Quadro Sempre Unidos", img: image_inicial_maos, autor: "Sofia Silva", precoNomal: "277,80", precoPromo: "277,80", id: "TRES"},
+    {tilulo: "Quadro Chrysler Building", img: image_inicial_torre, autor: "Sofia Silva", precoNomal: "277,80", precoPromo: "277,80", id: "QUEATRO"}
 ]
 
     return(
         <div className="promocoes_container">
             <div className="inicial_box_promocoes">
                 <div className="inicial_promocoes">
-                    {itens.map(item => (<div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
+                    {itens.map((item, index) => (<div onClick={() => navigete(`/Produto`, { state: { produto: item }})} className="inicial_promocoes_elementos">
                         <div className="inicial_imagem_promocoes">
-                            <img src={image_inicial_animais}/>
+                            <img src={item.img}/>
                         </div>
                         <div className="inicial_informacoes_promocoes">
                             <span className="inicial_promocoes_titulos">{item.tilulo}</span><br/>
@@ -30,45 +33,6 @@ function Promocoes(){
                             </div>
                         </div>
                     </div>))}
-                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
-                        <div className="inicial_imagem_promocoes">
-                            <img src={image_inicial_wiscky}/>
-                        </div>
-                        <div className="inicial_informacoes_promocoes">
-                            <span className="inicial_promocoes_titulos">Quadro Wiscky Gelado</span><br/>
-                            <span className="inicial_promocoes_autores">Criado por Sofia Silva</span><br/>
-                            <div className="inicial_promocoes_div_precos">   
-                                <span className="inicial_promocoes_precos">R$ 277,80</span>
-                                <span className="inicial_promocoes_descontos">R$ 277,80</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
-                        <div className="inicial_imagem_promocoes">
-                            <img src={image_inicial_maos}/>
-                        </div>
-                        <div className="inicial_informacoes_promocoes">
-                            <span className="inicial_promocoes_titulos">Quadro Sempre Unidos</span><br/>
-                            <span className="inicial_promocoes_autores">Criado por Sofia Silva</span><br/>
-                            <div className="inicial_promocoes_div_precos">
-                                <span className="inicial_promocoes_precos">R$ 277,80</span>
-                                <span className="inicial_promocoes_descontos">R$ 277,80</span>
-                            </div>
-                        </div>    
-                    </div>
-                    <div onClick={() => navigete("/Produto")} className="inicial_promocoes_elementos">
-                        <div className="inicial_imagem_promocoes">  
-                            <img src={image_inicial_torre}/>
-                        </div>
-                        <div className="inicial_informacoes_promocoes">
-                            <span className="inicial_promocoes_titulos">Quadro Chrysler Building</span><br/>
-                            <span className="inicial_promocoes_autores">Criado por Sofia Silva</span><br/>
-                            <div className="inicial_promocoes_div_precos">
-                                <span className="inicial_promocoes_precos">R$ 277,80</span>
-                                <span className="inicial_promocoes_descontos">R$ 277,80</span>
-                            </div>
-                        </div>   
-                    </div>
                 </div>
             </div>
         </div>

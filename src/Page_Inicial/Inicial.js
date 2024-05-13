@@ -27,8 +27,8 @@ function Inicial(){
                         <span className="inicial_bemvindo_span1">Novo Usuário, comece por aqui</span>
                         <span className="inicial_bemvindo_span2">Compre e venda quadros para todo o Brasil</span>
                         <div className="inicial_bemvindo_div_button">
-                            <button onClick={() => navigate("/Login")} className="inicial_bemvindo_button">Sou cliente</button>
-                            <button onClick={() => navigate("/Login")} className="inicial_bemvindo_button">Sou vendedor</button>
+                            <button onClick={() => navigate("/Cadastro")} className="inicial_bemvindo_button">Sou cliente</button>
+                            <button onClick={() => navigate("/Cadastro")} className="inicial_bemvindo_button">Sou vendedor</button>
                         </div>
                     </div>
                 </div>

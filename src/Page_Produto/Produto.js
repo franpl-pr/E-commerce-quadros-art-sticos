@@ -13,14 +13,21 @@ import image_quadro_parede from "../img/image_produto_paisagem_quadro.png";
 import Quadros_relacionados from "../Components/component_Promocoes/Promocoes";
 import image_menos from "../img/image_produto_menos.png";
 import image_mais from "../img/image_produto_mais.png";
+import {useNavigate} from "react-router-dom";
+
+import {useLocation } from "react-router-dom"
 
 function DetalheProduto(){
+    const navigate = useNavigate()
+    const location = useLocation();
+
+    console.log(location.state.produto);
     return(
         <div className="produto_container">
             <Navbar/>
             <div className="produto_box_localizar">
                 <div className="produto_todos_localizar">
-                    <div className="produto_localizar"><a href="#">Home</a><MdKeyboardArrowRight className="produto_icon_seta"/></div>
+                    <div className="produto_localizar"><a onClick={() => navigate("/Home")}>Home</a><MdKeyboardArrowRight className="produto_icon_seta"/></div>
                     <div className="produto_localizar"><a href="#">Categorias</a><MdKeyboardArrowRight className="produto_icon_seta"/></div>
                     <div className="produto_localizar"><span>Animais</span></div>
                 </div>

@@ -7,57 +7,91 @@ import axios from "axios";
 
 function Cadastro(){
     const navigate = useNavigate();
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [CPF, setCPF] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [CEP, setCEP] = useState('');
-    const [numero, setNumero] = useState('');
-    const [endereco, setEndereco] = useState('');
-    const [pais, setPais] = useState('');
-    const [estado, setEstado] = useState('');
-    const [cidade, setCidade] = useState('');
-    const [bairro, setBairro] = useState('');
-    const [senha, setSenha] = useState('');
-    const [confSenha, setConfSenha] = useState('');
+    
+    const [dados, setDados] = useState({
+        nome: '',
+        email: '',
+        CPF: '',
+        telefone: '',
+        CEP: '',
+        numero: '',
+        endereco: '',
+        pais: '',
+        estado: '',
+        cidade: '',
+        bairro: '',
+        senha: '',
+        confSenha: ''
+    })
     const [termos, setTermos] = useState(false)
     const [notificacao, setNotificacao] = useState(false);
     const [notifSenha, setNotifSenha] = useState(false);
     const [notifSucesso, setNotifSucesso] = useState(false);
     const [notifEmail, setNotfEmail] = useState(false);
     const [notifTermos, setNotifTermos] = useState(false)
-  
+    
     const handleSubmit = async () => {
-    {(nome == '' || email == '' || CPF == '' || telefone == ''|| CEP == ''|| numero == ''|| 
-    endereco == ''|| pais == '' || estado == '' || cidade == '' || bairro == '' || senha == '' || confSenha == '') ? setNotificacao(true) 
-    : setNotificacao(false)}
+        setNotifTermos(false);
+        setNotificacao(false);
+        setNotifSenha(false);
 
-    {(senha != confSenha) ? setNotifSenha(true) : setNotifSenha(false)}
+        let Array_email = dados.email.split('');
 
-    {(termos == false) ? setNotifTermos(true) : setNotifTermos(false)}
+        for(let i = 0; i < Array_email.length; i++){
+            if(Array_email[i] == '@'){
+                console.log('Achei um @');
+            }
+        }
+        if(dados.email.indexOf())
+
+        for(let valor in dados){
+            if(dados[valor] == ''){
+                setNotificacao(true)
+                return;
+            }
+        }
+
+        if(dados.senha != dados.confSenha){
+            setNotifSenha(true)
+            return;
+        }
+
+        if(termos == false){
+            setNotifTermos(true)
+            return;
+        }
         
-    if(notificacao == false && notifSenha == false){
+
         try {
             // Faça a requisição POST para o backend
             const response = await axios.post('http://localhost:5000/api/cadastro_usuario', {
-            nome: nome,
-            email: email,
-            senha: senha
+                nome: dados.nome,
+                email: dados.email,
+                CPF: dados.CPF,
+                telefone: dados.telefone,
+                CEP: dados.CEP,
+                numero: dados.numero,
+                endereco: dados.endereco,
+                pais: dados.pais,
+                estado: dados.estado,
+                cidade: dados.cidade,
+                bairro: dados.bairro,
+                senha: dados.senha,
+                confSenha: dados.confSenha
             });
 
             const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
             console.log(notifica_reposta)
         
-            
-            if(notifica_reposta == 'Usuário cadastrado com sucesso'){
-                setNotifSucesso(true)
-            }if(notifica_reposta == 'Usuário já cadastrado tente novamente'){
+            if(notifica_reposta == 'Usuário já cadastrado, tente novamente'){
                 setNotfEmail(true)
+            }else if(notifica_reposta == 'Usuário cadastrado com sucesso'){
+                setNotifSucesso(true)
             }
-        } catch (error) {
+    
+        } catch (error) {   
             console.error('Erro ao enviar dados para o servidor:', error);
         }
-      }
     };
 
     return(
@@ -88,7 +122,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Nome Completo'
                             name='nome'
-                            onChange={(e) => setNome(e.target.value)}
+                            onChange={(e) => setDados({...dados, nome: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -97,7 +131,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='E-mail'
                             name='email'
-                            onChange={(e) => setEmail(e.target.value)} 
+                            onChange={(e) => setDados({...dados, email: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -106,7 +140,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='CPF'
                             name='CPF'
-                            onChange={(e) => setCPF(e.target.value)} 
+                            onChange={(e) => setDados({...dados, CPF: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -115,7 +149,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Telefone'
                             name='telefone'
-                            onChange={(e) => setTelefone(e.target.value)} 
+                            onChange={(e) => setDados({...dados, telefone: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -124,7 +158,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='CEP'
                             name='CEP'
-                            onChange={(e) => setCEP(e.target.value)} 
+                            onChange={(e) => setDados({...dados, CEP: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -133,7 +167,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Número'
                             name='numero'
-                            onChange={(e) => setNumero(e.target.value)} 
+                            onChange={(e) => setDados({...dados, numero: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -142,7 +176,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Endereço'
                             name='endereco'
-                            onChange={(e) => setEndereco(e.target.value)} 
+                            onChange={(e) => setDados({...dados, endereco: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -151,7 +185,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='País'
                             name='pais'
-                            onChange={(e) => setPais(e.target.value)} 
+                            onChange={(e) => setDados({...dados, pais: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -160,7 +194,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Estado'
                             name='estado'
-                            onChange={(e) => setEstado(e.target.value)} 
+                            onChange={(e) => setDados({...dados, estado: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -169,7 +203,7 @@ function Cadastro(){
                             type='text'
                             placeholder='Cidade'
                             name='cidade'
-                            onChange={(e) => setCidade(e.target.value)} 
+                            onChange={(e) => setDados({...dados, cidade: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -178,7 +212,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='Bairro, Avenida...'
                             name='bairro'
-                            onChange={(e) => setBairro(e.target.value)} 
+                            onChange={(e) => setDados({...dados, bairro: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -187,7 +221,7 @@ function Cadastro(){
                             type='password' 
                             placeholder='Senha'
                             name='senha'
-                            onChange={(e) => setSenha(e.target.value)}
+                            onChange={(e) => setDados({...dados, senha: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
@@ -196,7 +230,7 @@ function Cadastro(){
                             type='password' 
                             placeholder='Confirme a senha'
                             name='confirma_senha'
-                            onChange={(e) => setConfSenha(e.target.value)} 
+                            onChange={(e) => setDados({...dados, confSenha: e.target.value})} 
                             autoComplete='off'
                             />
                     </div>

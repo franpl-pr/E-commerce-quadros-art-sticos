@@ -21,7 +21,6 @@ function Navbar(){
         setcarrinhoAberto(false);
     };
     
-
     return(
         <div className="navbar">
             <div className="div_logo">
@@ -99,7 +98,7 @@ function Navbar(){
                             </div>
                         </div>
                 )}
-                {true ? <MdOutlinePerson className="icons" size={32}/> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
+                {false ? <MdOutlinePerson className="icons" size={32}/> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>
     )
