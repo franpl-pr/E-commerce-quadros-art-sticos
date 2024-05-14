@@ -3,63 +3,59 @@ import './cadastroproduto_style.css';
 import MenuLateral from "../Components/component_menulateral/MenuLateral";
 import { useNavigate } from "react-router-dom";
 import BarraDb from "../Components/component_barradb/BarraDb";
-import axios from "axios";
+import axios from 'axios';
 
-function carregarOpcoes() {
-    // Fazer uma requisição AJAX para a rota no servidor que retorna os dados
-    fetch('/api/categorias')
-        .then(response => response.json())
-        .then(data => {
-            // Limpar as opções existentes
-            const select = document.getElementById('categoriaSelect');
-            select.innerHTML = '';
-            
-            // Adicionar as novas opções baseadas nos dados recebidos
-            data.forEach(categoria => {
-                const option = document.createElement('option');
-                option.value = categoria.id;
-                option.textContent = categoria.nome;
-                select.appendChild(option);
-            });
-        })
-        .catch(error => console.error('Erro ao carregar categorias:', error));
-}
+// Configure o withCredentials como false
+axios.defaults.withCredentials = false;
 
-// Chamar a função para carregar as opções assim que a página for carregada
 
 
 function CadastroProduto(){
-    document.addEventListener('DOMContentLoaded', carregarOpcoes);
+    
     const navigate = useNavigate();
-    const [quadro, setQuadro] = useState('');
-    const [preco, setPreco] = useState('');
-    const [imagem, setImagem] = useState('');
-    const [estoque, setEstoque] = useState('');
-    const [categoria, setCategoria] = useState('');
-    const [cor, setCor] = useState([]);
-    const [descricao,setDescricao] = useState('')
-    const [tamanho, setTamanho] = useState('');
+    const [dados, setDados] = useState({
+        quadro: '',
+        preco: '',
+        imagem: '',
+        estoque: '',
+        // categoria: '',
+        cor: '',
+        descricao: '',
+        tamanho: ''
+    });
+
     const [notifVazio, setNotifVazio] = useState(false);
     const [notifSucesso, setNotifSucesso] = useState(false);
     const [notifEstoque, setNotifEstoque] = useState(false);
-    const [notifImagem, setNotfImagem] = useState(false);
+    const [notifImagem, setNotifImagem] = useState(false);
 
-    const handleSubmit = async () => {{
-        (quadro === '' || preco === '' || imagem === '' || estoque === ''
-            || categoria === '' || cor === '' || tamanho === '' || descricao === ''
-        )? setNotifVazio(true) : setNotifVazio(false)}
-        {(estoque === 0) ? setNotifEstoque(true) : setNotifEstoque(false)}
+    const handleSubmit = async () => {
+        setNotifVazio(false);
+        setNotifEstoque(false);
+        setNotifImagem(false);
+
+        for(let valor in dados){
+            if(dados[valor] == ''){
+                setNotifVazio(true)
+                return;
+            }
+        }
+        if(dados.estoque <= 0 ) { 
+            setNotifEstoque(true)} 
+        else {
+                setNotifEstoque(false)}
         
         if(notifEstoque == false && notifVazio == false){
             try {
-                const response = await axios.post('http://localhost:5000/api/cadastro_produto', {
-                nomeQuadro: nome,
-                descricao: descricao,
-                preco: preco,
-                imagem: imagem,
-                estoque: estoque,
-                categoria_id: categoria,
-                tamanho: tamanho
+                const response = await axios.post('http://localhost:5000/api/cadastro_produto',{
+                quadro: dados.quadro,
+                descricao: dados.descricao,
+                preco: dados.preco,
+                imagem: dados.imagem,
+                estoque: dados.estoque,
+                // categoria: dados.categoria,
+                tamanho: dados.tamanho,
+                cor: dados.cor
                 });
     
                 const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
@@ -69,7 +65,7 @@ function CadastroProduto(){
                 if(notifica_reposta == 'Quadro cadastrado com sucesso'){
                     setNotifSucesso(true)
                 }if(notifica_reposta == 'Quadro já cadastrado tente novamente'){
-                    setNotfImagem(true)
+                    setNotifImagem(true)
                 }
             } catch (error) {
                 console.error('Erro ao enviar dados para o servidor:', error);
@@ -83,10 +79,10 @@ function CadastroProduto(){
                 <BarraDb/>
                 <div className="conteudo-dashboard">
                     <h1>Novo Produto</h1>
-                    <form>
+                    <div className="form-cad-prod">
                         <div className="acoes">
-                            <label htmlFor="foto-quadro-input">Adicionar foto do quadro</label>
-                            <input type="file" accept=".jpg, .jpeg, .png" onChange={(e) => setImagem(e.target.files[0])}/>
+                            <label>Adicionar foto do quadro</label>
+                            <input type="file" accept=".jpg, .jpeg, .png" name="imagem" onChange={(e) => setDados({...dados, imagem: e.target.files[0]})}/>
                             <div className="botoes-principais">
                                 <button type="reset" className="botao-no-form">Cancelar</button>
                                 <button onClick={handleSubmit} type="submit" className="botao-yes-form">Cadastrar produto</button>
@@ -96,32 +92,35 @@ function CadastroProduto(){
                             <div>
                                 <div>
                                     <label>Nome do quadro</label>
-                                    <input type="text" placeholder="Digite o nome do quadro" onChange={(e) => setQuadro(e.target.value)}></input>
+                                    <input type="text" name="quadro" placeholder="Digite o nome do quadro" onChange={(e) => setDados({...dados, quadro: e.target.value})}></input>
                                 </div>
                                 <div>
                                     <label>Preço</label>
-                                    <input type="text" placeholder="Digite o preço" onChange={(e) => setPreco(e.target.value)}></input>
+                                    <input type="text" name="preco" placeholder="Digite o preço" onChange={(e) => setDados({...dados, preco: e.target.value})}></input>
                                 </div>                                
                                 <div>
                                     <label>Quantidade no estoque</label>
-                                    <input type="text" placeholder="Digite o número de quadros" onChange={(e) => setEstoque(e.target.value)}></input>
+                                    <input type="text" name="estoque" placeholder="Digite o número de quadros" onChange={(e) => setDados({...dados, estoque: e.target.value})}></input>
                                 </div>                                
-                                <div>
+                                {/* <div>
                                     <label>Categoria</label>
-                                    <input type="number" placeholder="Selecione a categoria do quadro" onChange={(e) => setCategoria(e.target.value)}></input>
-                                </div>                                
+                                    <select id="categoriaSelect"  name="categoria" onChange={(e) => setDados({...dados, categoria: e.target.value})}>
+                                        <option value="1">Selecione a categoria do quadro</option>
+                    
+                                    </select>
+                                </div>                                 */}
                                 <div>
                                     <label>Tamanho</label>
-                                    <input type="text" placeholder="Digite a dimensáo do quadro" onChange={(e) => setTamanho(e.target.value)}></input>
+                                    <input type="text" name="tamanho" placeholder="Digite a dimensáo do quadro" onChange={(e) => setDados({...dados, tamanho: e.target.value})}></input>
                                 </div>                                
                                 <div>
                                     <label>Cor da moldura</label>
-                                    <input type="select" placeholder="Selecione a cor da moldura" onChange={(e) => setCor(e.target.value)}></input>
+                                    <input type="text" name="cor" placeholder="Selecione a cor da moldura" onChange={(e) => setDados({...dados, cor: e.target.value})}></input>
                                 </div>                                
-                                <div className="div-add-cor">
+                                {/* <div className="div-add-cor">
                                     <label>Adicionar outra cor</label>
-                                    <input type="text" onChange={(e) => setCor(e.target.value)}></input>
-                                </div>
+                                    <input type="text" name="cor" onChange={(e) => setDados({...dados, cor: e.target.value})}></input>
+                                </div> */}
                                 {notifEstoque && (
                                     <div className='notificacao'>
                                         <span>O estoque deve ser maior que 0!</span>
@@ -137,18 +136,24 @@ function CadastroProduto(){
                                         <span>Quadro já cadastrado! <a onClick={()=> navigate=('./DashboardProdutos')}>Clique aqui para ver o produto</a></span>
                                     </div>
                                 )}
+                                {notifSucesso && (
+                                    <div className='notificacao'>
+                                        <span>Quadro cadastrado!</span>
+                                    </div>
+                                )}
                             </div>
                             <div>
                                 <label>Descrição</label>
-                                <textarea onChange={(e) => setDescricao(e.target.value)}></textarea>
+                                <textarea name="descricao" onChange={(e) => setDados({...dados, descricao: e.target.value})}></textarea>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             
             
         </div>
     )
+    
 }
 export default CadastroProduto;
