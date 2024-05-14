@@ -23,6 +23,7 @@ function Cadastro(){
         senha: '',
         confSenha: ''
     })
+    
     const [termos, setTermos] = useState(false)
     const [notificacao, setNotificacao] = useState(false);
     const [notifSenha, setNotifSenha] = useState(false);
