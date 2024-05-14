@@ -43,7 +43,15 @@ function Cadastro(){
                 console.log('Achei um @');
             }
         }
-        if(dados.email.indexOf())
+
+        const palavra1 = ".com";
+        const palavra2 = ".br";
+
+        if(dados.email.indexOf(palavra1) == 1 || dados.email.indexOf(palavra2) == 1){
+            console.log('Achamos o .com ou .br')
+        }else{
+            console.log('dados não achados')
+        }
 
         for(let valor in dados){
             if(dados[valor] == ''){
