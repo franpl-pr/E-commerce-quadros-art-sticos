@@ -148,7 +148,10 @@
 .linha{
     border-bottom: 1px solid #484848;
     margin-bottom: 20px;
+}
 
+.linha2{
+    border-bottom: 1px solid #484848;
 }
 
 .div_button{
@@ -248,5 +251,4 @@
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    letter-spacing: 1px;
 }

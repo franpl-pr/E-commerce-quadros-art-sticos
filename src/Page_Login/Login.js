@@ -81,13 +81,14 @@ function Login() {
               name="senha"
               onChange={(e) => setSenha(e.target.value)}
               autoComplete='off'
+              maxLength={8}
             />
             <button onClick={() => setAlterarSenha(!alterarSenha)} 
             className='olho'
             id='mostrarSenha'>
             {alterarSenha ? <FaEyeSlash size={21}/> : <FaEye size={21}/>}
             </button>
-            <div className='linha'></div>
+            <div className='linha2'></div>
           </div>
           {notificacao && (
             <div className='login_notificacao'>

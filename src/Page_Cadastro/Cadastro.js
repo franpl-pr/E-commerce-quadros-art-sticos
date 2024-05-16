@@ -3,10 +3,15 @@ import './cadastro_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { useNavigate } from 'react-router-dom';
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
+import api from './api';
 import axios from "axios";
 
 function Cadastro(){
     const navigate = useNavigate();
+    const [alterarSenha, setAlterarSenha] = useState(true);
+    const [cep, setCep] = useState({});
 
     // Criando um objeto useState(), para os inputs    
 
@@ -35,8 +40,35 @@ function Cadastro(){
     const [notifCampos, setNotifCampos] = useState(false)
     const [termos, setTermos] = useState(false)
     const [EmailValido, setEmailValido] = useState(false)
-    
 
+    const handleSearch = async () => {
+        try {
+          const response = await api.get(`${dados.CEP}/json`);
+          const cepData = response.data;
+          
+          console.log('Cidade:' + cepData.localidade);
+          console.log('Complemento:' + cepData.complemento);
+          console.log('Bairro:' + cepData.bairro);
+          console.log('Logradouro:' + cepData.logradouro);
+          console.log('UF:' + cepData.uf);
+    
+          setCep(cepData);
+    
+          if (cepData.localidade) {
+            setDados({
+              ...dados,
+              endereco: cepData.logradouro || '',
+              estado: cepData.uf || '',
+              bairro: cepData.bairro || '',
+              cidade: cepData.localidade || '',
+              pais: 'Brasil' || ''
+            });
+          }
+        } catch (error) {
+          console.log('Erro ao se comunicar com a API: ' + error);
+        }
+    };
+    
     // Criando o método handleSubmite (Lidando com o envio), para fazer as restrições e integração com o BD
 
     const handleSubmit = async () => {
@@ -55,7 +87,6 @@ function Cadastro(){
                 return;
             }
         }
-
         
         //Tranformando o campo email em vetor
 
@@ -153,7 +184,7 @@ function Cadastro(){
                     <h2>OU</h2>
                 </div>
                 <div className='cadastro_divs_inputs'>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input  
                             type='text' 
                             placeholder='Nome Completo'
@@ -162,7 +193,7 @@ function Cadastro(){
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
                             type='text' 
                             placeholder='E-mail'
@@ -171,7 +202,7 @@ function Cadastro(){
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
                             type='number' 
                             placeholder='CPF'
@@ -180,7 +211,7 @@ function Cadastro(){
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
                             type='number' 
                             placeholder='Telefone'
@@ -189,14 +220,21 @@ function Cadastro(){
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input_menor'>
+                    <div className='cadastro_input_menor_personalizado'>
                         <input 
                             type='number' 
                             placeholder='CEP'
+                            value={dados.CEP}
                             name='CEP'
                             onChange={(e) => setDados({...dados, CEP: e.target.value})}
                             autoComplete='off'
                         />
+                        <button
+                            className='icon_pesquisar_cep'
+                            onClick={handleSearch}
+                            >
+                            <IoSearch size={26}/>
+                        </button>
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
@@ -207,11 +245,12 @@ function Cadastro(){
                             autoComplete='off'
                         />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
                             type='text' 
                             placeholder='Endereço'
                             name='endereco'
+                            value={dados.endereco}
                             onChange={(e) => setDados({...dados, endereco: e.target.value})}
                             autoComplete='off'
                         />
@@ -221,6 +260,7 @@ function Cadastro(){
                             type='text' 
                             placeholder='País'
                             name='pais'
+                            value={dados.pais}
                             onChange={(e) => setDados({...dados, pais: e.target.value})}
                             autoComplete='off'
                         />
@@ -229,6 +269,7 @@ function Cadastro(){
                         <input 
                             type='text' 
                             placeholder='Estado'
+                            value={dados.estado}
                             name='estado'
                             onChange={(e) => setDados({...dados, estado: e.target.value})}
                             autoComplete='off'
@@ -238,6 +279,7 @@ function Cadastro(){
                         <input 
                             type='text'
                             placeholder='Cidade'
+                            value={dados.cidade}
                             name='cidade'
                             onChange={(e) => setDados({...dados, cidade: e.target.value})}
                             autoComplete='off'
@@ -247,28 +289,41 @@ function Cadastro(){
                         <input 
                             type='text' 
                             placeholder='Bairro, Avenida...'
+                            value={dados.bairro}
                             name='bairro'
                             onChange={(e) => setDados({...dados, bairro: e.target.value})}
                             autoComplete='off'
                         />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_personalizado'>
                         <input 
-                            type='password' 
+                            type={alterarSenha ? 'password' : 'text'}  
                             placeholder='Senha'
                             name='senha'
                             onChange={(e) => setDados({...dados, senha: e.target.value})}
                             autoComplete='off'
+                            maxLength={8}
                         />
+                        <button onClick={() => setAlterarSenha(!alterarSenha)} 
+                            className='olho'
+                            id='mostrarSenha'>
+                            {alterarSenha ? <FaEyeSlash size={21}/> : <FaEye size={21}/>}
+                        </button>
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_personalizado'>
                         <input 
-                            type='password' 
+                            type={alterarSenha ? 'password' : 'text'}  
                             placeholder='Confirme a senha'
                             name='confirma_senha'
                             onChange={(e) => setDados({...dados, confSenha: e.target.value})} 
                             autoComplete='off'
+                            maxLength={8}
                         />
+                        <button onClick={() => setAlterarSenha(!alterarSenha)} 
+                            className='olho'
+                            id='mostrarSenha'>
+                            {alterarSenha ? <FaEyeSlash size={21}/> : <FaEye size={21}/>}
+                        </button>
                     </div>
                 </div>
                 {notifCampos && (
