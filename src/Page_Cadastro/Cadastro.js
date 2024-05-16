@@ -7,7 +7,9 @@ import axios from "axios";
 
 function Cadastro(){
     const navigate = useNavigate();
-    
+
+    // Criando um objeto useState(), para os inputs    
+
     const [dados, setDados] = useState({
         nome: '',
         email: '',
@@ -23,53 +25,78 @@ function Cadastro(){
         senha: '',
         confSenha: ''
     })
-    
-    const [termos, setTermos] = useState(false)
-    const [notificacao, setNotificacao] = useState(false);
-    const [notifSenha, setNotifSenha] = useState(false);
-    const [notifSucesso, setNotifSucesso] = useState(false);
-    const [notifEmail, setNotfEmail] = useState(false);
+
+    // Criando as variáveis de notficação useState()
+
+    const [notifEmail, setNotifEmail] = useState(false)
+    const [notifSenha, setNotifSenha] = useState(false)
     const [notifTermos, setNotifTermos] = useState(false)
+    const [notifSucesso, setNotifSucesso] = useState(false)
+    const [notifCampos, setNotifCampos] = useState(false)
+    const [termos, setTermos] = useState(false)
+    const [EmailValido, setEmailValido] = useState(false)
     
+
+    // Criando o método handleSubmite (Lidando com o envio), para fazer as restrições e integração com o BD
+
     const handleSubmit = async () => {
-        setNotifTermos(false);
-        setNotificacao(false);
-        setNotifSenha(false);
+        setNotifEmail(false)
+        setNotifSenha(false)
+        setNotifTermos(false)
+        setNotifCampos(false)    
+        setEmailValido(false)    
 
-        let Array_email = dados.email.split('');
-
-        for(let i = 0; i < Array_email.length; i++){
-            if(Array_email[i] == '@'){
-                console.log('Achei um @');
-            }
-        }
-
-        const palavra1 = ".com";
-        const palavra2 = ".br";
-
-        if(dados.email.indexOf(palavra1) == 1 || dados.email.indexOf(palavra2) == 1){
-            console.log('Achamos o .com ou .br')
-        }else{
-            console.log('dados não achados')
-        }
+        //Vendo se tem algum input vazio, e se sim mostrar uma notificação
 
         for(let valor in dados){
             if(dados[valor] == ''){
-                setNotificacao(true)
+                setNotifCampos(true)
+                console.log('Dados não inseridos')
                 return;
             }
         }
 
-        if(dados.senha != dados.confSenha){
-            setNotifSenha(true)
+        
+        //Tranformando o campo email em vetor
+
+        let Array_email = dados.email.split('');
+        let arroba = false
+
+        //Percorrendo o vetor do email para poder ver se tem algum "@"
+
+        for(let i = 0; i < Array_email.length; i++){
+            if(Array_email[i] == '@'){
+                arroba = true
+            }
+        }
+
+        //Procurando na String digitada se tem algum ".com" ou ".br" para validar o email
+
+        if(dados.email.indexOf(".com") !== -1 || dados.email.indexOf(".br") !== -1 && arroba == true){
+            console.log('Email Válido')
+        }else{
+            setEmailValido(true)                //Informando se o email é valido
+            console.log('Email Invalido')
             return;
         }
 
+        //Conferindo se a senha é igual ao confirmar senha
+
+        if(dados.senha != dados.confSenha){
+            setNotifSenha(true)
+            console.log('Senhas não identicas')
+            return;
+        }
+
+        //Conferindo se o checkbox "termos" está selecionado
+
         if(termos == false){
             setNotifTermos(true)
+            console.log('Termos não aceitos')
             return;
         }
         
+        //Tendo fazer a integração com o banco de dados enviando os dados preenchidos 
 
         try {
             // Faça a requisição POST para o backend
@@ -89,11 +116,11 @@ function Cadastro(){
                 confSenha: dados.confSenha
             });
 
-            const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
+            const notifica_reposta = response.data.mensagem
             console.log(notifica_reposta)
         
             if(notifica_reposta == 'Usuário já cadastrado, tente novamente'){
-                setNotfEmail(true)
+                setNotifEmail(true) 
             }else if(notifica_reposta == 'Usuário cadastrado com sucesso'){
                 setNotifSucesso(true)
             }
@@ -146,7 +173,7 @@ function Cadastro(){
                     </div>
                     <div className='cadastro_input'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='CPF'
                             name='CPF'
                             onChange={(e) => setDados({...dados, CPF: e.target.value})}
@@ -155,7 +182,7 @@ function Cadastro(){
                     </div>
                     <div className='cadastro_input'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='Telefone'
                             name='telefone'
                             onChange={(e) => setDados({...dados, telefone: e.target.value})}
@@ -164,21 +191,21 @@ function Cadastro(){
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='CEP'
                             name='CEP'
                             onChange={(e) => setDados({...dados, CEP: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='Número'
                             name='numero'
                             onChange={(e) => setDados({...dados, numero: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input'>
                         <input 
@@ -187,7 +214,7 @@ function Cadastro(){
                             name='endereco'
                             onChange={(e) => setDados({...dados, endereco: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
@@ -196,7 +223,7 @@ function Cadastro(){
                             name='pais'
                             onChange={(e) => setDados({...dados, pais: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
@@ -205,7 +232,7 @@ function Cadastro(){
                             name='estado'
                             onChange={(e) => setDados({...dados, estado: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
@@ -214,7 +241,7 @@ function Cadastro(){
                             name='cidade'
                             onChange={(e) => setDados({...dados, cidade: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
@@ -223,7 +250,7 @@ function Cadastro(){
                             name='bairro'
                             onChange={(e) => setDados({...dados, bairro: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input'>
                         <input 
@@ -232,7 +259,7 @@ function Cadastro(){
                             name='senha'
                             onChange={(e) => setDados({...dados, senha: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input'>
                         <input 
@@ -241,10 +268,10 @@ function Cadastro(){
                             name='confirma_senha'
                             onChange={(e) => setDados({...dados, confSenha: e.target.value})} 
                             autoComplete='off'
-                            />
+                        />
                     </div>
                 </div>
-                {notificacao && (
+                {notifCampos && (
                     <div className='notificacao'>
                         <span>Todos os dados precisam ser obrigatóriamente preenchidos !</span>
                     </div>
@@ -257,6 +284,11 @@ function Cadastro(){
                 {notifEmail && (
                     <div className='notificacao'>
                         <span>Email já cadastrado. Tente novamente !</span>
+                    </div>
+                )}
+                {EmailValido && (
+                    <div className='notificacao'>
+                        <span>Email inválido, Insira um email válido !</span>
                     </div>
                 )}
                 <div className='cadastro_termos'>

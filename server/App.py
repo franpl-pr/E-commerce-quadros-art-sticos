@@ -1,6 +1,7 @@
+from pickle import FALSE
 from flask import Flask, request, jsonify
 import mysql.connector
-from flask_cors import CORS
+from flask_cors import CORS;
 
 
 app = Flask(__name__)
@@ -26,12 +27,12 @@ def inserir_usuario():
     senha = dados['senha']
     confSenha = dados['confSenha']
     
-        # Conectar ao banco de dados
+    # Conectar ao banco de dados
     conexao = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='123456',  
-        database='quadrartes',
+    host='localhost',
+    user='root',
+    password='123456',  
+    database='quadrartes',
     )
     cursor = conexao.cursor()
 
@@ -90,5 +91,45 @@ def consultar_usuario():
         return jsonify({'mensagem': 'Usuário não encontrado'})
 
 
+#------------------------- Cadastro Produtos----------------------------
+
+
+@app.route('/api/cadastro_produto', methods=['POST'])
+def inserir_produto():
+    # Obter os dados do corpo da requisição
+    dados = request.json
+    quadro = dados['quadro']
+    imagem = dados['imagem']
+    preco = dados['preco']
+    estoque = dados['estoque']
+    tamanho = dados['tamanho']
+    cor = dados['cor']
+    # categoria = dados['categoria']
+    descricao = dados['descricao']
+
+     # Conectar ao banco de dados
+    conexao = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='123456',  
+        database='quadrartes',
+    )
+
+    cursor = conexao.cursor()
+
+    # Montar e executar o comando SQL para inserir o usuário
+    comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, imagem, estoque, cor, tamanho, descricao) VALUES ('{quadro}', '{preco}', '{imagem}', {estoque}, '{cor}', '{tamanho}', '{descricao}')"
+    cursor.execute(comando_inserir_dados)
+    conexao.commit() # edita o banco de dados
+
+    cursor.close()
+    conexao.close()
+    
+    # Retornar uma resposta JSON indicando sucesso
+    return jsonify({'mensagem': 'Quadro cadastrado com sucesso'})
+
 if __name__ == '__main__':
     app.run(debug=True)
+       
+
+

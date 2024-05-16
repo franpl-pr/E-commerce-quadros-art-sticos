@@ -113,6 +113,12 @@
     justify-content: space-between;
 }
 
+.cadastro_divs_inputs input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .cadastro_input{
     display: inline;
     width: 411px;

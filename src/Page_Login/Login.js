@@ -5,7 +5,6 @@ import image_email from '../img/image_email.png';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Navbar from "../Components/component_Navbar/Navbar";
  
 function Login() {
   const [alterarSenha, setAlterarSenha] = useState(true);
@@ -14,7 +13,6 @@ function Login() {
   const [notificacao, setNotificacao] = useState(false);
   const [msgCampos, setMsgCampos] = useState(false);
   const navigate = useNavigate();
-  const [msgNavbar, setMsgNavbar] = useState(false)
 
   const handleSubmit = async () => {
 
@@ -46,7 +44,7 @@ function Login() {
   }
 
   return (
-    <div className="container">
+    <div className="container_login">
       <div className="box1" id='box1'></div>
       <div className="box2">
         <div className='box2_box'>
