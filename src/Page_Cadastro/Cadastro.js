@@ -38,25 +38,25 @@ function Cadastro(){
         let Array_email = dados.email.split('');
 
         for(let i = 0; i < Array_email.length; i++){
-            if(Array_email[i] == '@'){
+            if(Array_email[i] === '@'){
                 console.log('Achei um @');
             }
         }
         if(dados.email.indexOf())
 
         for(let valor in dados){
-            if(dados[valor] == ''){
+            if(dados[valor] === ''){
                 setNotificacao(true)
                 return;
             }
         }
 
-        if(dados.senha != dados.confSenha){
+        if(dados.senha !== dados.confSenha){
             setNotifSenha(true)
             return;
         }
 
-        if(termos == false){
+        if(termos === false){
             setNotifTermos(true)
             return;
         }
@@ -83,9 +83,9 @@ function Cadastro(){
             const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
             console.log(notifica_reposta)
         
-            if(notifica_reposta == 'Usuário já cadastrado, tente novamente'){
+            if(notifica_reposta === 'Usuário já cadastrado, tente novamente'){
                 setNotfEmail(true)
-            }else if(notifica_reposta == 'Usuário cadastrado com sucesso'){
+            }else if(notifica_reposta === 'Usuário cadastrado com sucesso'){
                 setNotifSucesso(true)
             }
     

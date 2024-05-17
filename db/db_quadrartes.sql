@@ -1216,19 +1216,46 @@ ALTER TABLE `usuarios`
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
---
 
+-- AUTO_INCREMENT de tabela `artistas`
 --
+ALTER TABLE `artistas`
+  MODIFY `ID_artista` int NOT NULL AUTO_INCREMENT;
+
 -- AUTO_INCREMENT de tabela `avaliacoescomentarios`
 --
 ALTER TABLE `avaliacoescomentarios`
   MODIFY `ID_avaliacaoComent` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
+-- AUTO_INCREMENT de tabela `carrinhodecompras`
+--
+ALTER TABLE `carrinhodecompras`
+  MODIFY `ID_carrinhoCompras` int NOT NULL AUTO_INCREMENT;
+
+-- AUTO_INCREMENT de tabela `categoriasprodutos`
+--
+ALTER TABLE `categoriasprodutos`
+  MODIFY `ID_categoria` int NOT NULL AUTO_INCREMENT;
+
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `ID_clientes` int NOT NULL AUTO_INCREMENT;
+
+-- AUTO_INCREMENT de tabela `comprovante`
+--
+ALTER TABLE `comprovante`
+  MODIFY `ID_comprovante` int NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de tabela `dashboardvendedores`
 --
 ALTER TABLE `dashboardvendedores`
   MODIFY `ID_dashboardVendedores` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+-- AUTO_INCREMENT de tabela `devolucoestroca`
+--
+ALTER TABLE `devolucoestroca`
+  MODIFY `ID_devolucaoTroca` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `enderecos`
@@ -1254,6 +1281,11 @@ ALTER TABLE `itenscarrinhodecompra`
 ALTER TABLE `listadesejos`
   MODIFY `ID_favoritos` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
+-- AUTO_INCREMENT de tabela `pagamento`
+--
+ALTER TABLE `pagamento`
+  MODIFY `ID_pagamento` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `pagamentoboleto`
 --
@@ -1272,20 +1304,35 @@ ALTER TABLE `pagamentocartao`
 ALTER TABLE `pagamentopix`
   MODIFY `ID_pagamentoPix` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
+-- AUTO_INCREMENT de tabela `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `ID_pedido` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de tabela `perfilartista`
 --
-ALTER TABLE `perfilartista`
-  MODIFY `perfilArtista_id` int NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `perfilartista` 
+  CHANGE  `perfilArtista_id` INT(11) NOT NULL AUTO_INCREMENT;
+
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  CHANGE `ID_produtos` `ID_produtos` int NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT de tabela `suportecliente`
 --
 ALTER TABLE `suportecliente`
-  MODIFY `ID_suporte` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  CHANGE `ID_suporte` `ID_suporte` int NOT NULL AUTO_INCREMENT;
+
 --
-ALTER TABLE `usuarios`
-  MODIFY `ID_usuarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios` 
+  CHANGE `ID_usuarios` `ID_usuarios` INT(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restrições para despejos de tabelas
 --

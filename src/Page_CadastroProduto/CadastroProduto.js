@@ -6,7 +6,7 @@ import BarraDb from "../Components/component_barradb/BarraDb";
 import axios from 'axios';
 
 // Configure o withCredentials como false
-axios.defaults.withCredentials = false;
+// axios.defaults.withCredentials = false;
 
 
 
@@ -16,7 +16,7 @@ function CadastroProduto(){
     const [dados, setDados] = useState({
         quadro: '',
         preco: '',
-        imagem: '',
+        // imagem: '',
         estoque: '',
         // categoria: '',
         cor: '',
@@ -33,45 +33,52 @@ function CadastroProduto(){
         setNotifVazio(false);
         setNotifEstoque(false);
         setNotifImagem(false);
-
-        for(let valor in dados){
-            if(dados[valor] == ''){
-                setNotifVazio(true)
+    
+        for (let valor in dados) {
+            if (dados[valor] === '') {
+                setNotifVazio(true);
                 return;
             }
         }
-        if(dados.estoque <= 0 ) { 
-            setNotifEstoque(true)} 
-        else {
-                setNotifEstoque(false)}
-        
-        if(notifEstoque == false && notifVazio == false){
-            try {
-                const response = await axios.post('http://localhost:5000/api/cadastro_produto',{
-                quadro: dados.quadro,
-                descricao: dados.descricao,
-                preco: dados.preco,
-                imagem: dados.imagem,
-                estoque: dados.estoque,
-                // categoria: dados.categoria,
-                tamanho: dados.tamanho,
-                cor: dados.cor
-                });
     
-                const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
-                console.log(notifica_reposta)
-            
-                
-                if(notifica_reposta == 'Quadro cadastrado com sucesso'){
-                    setNotifSucesso(true)
-                }if(notifica_reposta == 'Quadro já cadastrado tente novamente'){
-                    setNotifImagem(true)
+        if (dados.estoque <= 0) {
+            setNotifEstoque(true);
+            return;
+        } 
+    
+        
+            try {
+                const formData = new FormData();
+                formData.append('quadro', dados.quadro);
+                formData.append('descricao', dados.descricao);
+                formData.append('preco', dados.preco);
+                formData.append('imagem', dados.imagem); 
+                formData.append('estoque', dados.estoque);
+                formData.append('tamanho', dados.tamanho);
+                formData.append('cor', dados.cor);
+    
+                const response = await axios.post('http://localhost:5000/api/cadastro_produto', formData
+                // , {
+                    // headers: {
+                    //     'Content-Type': 'multipart/form-data',
+                    // },
+                    // }
+                );
+    
+                const notifica_resposta = response.data.mensagem;
+                console.log(notifica_resposta);
+    
+                if (notifica_resposta === 'Quadro cadastrado com sucesso!') {
+                    setNotifSucesso(true);
+                } else if (notifica_resposta === 'Quadro já cadastrado!') {
+                    setNotifImagem(true);
                 }
             } catch (error) {
                 console.error('Erro ao enviar dados para o servidor:', error);
             }
-          }
-    };
+        
+     };
+    
     return(
         <div className="dashboard">
             <MenuLateral/>
@@ -79,7 +86,7 @@ function CadastroProduto(){
                 <BarraDb/>
                 <div className="conteudo-dashboard">
                     <h1>Novo Produto</h1>
-                    <div className="form-cad-prod">
+                    <form>
                         <div className="acoes">
                             <label>Adicionar foto do quadro</label>
                             <input type="file" accept=".jpg, .jpeg, .png" name="imagem" onChange={(e) => setDados({...dados, imagem: e.target.files[0]})}/>
@@ -147,7 +154,7 @@ function CadastroProduto(){
                                 <textarea name="descricao" onChange={(e) => setDados({...dados, descricao: e.target.value})}></textarea>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             
