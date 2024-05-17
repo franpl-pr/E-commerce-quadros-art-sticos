@@ -183,7 +183,6 @@ input[type=number]::-webkit-inner-spin-button {
     color: white;
     font-size: 18px;
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
-    letter-spacing: 8%;
 }
 
 .cadastro_cadastrar:hover{
@@ -255,7 +254,6 @@ input[type=number]::-webkit-inner-spin-button {
 .cadastro_input_menor input::placeholder{
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    letter-spacing: 2px;
     outline: none;
     color: #484848;
 }

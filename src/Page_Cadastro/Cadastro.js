@@ -68,7 +68,7 @@ function Cadastro(){
           console.log('Erro ao se comunicar com a API: ' + error);
         }
     };
-    
+
     // Criando o método handleSubmite (Lidando com o envio), para fazer as restrições e integração com o BD
 
     const handleSubmit = async () => {
@@ -161,7 +161,7 @@ function Cadastro(){
         }
     };
 
-    return(
+    return( 
         <div className='cadastro_Container'>
             <div className='cadastro_box'>
                 <h1>QuadrArtes</h1>
@@ -195,7 +195,7 @@ function Cadastro(){
                     </div>
                     <div className='cadastro_input_maior'>
                         <input 
-                            type='text' 
+                            type='email'
                             placeholder='E-mail'
                             name='email'
                             onChange={(e) => setDados({...dados, email: e.target.value})}
