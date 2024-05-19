@@ -5,8 +5,9 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from typing import Any
 from django.db import models
-
+from django.views.generic import ListView, CreateView, DeleteView
 
 class Artistas(models.Model):
     id_artista = models.IntegerField(db_column='ID_artista', primary_key=True)  # Field name made lowercase.
@@ -18,8 +19,34 @@ class Artistas(models.Model):
     class Meta:
         managed = False
         db_table = 'artistas'
+    
+    def __init__(self, usuario, razao_social, cnpj, descricao_vendedor) -> None:
+        self.usuario = usuario
+        self.razao_social = razao_social
+        self.cnpj = cnpj
+        self.descricao_vendedor = descricao_vendedor
 
+    def AdicionarProdutoPlataforma(self):
+        return
+    
+    def VisualizarDashBoard(self):
+        return
+    
+    def AdicionarProdutoEstoque(self):
+        return
 
+    def GetQntdProdEstoque(self):
+        return
+    
+    def DespacharProduto(self):
+        return
+
+    def CadastroProduto(self):
+        return
+    
+    def AtenderSolicitacaoProduto(self):
+        return
+    
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
