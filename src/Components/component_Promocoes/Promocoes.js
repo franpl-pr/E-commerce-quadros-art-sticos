@@ -20,7 +20,7 @@ function Promocoes(){
         <div className="promocoes_container">
             <div className="inicial_box_promocoes">
                 <div className="inicial_promocoes">
-                    {itens.map((item, index) => (<div onClick={() => navigete(`/Produto`, { state: { produto: item }})} className="inicial_promocoes_elementos">
+                    {itens.map((item, index) => (<div id={index} onClick={() => navigete(`/Produto`, { state: { produto: item }})} className="inicial_promocoes_elementos">
                         <div className="inicial_imagem_promocoes">
                             <img src={item.img}/>
                         </div>

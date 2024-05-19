@@ -1,9 +1,6 @@
-from pickle import FALSE
 from flask import Flask, request, jsonify
 import mysql.connector
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
-import os
+from flask_cors import CORS;
 
 
 app = Flask(__name__)
@@ -74,7 +71,7 @@ def consultar_usuario():
     conexao = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='YES',  
+        password='1234',  
         database='quadrartes',
     )
     cursor = conexao.cursor()
@@ -94,14 +91,7 @@ def consultar_usuario():
         return jsonify({'mensagem': 'Usuário não encontrado'})
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-
 #------------------------- Cadastro Produtos----------------------------
-
-# Configurar o diretório de upload (altere conforme necessário)
-app.config['UPLOAD_FOLDER'] = '../src/img'
 
 
 @app.route('/api/cadastro_produto', methods=['POST'])
@@ -128,65 +118,36 @@ def inserir_produto():
 
     dados = request.json
     quadro = dados['quadro']
-    # imagem = dados['imagem']
-    cor = dados['cor']
-    tamanho = dados['tamanho']
+    imagem = dados['imagem']
     preco = dados['preco']
     estoque = dados['estoque']
-    descricao = dados['descricao']
+    tamanho = dados['tamanho']
+    cor = dados['cor']
     # categoria = dados['categoria']
 
     # Conectar ao banco de dados
     conexao = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='1234',  
+        password='123456',  
         database='quadrartes',
     )
+
     cursor = conexao.cursor()
-    comando_consultar_dados = "SELECT * FROM produtos WHERE imagem = %s"
-    cursor.execute(comando_consultar_dados, '{quadro}')
-    resultado = cursor.fetchone()
 
-    if resultado:
-        return jsonify({'mensagem': 'Quadro já cadastrado!'})
+    # Montar e executar o comando SQL para inserir o usuário
+    comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, imagem, estoque, cor, tamanho, descricao) VALUES ('{quadro}', '{preco}', '{imagem}', {estoque}, '{cor}', '{tamanho}', '{descricao}')"
+    cursor.execute(comando_inserir_dados)
+    conexao.commit() # edita o banco de dados
 
-    else:
-        comando_inserir_dados = f"INSERT INTO produtos (ID_produtos, nomeQuadro, preco, estoque, cor, categoria_id, tamanho, descricao) VALUES (20, '{quadro}', '{preco}', '{estoque}', '{cor}', 1, '{tamanho}', '{descricao}')"
-        cursor.execute(comando_inserir_dados)
-        conexao.commit()
-        cursor.close()
-        conexao.close()
-
-        return jsonify({'mensagem': 'Quadro cadastrado com sucesso!'})
+    cursor.close()
+    conexao.close()
+    
+    # Retornar uma resposta JSON indicando sucesso
+    return jsonify({'mensagem': 'Quadro cadastrado com sucesso'})
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
        
 
-#----------------------------Categorias------------------------------
-    
-    
-# def obter_categorias_bd():
-#     # Conectar ao banco de dados
-#     conexao = mysql.connector.connect(
-#         host='localhost',
-#         user='root',
-#         password='123456',  
-#         database='quadrartes',
-#     )
 
-#     cursor = conexao.cursor()
-
-#     cursor.execute("SELECT ID_categoria, tipoCategoria FROM categoriasprodutos")
-        
-#     categorias = cursor.fetchall()
-
-    
-
-#     return categorias
-
-# @app.route('/api/categorias')
-# def obter_categorias():
-#     categorias = obter_categorias_bd()
-#     return jsonify(categorias)

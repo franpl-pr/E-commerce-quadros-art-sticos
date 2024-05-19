@@ -3,11 +3,18 @@ import './cadastro_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { useNavigate } from 'react-router-dom';
+import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { IoSearch } from "react-icons/io5";
+import api from './api';
 import axios from "axios";
 
 function Cadastro(){
     const navigate = useNavigate();
-    
+    const [alterarSenha, setAlterarSenha] = useState(true);
+    const [cep, setCep] = useState({});
+
+    // Criando um objeto useState(), para os inputs    
+
     const [dados, setDados] = useState({
         nome: '',
         email: '',
@@ -23,44 +30,104 @@ function Cadastro(){
         senha: '',
         confSenha: ''
     })
-    const [termos, setTermos] = useState(false)
-    const [notificacao, setNotificacao] = useState(false);
-    const [notifSenha, setNotifSenha] = useState(false);
-    const [notifSucesso, setNotifSucesso] = useState(false);
-    const [notifEmail, setNotfEmail] = useState(false);
+
+    // Criando as variáveis de notficação useState()
+
+    const [notifEmail, setNotifEmail] = useState(false)
+    const [notifSenha, setNotifSenha] = useState(false)
     const [notifTermos, setNotifTermos] = useState(false)
+    const [notifSucesso, setNotifSucesso] = useState(false)
+    const [notifCampos, setNotifCampos] = useState(false)
+    const [termos, setTermos] = useState(false)
+    const [EmailValido, setEmailValido] = useState(false)
+
+    const handleSearch = async () => {
+        try {
+          const response = await api.get(`${dados.CEP}/json`);
+          const cepData = response.data;
+          
+          console.log('Cidade:' + cepData.localidade);
+          console.log('Complemento:' + cepData.complemento);
+          console.log('Bairro:' + cepData.bairro);
+          console.log('Logradouro:' + cepData.logradouro);
+          console.log('UF:' + cepData.uf);
     
-    const handleSubmit = async () => {
-        setNotifTermos(false);
-        setNotificacao(false);
-        setNotifSenha(false);
-
-        let Array_email = dados.email.split('');
-
-        for(let i = 0; i < Array_email.length; i++){
-            if(Array_email[i] === '@'){
-                console.log('Achei um @');
-            }
+          setCep(cepData);
+    
+          if (cepData.localidade) {
+            setDados({
+              ...dados,
+              endereco: cepData.logradouro || '',
+              estado: cepData.uf || '',
+              bairro: cepData.bairro || '',
+              cidade: cepData.localidade || '',
+              pais: 'Brasil' || ''
+            });
+          }
+        } catch (error) {
+          console.log('Erro ao se comunicar com a API: ' + error);
         }
-        if(dados.email.indexOf())
+    };
+
+    // Criando o método handleSubmite (Lidando com o envio), para fazer as restrições e integração com o BD
+
+    const handleSubmit = async () => {
+        setNotifEmail(false)
+        setNotifSenha(false)
+        setNotifTermos(false)
+        setNotifCampos(false)    
+        setEmailValido(false)    
+
+        //Vendo se tem algum input vazio, e se sim mostrar uma notificação
 
         for(let valor in dados){
-            if(dados[valor] === ''){
-                setNotificacao(true)
+            if(dados[valor] == ''){
+                setNotifCampos(true)
+                console.log('Dados não inseridos')
                 return;
             }
         }
+        
+        //Tranformando o campo email em vetor
 
-        if(dados.senha !== dados.confSenha){
-            setNotifSenha(true)
+        let Array_email = dados.email.split('');
+        let arroba = false
+
+        //Percorrendo o vetor do email para poder ver se tem algum "@"
+
+        for(let i = 0; i < Array_email.length; i++){
+            if(Array_email[i] == '@'){
+                arroba = true
+            }
+        }
+
+        //Procurando na String digitada se tem algum ".com" ou ".br" para validar o email
+
+        if(dados.email.indexOf(".com") !== -1 || dados.email.indexOf(".br") !== -1 && arroba == true){
+            console.log('Email Válido')
+        }else{
+            setEmailValido(true)                //Informando se o email é valido
+            console.log('Email Invalido')
             return;
         }
 
-        if(termos === false){
+        //Conferindo se a senha é igual ao confirmar senha
+
+        if(dados.senha != dados.confSenha){
+            setNotifSenha(true)
+            console.log('Senhas não identicas')
+            return;
+        }
+
+        //Conferindo se o checkbox "termos" está selecionado
+
+        if(termos == false){
             setNotifTermos(true)
+            console.log('Termos não aceitos')
             return;
         }
         
+        //Tendo fazer a integração com o banco de dados enviando os dados preenchidos 
 
         try {
             // Faça a requisição POST para o backend
@@ -80,12 +147,12 @@ function Cadastro(){
                 confSenha: dados.confSenha
             });
 
-            const notifica_reposta = response.data.mensagem// Exiba a resposta do servidor no console se necessário
+            const notifica_reposta = response.data.mensagem
             console.log(notifica_reposta)
         
-            if(notifica_reposta === 'Usuário já cadastrado, tente novamente'){
-                setNotfEmail(true)
-            }else if(notifica_reposta === 'Usuário cadastrado com sucesso'){
+            if(notifica_reposta == 'Usuário já cadastrado, tente novamente'){
+                setNotifEmail(true) 
+            }else if(notifica_reposta == 'Usuário cadastrado com sucesso'){
                 setNotifSucesso(true)
             }
     
@@ -94,7 +161,7 @@ function Cadastro(){
         }
     };
 
-    return(
+    return( 
         <div className='cadastro_Container'>
             <div className='cadastro_box'>
                 <h1>QuadrArtes</h1>
@@ -117,7 +184,7 @@ function Cadastro(){
                     <h2>OU</h2>
                 </div>
                 <div className='cadastro_divs_inputs'>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input  
                             type='text' 
                             placeholder='Nome Completo'
@@ -126,116 +193,140 @@ function Cadastro(){
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
-                            type='text' 
+                            type='email'
                             placeholder='E-mail'
                             name='email'
                             onChange={(e) => setDados({...dados, email: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='CPF'
                             name='CPF'
                             onChange={(e) => setDados({...dados, CPF: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='Telefone'
                             name='telefone'
                             onChange={(e) => setDados({...dados, telefone: e.target.value})}
                             autoComplete='off'
                             />
                     </div>
-                    <div className='cadastro_input_menor'>
+                    <div className='cadastro_input_menor_personalizado'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='CEP'
+                            value={dados.CEP}
                             name='CEP'
                             onChange={(e) => setDados({...dados, CEP: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
+                        <button
+                            className='icon_pesquisar_cep'
+                            onClick={handleSearch}
+                            >
+                            <IoSearch size={26}/>
+                        </button>
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
-                            type='text' 
+                            type='number' 
                             placeholder='Número'
                             name='numero'
                             onChange={(e) => setDados({...dados, numero: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_maior'>
                         <input 
                             type='text' 
                             placeholder='Endereço'
                             name='endereco'
+                            value={dados.endereco}
                             onChange={(e) => setDados({...dados, endereco: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
                             type='text' 
                             placeholder='País'
                             name='pais'
+                            value={dados.pais}
                             onChange={(e) => setDados({...dados, pais: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
                             type='text' 
                             placeholder='Estado'
+                            value={dados.estado}
                             name='estado'
                             onChange={(e) => setDados({...dados, estado: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
                             type='text'
                             placeholder='Cidade'
+                            value={dados.cidade}
                             name='cidade'
                             onChange={(e) => setDados({...dados, cidade: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
                     <div className='cadastro_input_menor'>
                         <input 
                             type='text' 
                             placeholder='Bairro, Avenida...'
+                            value={dados.bairro}
                             name='bairro'
                             onChange={(e) => setDados({...dados, bairro: e.target.value})}
                             autoComplete='off'
-                            />
+                        />
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_personalizado'>
                         <input 
-                            type='password' 
+                            type={alterarSenha ? 'password' : 'text'}  
                             placeholder='Senha'
                             name='senha'
                             onChange={(e) => setDados({...dados, senha: e.target.value})}
                             autoComplete='off'
-                            />
+                            maxLength={8}
+                        />
+                        <button onClick={() => setAlterarSenha(!alterarSenha)} 
+                            className='olho'
+                            id='mostrarSenha'>
+                            {alterarSenha ? <FaEyeSlash size={21}/> : <FaEye size={21}/>}
+                        </button>
                     </div>
-                    <div className='cadastro_input'>
+                    <div className='cadastro_input_personalizado'>
                         <input 
-                            type='password' 
+                            type={alterarSenha ? 'password' : 'text'}  
                             placeholder='Confirme a senha'
                             name='confirma_senha'
                             onChange={(e) => setDados({...dados, confSenha: e.target.value})} 
                             autoComplete='off'
-                            />
+                            maxLength={8}
+                        />
+                        <button onClick={() => setAlterarSenha(!alterarSenha)} 
+                            className='olho'
+                            id='mostrarSenha'>
+                            {alterarSenha ? <FaEyeSlash size={21}/> : <FaEye size={21}/>}
+                        </button>
                     </div>
                 </div>
-                {notificacao && (
+                {notifCampos && (
                     <div className='notificacao'>
                         <span>Todos os dados precisam ser obrigatóriamente preenchidos !</span>
                     </div>
@@ -248,6 +339,11 @@ function Cadastro(){
                 {notifEmail && (
                     <div className='notificacao'>
                         <span>Email já cadastrado. Tente novamente !</span>
+                    </div>
+                )}
+                {EmailValido && (
+                    <div className='notificacao'>
+                        <span>Email inválido, Insira um email válido !</span>
                     </div>
                 )}
                 <div className='cadastro_termos'>

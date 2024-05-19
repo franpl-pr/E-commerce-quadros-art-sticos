@@ -113,15 +113,30 @@
     justify-content: space-between;
 }
 
-.cadastro_input{
+.cadastro_divs_inputs input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cadastro_input_maior{
     display: inline;
     width: 411px;
     height: 47px;
     border-bottom: 1px solid #484848;
 }
 
-.cadastro_input_menor{
+.cadastro_input_menor,
+.cadastro_input_menor_personalizado{
     width: 190px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+    display: flex;
+    align-items: center;
+}
+
+.cadastro_input_personalizado{
+    width: 411px;
     height: 47px;
     border-bottom: 1px solid #484848;
 }
@@ -168,7 +183,6 @@
     color: white;
     font-size: 18px;
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
-    letter-spacing: 8%;
 }
 
 .cadastro_cadastrar:hover{
@@ -203,7 +217,7 @@
     cursor: pointer;
 }
 
-.cadastro_input input,
+.cadastro_input_maior input,
 .cadastro_input_menor input{
     background: transparent;
     border: none;
@@ -211,19 +225,42 @@
     height: 47px;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
-.cadastro_input input::placeholder,
+.cadastro_input_menor_personalizado input{
+    background: transparent;
+    border: none;
+    width: 75%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.cadastro_input_personalizado input{
+    background: transparent;
+    border: none;
+    width: 90%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.cadastro_input_personalizado input::placeholder,
+.cadastro_input_menor_personalizado input::placeholder,
+.cadastro_input_maior input::placeholder,
 .cadastro_input_menor input::placeholder{
     font-family: "Poppins", sans-serif;
     font-size: 16px;
-    letter-spacing: 2px;
     outline: none;
     color: #484848;
 }
 
-.cadastro_input input:focus,
+.cadastro_input_personalizado input:focus,
+.cadastro_input_menor_personalizado input:focus,
+.cadastro_input_maior input:focus,
 .cadastro_input_menor input:focus{
     outline: none;
 }
@@ -307,5 +344,22 @@
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+}
+
+.icon_pesquisar_cep{
+    border: none;
+    background-color: transparent;
+}
+
+.icon_pesquisar_cep:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: 0.2s;
+}
+    
+.olho:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: 0.2s;
 }
 

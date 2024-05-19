@@ -8,16 +8,17 @@
     display: flex;
     border-bottom: 1px solid #E0E0E0;
     width: 100%;
+    justify-content: end;
 }
 
-.perfil{
+.perfil-completo{
     margin-left: 30px;
     display: flex;
-    
-    right: 46px;
+    margin-right: 42px;
+
     
 }
-.conteudo-perfil{
+.pesquisa{
     align-items: center;
     display: flex;
 }

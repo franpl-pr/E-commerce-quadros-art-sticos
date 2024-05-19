@@ -13,6 +13,7 @@ function Navbar(){
     const navigate = useNavigate();
     const [carrinhoAberto, setcarrinhoAberto] = useState(false);
 
+
     const abrirCarrinho = () => {
         setcarrinhoAberto(true);
     };
@@ -98,7 +99,7 @@ function Navbar(){
                             </div>
                         </div>
                 )}
-                {false ? <MdOutlinePerson className="icons" size={32}/> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
+                {true ? <MdOutlinePerson className="icons" size={32}/> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>
     )
