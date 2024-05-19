@@ -20,7 +20,7 @@ class Artistas(models.Model):
         managed = False
         db_table = 'artistas'
     
-    def __init__(self, usuario, razao_social, cnpj, descricao_vendedor) -> None:
+    def __init__(self, usuario, razao_social, cnpj, descricao_vendedor):
         self.usuario = usuario
         self.razao_social = razao_social
         self.cnpj = cnpj
@@ -138,6 +138,21 @@ class Carrinhodecompras(models.Model):
     class Meta:
         managed = False
         db_table = 'carrinhodecompras'
+    
+    def __init__(self, cliente, datacriacao, status):
+        self.cliente = cliente
+        self.datacriacao = datacriacao
+        self.status = status
+    
+    def adicionarProduto():
+        return
+    
+    def removerProduto():
+        return
+    
+    def finalizarCompra():
+        return
+
 
 
 class Categoriasprodutos(models.Model):
