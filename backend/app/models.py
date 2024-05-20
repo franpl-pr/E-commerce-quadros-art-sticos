@@ -164,6 +164,13 @@ class Categoriasprodutos(models.Model):
         managed = False
         db_table = 'categoriasprodutos'
 
+    def __init__(self, tipocategoria, descricao):
+        self.tipocategoria = tipocategoria
+        self.descricao = descricao
+
+    def selecionarCategoria(self, id_categoria):
+        return
+
 
 class Clientes(models.Model):
     id_clientes = models.IntegerField(db_column='ID_clientes', primary_key=True)  # Field name made lowercase.

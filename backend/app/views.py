@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Artistas, Carrinhodecompras
+from .models import Artistas, Carrinhodecompras, Categoriasprodutos
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, View
 from django.urls import reverse_lazy
 
@@ -38,3 +38,21 @@ class CarrinhodecompraUpdateView(UpdateView):
     model = Carrinhodecompras
     fields = ["cliente", "datacriacao", "status"]
     success_url = reverse_lazy("#CONFIG_URL#")
+
+# View de Categoriasprodutos
+class CategoriasprodutosListView(ListView):
+    model = Categoriasprodutos
+
+class CategoriasprodutosCreateView(CreateView):
+    model = Categoriasprodutos
+    fields = ["tipocategoria", "descricao"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class CategoriasprodutosUpdateView(UpdateView):
+    model = Categoriasprodutos
+    fields = ["tipocategoria", "descricao"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class CategoriasprodutosDeleteView(DeleteView):
+    model = Categoriasprodutos
+    success_url = reverse_lazy("#CONGIF_URL#")
