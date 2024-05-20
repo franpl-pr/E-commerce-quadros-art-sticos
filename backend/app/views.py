@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Artistas, Carrinhodecompras, Categoriasprodutos, Clientes
+from .models import Artistas, Carrinhodecompras, Categoriasprodutos, Clientes, Comprovante
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, View
 from django.urls import reverse_lazy
 
@@ -73,4 +73,22 @@ class ClientesUpdateView(UpdateView):
 
 class ClientesDeleteView(DeleteView):
     model = Clientes
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+# View de Comprovante
+class ComprovanteListView(ListView):
+    model = Comprovante
+
+class ComprovanteCreateView(CreateView):
+    model = Comprovante
+    fields = ["pagamento", "pedido", "produto", "data_emissao", "valor_total", "observacoes"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class ComprovanteUpdateView(UpdateView):
+    model = Comprovante
+    fields = ["pagamento", "pedido", "produto", "data_emissao", "valor_total", "observacoes"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class ComprovanteDeleteView(DeleteView):
+    model = Comprovante
     success_url = reverse_lazy("#CONGIF_URL#")

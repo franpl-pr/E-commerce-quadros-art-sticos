@@ -220,6 +220,55 @@ class Comprovante(models.Model):
         managed = False
         db_table = 'comprovante'
 
+    def __init__(self, pagamento, pedio, produto, data_emissao, valor_total, observacoes):
+        self.pagamento = pagamento
+        self.pedido = pedio
+        self.produto = produto
+        self.data_emissao = data_emissao
+        self.valor_total = valor_total
+        self.observacoes = observacoes
+
+    def emitirComprovante():
+        return
+    
+    def getNomeCliente():
+        return
+    
+    def setNomeCliente():
+        return
+    
+    def getCPFCliente():
+        return
+    
+    def setCPFCliente():
+        return
+    
+    def getDataEmissao():
+        return
+
+    def setDataEmissao():
+        return
+    
+    def getValorTotal():
+        return
+    
+    def setValorTotal():
+        return
+    
+    def getValorUnitario():
+        return
+
+    def setValorUnitario():
+        return
+    
+    def getQuantidade():
+        return
+    
+    def setQuantidade():
+        return
+    
+    def getPrecoUnitarioProduto():
+        return
 
 class Dashboardvendedores(models.Model):
     id_dashboardvendedores = models.AutoField(db_column='ID_dashboardVendedores', primary_key=True)  # Field name made lowercase.
