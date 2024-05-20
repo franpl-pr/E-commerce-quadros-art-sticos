@@ -181,6 +181,31 @@ class Clientes(models.Model):
         managed = False
         db_table = 'clientes'
 
+    def __init__(self, usuario, cpf):
+        self.usuario = usuario
+        self.cpf = cpf
+    
+    def selecionarProduto():
+        return
+    
+    def pesquisarProduto():
+        return
+
+    def visualizarProduto():
+        return
+    
+    def avaliarProduto():
+        return
+    
+    def devolverProduto():
+        return
+    
+    def trocarProduto():
+        return
+    
+    def conversarSuporte():
+        return
+
 
 class Comprovante(models.Model):
     id_comprovante = models.IntegerField(db_column='ID_comprovante', primary_key=True)  # Field name made lowercase.
