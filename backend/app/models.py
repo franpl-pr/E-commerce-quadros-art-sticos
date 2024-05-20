@@ -289,6 +289,25 @@ class Dashboardvendedores(models.Model):
         managed = False
         db_table = 'dashboardvendedores'
 
+    def __init__(self,vendedor_id, tipo, faturamento, comissao, estoque, pagamento_id, cliente_id, pedido_id, produto_id, devolucoeetrocas_id, comprovante_id, descricao) -> None:
+        self.vendedor_id = vendedor_id
+        self.tipo = tipo
+        self.faturamento = faturamento
+        self.comissao = comissao
+        self.estoque = estoque
+        self.pagamento_id = pagamento_id
+        self.cliente_id = cliente_id
+        self.pedido_id = pedido_id
+        self.produto_id = produto_id
+        self.devolucoestroca_id = devolucoeetrocas_id
+        self.comprovante_id = comprovante_id
+        self.descricao = descricao
+    
+    def getNivelEstoque():
+        return
+    
+    def exibirAlertaEstoque():
+        return
 
 class Devolucoestroca(models.Model):
     id_devolucaotroca = models.IntegerField(db_column='ID_devolucaoTroca', primary_key=True)  # Field name made lowercase.
@@ -303,6 +322,22 @@ class Devolucoestroca(models.Model):
         managed = False
         db_table = 'devolucoestroca'
 
+    def __init__(self, pedido, produto, data_devolucao, motivo, status, observacoes):
+        self.pedido = pedido
+        self.produto = produto
+        self.data_devolucao = data_devolucao
+        self.motivo = motivo
+        self.status = status
+        self.observacoes = observacoes
+
+    def getStatusDevolucao(self):
+        return self.status
+    
+    def getMotivoDevolucao(self):
+        return self.motivo
+    
+    def getIdPedido(self):
+        return self.pedido
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()

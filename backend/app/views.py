@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Artistas, Carrinhodecompras, Categoriasprodutos, Clientes, Comprovante, Dashboardvendedores
+from .models import Artistas, Carrinhodecompras, Categoriasprodutos, Clientes, Comprovante, Dashboardvendedores, Devolucoestroca
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView, View
 from django.urls import reverse_lazy
 
@@ -109,4 +109,22 @@ class DashboardvendedoresUpdateView(UpdateView):
 
 class DashboardvendedoresDeleteView(DeleteView):
     model = Dashboardvendedores
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+# View de Devolucoestroca
+class DevolucoestrocaListView(ListView):
+    model = Devolucoestroca
+
+class DevolucoestrocaCreateView(CreateView):
+    model = Devolucoestroca
+    fields = ["pedido", "produto", "data_devolucao", "motivo", "status", "observacoes"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class DevolucoestrocaUpdateView(UpdateView):
+    model = Devolucoestroca
+    fields = ["pedido", "produto", "data_devolucao", "motivo", "status", "observacoes"]
+    success_url = reverse_lazy("#CONGIF_URL#")
+
+class DevolucoestrocaDeleteView(DeleteView):
+    model = Devolucoestroca
     success_url = reverse_lazy("#CONGIF_URL#")
