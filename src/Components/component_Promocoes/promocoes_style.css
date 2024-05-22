@@ -16,7 +16,7 @@
 
 .inicial_promocoes_elementos{
     width: 358px;
-    height: 422px;
+    height: 450px;
     background-color: white;
     margin-top: 59px;
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
@@ -53,11 +53,11 @@
 .inicial_promocoes_autores{
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-
 }
 
 .inicial_promocoes_div_precos{
     margin-top: 20px;
+    margin-bottom: 20px ;
     display: flex;
     justify-content: space-between;
     align-items: center;

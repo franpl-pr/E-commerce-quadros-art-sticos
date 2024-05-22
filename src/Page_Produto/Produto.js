@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useContext, useEffect} from "react";
 import "./produto_style.css"
 import Navbar from "../Components/component_Navbar/Navbar";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -14,14 +14,46 @@ import Quadros_relacionados from "../Components/component_Promocoes/Promocoes";
 import image_menos from "../img/image_produto_menos.png";
 import image_mais from "../img/image_produto_mais.png";
 import {useNavigate} from "react-router-dom";
+import { HandleContext } from '../context/HandleContext';
+import axios from "axios";
 
-import {useLocation } from "react-router-dom"
 
 function DetalheProduto(){
     const navigate = useNavigate()
-    const location = useLocation();
+    const {dadosProduto, setDadosProduto} = useContext(HandleContext)
+    const [numerosQuadros, setNumerosQuadros] = useState(1)
 
-    console.log(location.state.produto);
+    const diminuirNumerosQuadros = () => {
+        if(numerosQuadros <= 0){
+            setNumerosQuadros(0)
+        }else{
+            setNumerosQuadros(numerosQuadros - 1)
+        }
+    }
+
+    const handleDataCarrinho = async () => {
+        try {
+            // Faça a requisição POST para o backend
+            const response = await axios.post('http://localhost:5000/carrinhoProdutos', {
+                idQuadro: dadosProduto.ID_produtos,
+                nomeQuadro: dadosProduto.nomeQuadro,
+                precoQuadro: dadosProduto.preco,
+                imagemQuadro: dadosProduto.imagem,
+                molduraQuadro: dadosProduto.cor
+            });
+
+            const notifica_reposta = response.data.mensagem
+            console.log(notifica_reposta)
+
+            if(notifica_reposta = 'Quadro já está no carrinho'){
+                
+            }
+    
+        } catch (error) {   
+            console.error('Erro ao enviar dados para o servidor:', error);
+        }
+    }
+
     return(
         <div className="produto_container">
             <Navbar/>
@@ -34,9 +66,9 @@ function DetalheProduto(){
             </div>
             <div className="produto_box_informacoes_compra">
                 <div className="produto_div_informacoes_compra">
-                    <img src={image_bulldog} alt="image_bulldog"/>
+                    <img src={dadosProduto.imagem} alt="image_bulldog"/>
                     <div className="produto_informacoes">
-                        <h2>Quadro Bulldog Frânces</h2>
+                        <h2>{dadosProduto.nomeQuadro}</h2>
                         <div className="produto_div_avaliacoes_informacoes">
                             <div className="produto_div_star">
                                 <img src={image_star} alt="estrela"/>
@@ -46,7 +78,7 @@ function DetalheProduto(){
                                 <img src={image_star_half} alt="estrela"/>
                             </div>
                             <div className="produto_div_nota_avaliacoes">
-                                <span className="produto_span_nota">4.5</span>
+                                <span className="produto_span_nota">{dadosProduto.avaliacaoMedia}</span>
                                 <span className="produto_span_avaliacoes">+ 100 avaliações</span>
                                 <span className="produto_span_nome_artista">Criado por Sofia Silva</span>
                             </div>
@@ -57,11 +89,10 @@ function DetalheProduto(){
                         </div>
                         <div className="produto_div_preco_promocao">
                             <span className="produto_por">Por:</span>
-                            <span className="produto_preco_promocao">R$ 250,00</span>
+                            <span className="produto_preco_promocao">R$ {dadosProduto.preco}</span>
                         </div>
                         <p>
-                        Quadro pintado com grafite, seguindo técnicas de pontilhismo, luz e sombra. Já vem emoldurado e 
-                        com vidro de proteção. Cor da moldura à escolha do cliente.
+                        {dadosProduto.descricao}
                         </p>
                         <h3>Opções de molduras:</h3>
                         <div className="produto_tipo_molduras">
@@ -70,11 +101,11 @@ function DetalheProduto(){
                         </div>
                         <div className="produto_div_adicionar_carrinho">
                             <div className="produto_input_numero_quadros">
-                                <img className="image_menos" src={image_menos} alt="image_menos"/>
-                                <input type="number"/>
-                                <img className="image_mais" src={image_mais} alt="image_mais"/>
+                                <img onClick={diminuirNumerosQuadros} className="image_menos" src={image_menos} alt="image_menos"/>
+                                <input type="number" value={numerosQuadros}/>
+                                <img onClick={() => setNumerosQuadros(numerosQuadros + 1)} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
-                            <button className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
+                            <button onClick={handleDataCarrinho} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
                             <button className="produto_favoritar"><img src={image_coracao_favoritar} alt="coracao"/></button>
                         </div>
                     </div>
@@ -109,9 +140,9 @@ function DetalheProduto(){
                         proteger a imagem e aumentará a durabilidade do quadro, evitando desgates naturais e ambientais.</p>
 
                     <h2>Especificações</h2>
-                    <p>Tamanho: A5 (15 × 20 cm)<br/>
+                    <p>Tamanho: A5 ({dadosProduto.tamanho})<br/>
                     Moldura: Moldura tradicional<br/>
-                    Cor da moldura: Preta</p>
+                    Cor da moldura: {dadosProduto.cor}</p>
                 </div>
                 <div className="produto_div_quadro_parede">
                     <img src={image_quadro_parede} alt="quadro_parede"/>

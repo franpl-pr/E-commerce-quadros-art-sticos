@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './login_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { HandleContext } from '../context/HandleContext';
 import axios from 'axios';
  
 function Login() {
@@ -14,7 +15,12 @@ function Login() {
   const [msgCampos, setMsgCampos] = useState(false);
   const navigate = useNavigate();
 
+  const {variavel, mudarVariavel} = useContext(HandleContext);
+
   const handleSubmit = async () => {
+    
+    mudarVariavel(false)
+    console.log(variavel)
 
     if(email == '' || senha == ''){
       setMsgCampos(true)
@@ -29,7 +35,8 @@ function Login() {
         const nota = response.data.mensagem
         
         if(nota == 'Usuário encontrado'){
-
+          mudarVariavel()
+          console.log(variavel)
           navigate('/Home')
         }
         if(nota == 'Usuário não encontrado'){

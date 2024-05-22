@@ -2,11 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { HandleProvider } from './context/HandleContext';
+import { HandleData } from './context/HandleContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>  
-    <App/>  
+  <React.StrictMode> 
+    <HandleProvider> 
+      <HandleData>
+        <App/> 
+      </HandleData>
+    </HandleProvider> 
   </React.StrictMode>
 );
 
