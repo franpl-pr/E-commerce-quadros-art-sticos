@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import mysql.connector
-from flask_cors import CORS;
+from flask_cors import CORS
+
 
 
 app = Flask(__name__)
@@ -123,13 +124,14 @@ def inserir_produto():
     estoque = dados['estoque']
     tamanho = dados['tamanho']
     cor = dados['cor']
+    descricao = dados ['descricao']
     # categoria = dados['categoria']
 
     # Conectar ao banco de dados
     conexao = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='123456',  
+        password='1234',  
         database='quadrartes',
     )
 
@@ -146,8 +148,38 @@ def inserir_produto():
     # Retornar uma resposta JSON indicando sucesso
     return jsonify({'mensagem': 'Quadro cadastrado com sucesso'})
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
        
+#------------------------- Consulta Categorias----------------------------
 
+@app.route('/api/consultar_categorias', methods=['GET'])
+def consultar_categorias():
+    print(" /api/consultar_categorias chamado")
+    try:
+        conexao = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='1234',  
+            database='quadrartes',
+        )
 
+        cursor = conexao.cursor()
+
+        comando_consultar_categorias = "SELECT ID_categoria, tipoCategoria FROM categoriasprodutos ORDER BY tipoCategoria ASC;"
+        cursor.execute(comando_consultar_categorias)
+        categorias = cursor.fetchall()
+        print('categoria pesquisada')
+        cursor.close()
+        conexao.close()
+
+        if categorias: 
+            categorias_json = [{'ID_categoria': cat[0], 'tipoCategoria': cat[1]} for cat in categorias] 
+            return jsonify(categorias_json)
+        else:
+            return jsonify({'mensagem': 'Nenhuma categoria encontrada'})
+    except Exception as e:
+        return jsonify({'mensagem': 'Erro ao consultar categorias', 'erro': str(e)})
+
+if __name__ == '__main__':
+    app.run(debug=True)
