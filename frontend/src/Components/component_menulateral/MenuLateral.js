@@ -16,7 +16,7 @@ function MenuLateral(){
     function selectLink(){
         itemMenu.forEach((item)=>
         item.classList.remove('ativo'))
-        this.classList  .add('ativo')
+        this.classList.add('ativo')
     }
     itemMenu.forEach((item)=>
         item.addEventListener('click', selectLink)
@@ -29,7 +29,7 @@ function MenuLateral(){
             <div className="conteudo">
                 <div className="">
                     <ul>
-                        <li className="item-menu">
+                        <li className="item-menu ativo">
                             <a onClick={() => navigate("/CadastroProduto")}>
                                 <span><GoHome size={20}></GoHome></span>
                                 <span className="text-link">Dashboard</span>

@@ -1,0 +1,67 @@
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.checkout_box_sessoes{
+    background-color: #F9F1E7;
+    height: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout_div_sessoes{
+    width: 967px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkout_sessoes_div1{
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout_sessoes_div1 span{
+    font-size: 16px;
+}
+
+.checkout_sessoes_span1{
+    color: black;
+}
+
+.checkout_sessoes_span2,
+.checkout_sessoes_span3{
+    color: #9F9F9F;
+}
+
+.checkout_sessoes_div2{
+    width: 870px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.checkout_div_bolinha_preta{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.checkout_div_bolinha_cinza{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3px solid #9F9F9F;
+}
+.checkout_div_linha_maior{
+    width: 373px;
+    border: 1px solid #9F9F9F;
+}

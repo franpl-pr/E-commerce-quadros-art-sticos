@@ -2,31 +2,25 @@ import React from "react";
 import "./checkout_style.css";
 import Navbar from "../Components/component_Navbar/Navbar"
 import Footer from "../Components/component_Footer/Footer"
+import SessaoCheckout from "../Components/component_sessaoCheckout/SessaoCheckout";
+import image_produto_bulldog from '../img/image_produto_bulldog.png'
+import { IoAddSharp } from "react-icons/io5";
+import { IoRemoveSharp } from "react-icons/io5";
+import { FaRegTrashAlt } from "react-icons/fa";
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 function Checkout(){
     return(
         <div className="checkout_container">
             <Navbar/>
-            <div className="checkout_box_sessoes">
-                <div className="checkout_div_sessoes">
-                    <div className="checkout_sessoes_div1">
-                        <span className="checkout_sessoes_span1">Checkout</span>
-                        <span className="checkout_sessoes_span2">Pagamento</span>
-                        <span className="checkout_sessoes_span3">Finalização da compra</span>
-                    </div>
-                    <div className="checkout_sessoes_div2">
-                        <div className="checkout_div_bolinha_preta"/>
-                        <div className="checkout_div_linha_menor"/>
-                        <div className="checkout_div_bolinha_cinza"/>
-                        <div className="checkout_div_linha_maior"/>
-                        <div className="checkout_div_bolinha_cinza"/>
-                    </div>
-                </div>
-            </div>
-            <div className="checkout_box_informacoes">
+            <SessaoCheckout/>
+            
+                <div className="checkout_box_informacoes">
+            
+            
                 <div className="checkout_div_cadastro_entrega">
                     <h2>Informações de cadastro<div className="checkout_linha"/></h2>
-                    <div className="checkout_div_contato">
+                    <div className="checkout_div_form div_cadastro">
                         <input 
                             type="text" 
                             name="nome_completo" 
@@ -47,12 +41,25 @@ function Checkout(){
                             name="Celular" 
                             placeholder="Telefone celular"
                         />
+                        <span>Já possui uma conta? <span className="azul">Faça login</span></span>
                     </div>
-                    <h2>Endereço de entrega<div className="checkout_linha"/></h2>
-                    <div className="checkout_div_endereco">
-                        <p>Escolha uma opção:</p>
+                    <h2 className="title2">Endereço de entrega<div className="checkout_linha"/></h2>
+                    <div className="checkout_div_form">
+                        <div className="div_opcao_endereco">
+                            <p>Escolha uma opção:</p>
+                            <div className="opcoes-radio">
+                                <div className="opcao">
+                                    <input type="radio" className="radio_endereco" name="opcao_endereco" id="novo_endereco"/>
+                                    <span>Cadastrar novo endereço</span>
+                                </div>
+                                <div className="opcao">
+                                    <input className="radio_endereco" type="radio" name="opcao_endereco" id="endereco_cadastrado"/> 
+                                    <span>Usar endereço cadastrado</span>
+                                </div>
+                            </div>
+                        </div>
                         <input 
-                            className="checkout_input_maior" 
+    
                             type="text" 
                             name="endereco" 
                             placeholder="Nome do endereco"
@@ -68,54 +75,101 @@ function Checkout(){
                             placeholder="CEP"
                         />
                         <input 
-                            className="checkout_input_menor" 
+                            className="checkout_input_menor ultimo" 
                             type="text" 
                             name="numero" 
                             placeholder="Número"
                         />
-                        <select className="checkout_endereco_select">
-                            <option value={1}>País</option>
-                            <option value={2}>Option...</option>
-                        </select>
-                        <select className="checkout_endereco_select">
+                        <select>
                             <option value={1}>Estado</option>
                             <option value={2}>Option...</option>
                         </select>
-                        <select className="checkout_endereco_select">
+                        <select className="checkout_input_maior">
                             <option value={1}>Cidade</option>
                             <option value={2}>Option...</option>
                         </select>
                         <input 
-                            className="checkout_input_maior" 
+                         
                             type="text" 
                             name="bairro" 
                             placeholder="Bairro, Avenida..."
                         />
                         <input 
-                            className="checkout_input_maior" 
+                             
                             type="text" 
                             name="rua" 
                             placeholder="Rua"
                         />
                         <input 
-                            className="checkout_input_maior" 
+                             className="ultimo"
                             type="text" 
                             name="complemento" 
                             placeholder="Complemento"
                         />
-                        <div className="checkout_novo_endereco">
-                            <div className="checkout_div_novo_endereco">
-                                <input type="radio" name="novo_endereco" id="novo_endereco"/>
-                                <span>Cadastrar novo endereço</span>
-                            </div>
-                            <div className="checkout_div_novo_endereco">
-                                <input type="radio" name="novo_endereco" id="endereco_cadastrado"/> 
-                                <span>Usar endereço cadastrado</span>
-                            </div>
-                        </div>
+                        
                     </div>   
                 </div>
                 <div className="checkout_div_carrinho_compra">
+                    <h2>Carrinho de compra<div className="checkout_linha"/></h2>
+                    <div className="item_carrinho_checkout">
+                        <div className="produto_carrinho_checkout">
+                            <div className="fundo_imagem_checkout">
+                                <img src={image_produto_bulldog} alt="Quadro Bulldog"></img>
+                            </div>
+                            <div className="dados_produto">
+                                <div>
+                                    <span>Quadro Bulldog Frances</span>
+                                    <span className="desconto_vermelho">R$ 128,00</span>
+                                    <span className="preco">R$102,40</span>
+                                </div>
+                                <div>
+                                    <select>
+                                        <option value={1}>Moldura Tradicional</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="acoes_produto">
+                                <button>
+                                    <FaRegTrashAlt size={16}></FaRegTrashAlt>
+                                </button>
+                                <div className="add_del_produto">
+                                    <button className="remover_produto_checkout">
+                                        <IoRemoveSharp size={17}></IoRemoveSharp>
+                                    </button>
+                                    <span>2</span>
+                                    <button className="adicionar_produto_checkout">
+                                        <IoAddSharp size={17}></IoAddSharp>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div className="dados_subtotal">
+                            <div className="subtotal_left">
+                                <span className="bold">Subtotal (2 items)</span>
+                                <span>Desconto</span>
+                            </div>
+                            <div className="subtotal_right">
+                                <span className="preco">R$ 204,80</span>
+                                <span className="desconto_vermelho">R$ 51,20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="calcular_frete">
+                        <span class="bold">Calcular frete</span>
+                        <div className="flex_row">
+                            <input type="number" id="cep" name="cep" placeholder="CEP"/>
+                            <button>Calcular</button>
+                        </div>
+                    </div>
+                    <div className="flex_row dados_total">
+                        <span className="bold">Total</span>
+                        <span className="preco bold">R$ 204,80</span>
+                    </div>
+                    <div className="acoes_checkout">
+                        <button>Ir para o pagamento</button>
+                        <span>Cancelar compra</span>
+                    </div>
                 </div>
             </div>
             <Footer/>

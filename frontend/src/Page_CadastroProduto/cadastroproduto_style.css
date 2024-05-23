@@ -1,78 +1,226 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
 
-*{
-    font-family: 'Poppins', sans-serif; 
-    font-size: 16px;
+
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;    
+    color: #333333;
+    background-color: #FFFDF3;
 }
 .dashboard{
     display: flex;
    
 }
 .container{
-    color: #333333;
+    font-family: inherit;
+    font-size: 1.6rem;
     display: block;
-    width: 100%;
-    background-color: #FFFDF3;
+    width: 100vw;
+
 }
 .conteudo-dashboard{
-  padding: 14px 42px 0;
+  padding: 0 4.2rem 0;
 }
 .conteudo-dashboard h2{
-    font-size: 40px;
+    font-size: 3.2rem;
+    font-weight: 600px;
 }
 
 form{
     background-color: #ffffff;
-    padding: 45px;
-    border: 0.3px solid #B9B9B9;
+    padding: 3.6rem;
+    border: 1px solid #b9b9b9;
     border-radius: 14px;
+    padding-bottom: 6.6rem;
+    
 }
 .acoes{
     display: flex;
     justify-content: space-between;
 }
-.acoes .image-input input{
-    width: 150px;
-    height: 150px;
-    background-color: #ECECEE;
-    border-radius: 5px;
+.acoes .add-img input{
+    display:none;
 }
-.acoes .botoes-principais{
+
+.acoes label.input-estilizado{
+    width: 12rem;
+    height: 12rem;
+    background-color: #ECECEE;
+    background-image: url("../img/camera.png");
+    background-repeat: no-repeat;
+    background-position: top 2.7rem left 3.5rem;
+    border-radius: 5px;
+    border: none;
+    align-items: center;
+    justify-content: center;
     display: flex;
+    cursor: pointer;
+    overflow: hidden;
+    
     
 }
-.acoes .botoes-principais .botao-no-form{
-    width: 230px;
-    height: 50px;
+.image{
+    max-width: 100%;
+}
+.acoes label.input-estilizado.span-com-imagem span{
+    font-size: 1.3rem;
+    font-weight: lighter;
+    line-height: 1.6rem;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    color: #484848;
+}
+.acoes label.input-estilizado span{
+    font-size: 1.3rem;
+    font-weight: normal;
+    line-height: 1.6rem;
+    text-align: center;
+    margin-top: 5.5rem;
+    width: 9.5rem;
+    color: #484848;
+}
+.acoes label.input-estilizado.span-com-imagem {
+    background-image: none;
+  }
+
+.acoes .botoes-principais{
+    display: flex;
+  
+}
+.botao-no-form{
+    width: 23rem;
+    height: 5rem;
     background-color: #ffffff;
     color: #0CADA7;
     border-radius: 5px;
     border: 2px solid #0CADA7;
-    box-shadow: 0px 4px 12.9px rgba(0,0,0,0.25);
+    box-shadow: 0 0.4rem 1.29rem rgba(0,0,0,0.25);
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+    font-size: 1.6rem;
 }
-.acoes .botoes-principais .botao-yes-form{
-    width: 230px;
-    height: 50px;
+.botao-yes-form{
+    width: 23rem;
+    height: 5rem;
     background-color: #0CADA7;
     color: #ffffff;
     border-radius: 5px;
-    box-shadow: 0px 4px 12.9px rgba(0,0,0,0.25);
+    box-shadow: 0 0.4rem 1.29rem rgba(0,0,0,0.25);
     border: none;
     font-family: 'Poppins', sans-serif;
-    margin-left: 30px;
+    margin-left: 3rem;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
+    cursor: pointer;
+    font-size: 1.6rem;
 }
-.campos-input{
+.campos{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    
 }
 .linhas-input{
-    width: 678px;
+    width: 67.8rem;
     display: block ;
+    margin-bottom: 3rem;
 }
-.campos-input textarea{
-    width: 678px;
+.campos textarea{
+    width: 67.8rem;
+    height: 45.4rem;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 4rem;
+    padding: 0.7rem 3rem;
+    font-size: 1.6rem;
 }
 
+form label{
+    font-weight: 500;
+    display: block;
+    line-height: 4rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    
+}
+.linhas-input input{
+    border: none;
+    border-bottom: 1px solid #484848;
+    padding: 0.7rem 0;
+    width: 31.4rem;
+    line-height: 3rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+}
+.linhas-input input::placeholder, .campos textarea::placeholder{
+    color: #999999;
+}
+.linhas-input input.input-maior{
+    width: 67.8rem;
+}
+.linhas-input .linha-input{
+    margin-bottom: 3rem;
+}
+.div-add-cor label{
+    display: inline;
+    color: #0B9692;
+    font-weight: normal;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.div-add-cor .add-cor{
+    color: #ffffff;
+    background-color: #0CADA7;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: none;  
+    margin-right: 1.1rem;
+    cursor: pointer;
+}
+.div-add-cor{
+    margin-left: 5.1rem;
+    width: 67.8rem;
+    display: flex;
+    align-items: end;
+}
+.linha-dois-input{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.linha-dois-input-add{
+    display: flex;
+
+}
+.linha-dois-input-add .linha-input{
+    margin-bottom: 0;
+}
+.campos select{
+    border:none;
+    border-bottom: 1px solid #484848;
+    padding: 0.95rem 0;
+    width: 31.4rem;
+    line-height: 3rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+.linhas-input select::placeholder{
+    color: #999999;
+}
+.campos select:focus, .linhas-input input:focus, .campos textarea:focus{
+    outline: none;
+}
+.div-textarea span{
+    display: block;
+    margin-top: -4rem;
+    margin-bottom: 0;
+    margin-right: 3rem;
+    text-align: right;
+}
 
