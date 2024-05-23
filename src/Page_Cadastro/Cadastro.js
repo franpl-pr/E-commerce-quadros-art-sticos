@@ -41,7 +41,7 @@ function Cadastro(){
     const [termos, setTermos] = useState(false)
     const [EmailValido, setEmailValido] = useState(false)
 
-    const [arroba, setArroba] = useState('')
+    const [arroba, setArroba] = useState(false)
 
     const handleSearch = async () => {
         try {
@@ -91,27 +91,11 @@ function Cadastro(){
         }
         
         //Tranformando o campo email em vetor
+        
+        const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
 
-        let Array_email = dados.email.split('');
-
-        //Percorrendo o vetor do email para poder ver se tem algum "@"
-
-        for(let i = 0; i < Array_email.length; i++){
-            if(Array_email[i] == '@'){
-                setArroba('Arroba encontrado')
-                console.log('Tem um arroba')
-            }else{
-                console.log('não tem arroba')
-            }
-        }
-
-        //Procurando na String digitada se tem algum ".com" ou ".br" para validar o email
-
-        if(dados.email.indexOf(".com") !== -1 || dados.email.indexOf(".br") !== -1 && arroba == 'Arroba encontrado'){
-            console.log('Email Válido')
-        }else{
-            setEmailValido(true)                //Informando se o email é valido
-            console.log('Email Invalido')
+        if(!emailRegex.test(dados.email)){
+            setEmailValido(true);
             return;
         }
 
@@ -163,6 +147,7 @@ function Cadastro(){
         } catch (error) {   
             console.error('Erro ao enviar dados para o servidor:', error);
         }
+    
     };
 
     return( 

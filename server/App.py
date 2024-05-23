@@ -10,8 +10,8 @@ CORS(app, origins="*", supports_credentials=True)
 db_config = {
     'host':'localhost',
     'user':'root',
-    'password':'123456',  
-    'database':'quadrartes',
+    'password':'',  
+    'database':'teste_quadrartes',
 }
 
 
