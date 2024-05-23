@@ -1,0 +1,393 @@
+html{
+    font-size: 62.5%;
+}
+.checkout_container{
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFDF3;
+    color:#333333;
+}
+
+
+
+.checkout_box_informacoes{
+    width: 152rem; 
+    
+    margin: 3.2rem auto 10rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.checkout_div_cadastro_entrega{
+    display: block;
+    height: 100%;
+    width: 63rem;
+
+}
+
+.checkout_div_carrinho_compra{
+    width: 55.1rem;
+    height: 100%;
+
+}
+
+.checkout_box_informacoes h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 3.2rem;
+    font-weight: 600;
+    margin: 0 0 5rem 0;
+    padding: 0;
+}
+.checkout_box_informacoes h2.title2{
+    margin-top: 5rem;
+}
+.checkout_linha{
+    width: 12.8rem;
+    border: 1px solid #000000;
+}
+
+.checkout_div_form{
+    display: block;
+    width: 63rem;
+    
+}
+.div_cadastro{
+    text-align: center;
+}
+.checkout_div_form input, .checkout_div_form select{
+    width: 63rem;
+    height: 5.2rem;
+    background-color: white;
+    border: 1px solid #999999;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    margin-bottom: 2.5rem;
+    padding: 0 1.6rem 0 1.6rem;
+}
+.checkout_div_form input{
+    width: 61.2rem;
+    height: 5rem;
+    padding: 0 0 0 1.6rem;
+}
+
+.div_cadastro span{
+    font-size: 1.6rem;
+    letter-spacing: 0.08rem;
+    text-align: center;  
+    line-height: 4rem;
+    
+}
+.checkout_div_form span.azul{
+    color: #0B9692;
+}
+.checkout_div_form input:focus{
+    outline: none;
+}
+
+
+.checkout_div_form input.ultimo{
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+input.checkout_input_menor{
+    width: 11.2rem;
+    height: 5rem;
+    background-color: white;
+    border: 1px solid #999999;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    padding-left: 1.6rem;
+    margin-right: 1.9rem;
+}
+
+select.checkout_tipo_endereco{
+    width: 33.2rem;
+    margin-right: 1.9rem;
+    border-radius: 5px;
+    padding: 0 1.6rem;
+    border: 1px solid #999999;
+}
+
+
+
+.checkout_div_endereco input:focus{
+    outline: none;
+}
+
+
+.checkout_div_endereco option{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+
+.checkout_div_endereco select:focus{
+    outline: none;
+}
+
+.opcoes-radio{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.div_opcao_endereco{
+    margin: 0 0 1rem 0;
+}
+.div_opcao_endereco p{
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 1.6rem;
+    color: #333333;
+    font-weight: 500;
+}
+.opcao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+input[type="radio"].radio_endereco{
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+
+input[type="radio"].radio_endereco:checked{
+    background-color: #0B9692;
+}
+.opcoes-radio{
+    margin-top: 1rem;
+}
+.opcoes-radio span{
+    margin-left: 10px;
+    font-size: 1.6rem;
+    display: flex;
+    line-height: auto;
+}
+.item_carrinho_checkout{
+    border-bottom: 1px solid #D9D9D9;
+    padding-bottom: 1.4rem;
+    font-size: 1.6rem;
+} 
+.produto_carrinho_checkout{
+    display: flex;
+    justify-content: space-between;
+
+}
+.produto_carrinho_checkout img{
+    height: 12.5rem;
+    
+}
+.fundo_imagem_checkout{
+    width: 14.4rem;
+    height: 14.4rem;
+    background-color: #F1DDC9;
+    text-align: center;
+    
+}
+.checkout_div_carrinho_compra span{
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+}
+.produto_carrinho_checkout .dados_produto{
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+.produto_carrinho_checkout .dados_produto span{
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 0.02rem;
+    line-height: 2.4rem;
+
+}
+
+.produto_carrinho_checkout .dados_produto span.desconto_vermelho{
+    font-size: 1.6rem;
+    text-decoration: line-through;
+    color: #B03014;
+}
+.dados_produto span.preco{
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+}
+.produto_carrinho_checkout .dados_produto select{
+    border: none;
+    background: none;
+    padding-right:0.5rem;
+    font-family: 'Poppins', sans-serif;
+    color:#333333;
+
+}
+.produto_carrinho_checkout .acoes_produto{
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+    height: 9.4rem;
+    justify-content: space-between;
+    align-items: end;
+    margin-left: 1.5rem;
+    margin-top:5.6rem;
+}
+.produto_carrinho_checkout .acoes_produto span{
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+}
+.produto_carrinho_checkout .acoes_produto button{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 3px;
+    padding: 3px 3px;
+    border: 1px solid #B03014;
+    color:#B03014;
+    background-color: #FFFDF3;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.produto_carrinho_checkout button:focus, input:focus, select:focus{
+    outline: none;
+}
+.produto_carrinho_checkout .acoes_produto .add_del_produto{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 11rem;
+}
+.produto_carrinho_checkout .acoes_produto .add_del_produto button.remover_produto_checkout{
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    color: #333333;
+    overflow: hidden;
+
+}
+
+.produto_carrinho_checkout .acoes_produto .add_del_produto button.adicionar_produto_checkout{
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+}
+
+
+.item_carrinho_checkout .dados_subtotal{
+    display: flex;
+    flex-direction: row;
+    height: 7.2rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+}
+.item_carrinho_checkout .dados_subtotal .subtotal_left,
+.item_carrinho_checkout .dados_subtotal .subtotal_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+}
+.item_carrinho_checkout .dados_subtotal .subtotal_left{
+    height: 6.2rem;
+    
+}
+.item_carrinho_checkout .dados_subtotal .subtotal_right{
+    height: 7.2rem;
+    text-align: right;
+}
+.item_carrinho_checkout .dados_subtotal .subtotal_right span.desconto_vermelho{
+    text-decoration: line-through;
+    color: #B03014;
+    font-size: 1.8rem;
+}
+.bold{
+    font-weight: 600;
+}
+.item_carrinho_checkout .dados_subtotal .subtotal_right span.preco{
+    font-weight: 600;
+    line-height: 3.2rem;
+    font-size: 2.4rem;
+}
+.calcular_frete{
+    height: 8.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #D9D9D9;
+}
+.calcular_frete input{
+    border: 1px solid #999999;
+    background-color: #ffffff;
+    padding: 0;
+    height: 4.3rem;
+    width: 42.5rem;
+    border-radius: 5px;
+
+}
+.calcular_frete input::placeholder{
+    color: #999999;
+    padding-left: 1.6rem;
+}
+
+.calcular_frete button{
+    height: 4.5rem;
+    background-color: #333333;
+    color: #ffffff;
+    width: 9.6rem;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04rem;
+}
+.flex_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.dados_total{
+    margin-top: 2.5rem;
+    align-items: end;
+}
+.dados_total span{
+    font-size: 2rem;
+    color: #000000;
+}
+.dados_total span.preco{
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+}
+.acoes_checkout{
+    margin-top: 2rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10.9rem;
+    width: 100%;
+    color: #000000;
+}
+.acoes_checkout button{
+    background-color: #0CADA7;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0.4rem 12.9px rgba(0,0,0,0.25);
+    height: 5.2rem;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.08rem;
+    color:#ffffff;
+    width: 100%;
+    font-size: 1.6rem;
+}
+.acoes_checkout span{
+    letter-spacing: 0.08rem;
+}

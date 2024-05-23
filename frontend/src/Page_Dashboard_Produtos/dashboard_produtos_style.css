@@ -1,0 +1,11 @@
+html{
+    font-size: 62.5%;
+}
+
+.conteudo-dashboard table{
+    background-color: #ffffff;
+    padding: 3.6rem;
+    border: 1px solid #b9b9b9;
+    border-radius: 14px;
+    padding-bottom: 6.6rem;
+}
