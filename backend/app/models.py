@@ -5,8 +5,9 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from typing import Any
 from django.db import models
-
+from django.views.generic import ListView, CreateView, DeleteView
 
 class Artistas(models.Model):
     id_artista = models.IntegerField(db_column='ID_artista', primary_key=True)  # Field name made lowercase.
@@ -18,8 +19,34 @@ class Artistas(models.Model):
     class Meta:
         managed = False
         db_table = 'artistas'
+    
+    def __init__(self, usuario, razao_social, cnpj, descricao_vendedor):
+        self.usuario = usuario
+        self.razao_social = razao_social
+        self.cnpj = cnpj
+        self.descricao_vendedor = descricao_vendedor
 
+    def AdicionarProdutoPlataforma(self):
+        return
+    
+    def VisualizarDashBoard(self):
+        return
+    
+    def AdicionarProdutoEstoque(self):
+        return
 
+    def GetQntdProdEstoque(self):
+        return
+    
+    def DespacharProduto(self):
+        return
+
+    def CadastroProduto(self):
+        return
+    
+    def AtenderSolicitacaoProduto(self):
+        return
+    
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -111,6 +138,21 @@ class Carrinhodecompras(models.Model):
     class Meta:
         managed = False
         db_table = 'carrinhodecompras'
+    
+    def __init__(self, cliente, datacriacao, status):
+        self.cliente = cliente
+        self.datacriacao = datacriacao
+        self.status = status
+    
+    def adicionarProduto():
+        return
+    
+    def removerProduto():
+        return
+    
+    def finalizarCompra():
+        return
+
 
 
 class Categoriasprodutos(models.Model):
@@ -122,6 +164,13 @@ class Categoriasprodutos(models.Model):
         managed = False
         db_table = 'categoriasprodutos'
 
+    def __init__(self, tipocategoria, descricao):
+        self.tipocategoria = tipocategoria
+        self.descricao = descricao
+
+    def selecionarCategoria(self, id_categoria):
+        return
+
 
 class Clientes(models.Model):
     id_clientes = models.IntegerField(db_column='ID_clientes', primary_key=True)  # Field name made lowercase.
@@ -131,6 +180,31 @@ class Clientes(models.Model):
     class Meta:
         managed = False
         db_table = 'clientes'
+
+    def __init__(self, usuario, cpf):
+        self.usuario = usuario
+        self.cpf = cpf
+    
+    def selecionarProduto():
+        return
+    
+    def pesquisarProduto():
+        return
+
+    def visualizarProduto():
+        return
+    
+    def avaliarProduto():
+        return
+    
+    def devolverProduto():
+        return
+    
+    def trocarProduto():
+        return
+    
+    def conversarSuporte():
+        return
 
 
 class Comprovante(models.Model):
@@ -146,6 +220,55 @@ class Comprovante(models.Model):
         managed = False
         db_table = 'comprovante'
 
+    def __init__(self, pagamento, pedio, produto, data_emissao, valor_total, observacoes):
+        self.pagamento = pagamento
+        self.pedido = pedio
+        self.produto = produto
+        self.data_emissao = data_emissao
+        self.valor_total = valor_total
+        self.observacoes = observacoes
+
+    def emitirComprovante():
+        return
+    
+    def getNomeCliente():
+        return
+    
+    def setNomeCliente():
+        return
+    
+    def getCPFCliente():
+        return
+    
+    def setCPFCliente():
+        return
+    
+    def getDataEmissao():
+        return
+
+    def setDataEmissao():
+        return
+    
+    def getValorTotal():
+        return
+    
+    def setValorTotal():
+        return
+    
+    def getValorUnitario():
+        return
+
+    def setValorUnitario():
+        return
+    
+    def getQuantidade():
+        return
+    
+    def setQuantidade():
+        return
+    
+    def getPrecoUnitarioProduto():
+        return
 
 class Dashboardvendedores(models.Model):
     id_dashboardvendedores = models.AutoField(db_column='ID_dashboardVendedores', primary_key=True)  # Field name made lowercase.
@@ -166,6 +289,25 @@ class Dashboardvendedores(models.Model):
         managed = False
         db_table = 'dashboardvendedores'
 
+    def __init__(self,vendedor_id, tipo, faturamento, comissao, estoque, pagamento_id, cliente_id, pedido_id, produto_id, devolucoeetrocas_id, comprovante_id, descricao) -> None:
+        self.vendedor_id = vendedor_id
+        self.tipo = tipo
+        self.faturamento = faturamento
+        self.comissao = comissao
+        self.estoque = estoque
+        self.pagamento_id = pagamento_id
+        self.cliente_id = cliente_id
+        self.pedido_id = pedido_id
+        self.produto_id = produto_id
+        self.devolucoestroca_id = devolucoeetrocas_id
+        self.comprovante_id = comprovante_id
+        self.descricao = descricao
+    
+    def getNivelEstoque():
+        return
+    
+    def exibirAlertaEstoque():
+        return
 
 class Devolucoestroca(models.Model):
     id_devolucaotroca = models.IntegerField(db_column='ID_devolucaoTroca', primary_key=True)  # Field name made lowercase.
@@ -180,6 +322,22 @@ class Devolucoestroca(models.Model):
         managed = False
         db_table = 'devolucoestroca'
 
+    def __init__(self, pedido, produto, data_devolucao, motivo, status, observacoes):
+        self.pedido = pedido
+        self.produto = produto
+        self.data_devolucao = data_devolucao
+        self.motivo = motivo
+        self.status = status
+        self.observacoes = observacoes
+
+    def getStatusDevolucao(self):
+        return self.status
+    
+    def getMotivoDevolucao(self):
+        return self.motivo
+    
+    def getIdPedido(self):
+        return self.pedido
 
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
