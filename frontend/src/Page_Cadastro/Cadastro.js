@@ -41,6 +41,8 @@ function Cadastro(){
     const [termos, setTermos] = useState(false)
     const [EmailValido, setEmailValido] = useState(false)
 
+    const [arroba, setArroba] = useState(false)
+
     const handleSearch = async () => {
         try {
           const response = await api.get(`${dados.CEP}/json`);
@@ -89,25 +91,11 @@ function Cadastro(){
         }
         
         //Tranformando o campo email em vetor
+        
+        const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
 
-        let Array_email = dados.email.split('');
-        let arroba = false
-
-        //Percorrendo o vetor do email para poder ver se tem algum "@"
-
-        for(let i = 0; i < Array_email.length; i++){
-            if(Array_email[i] == '@'){
-                arroba = true
-            }
-        }
-
-        //Procurando na String digitada se tem algum ".com" ou ".br" para validar o email
-
-        if(dados.email.indexOf(".com") !== -1 || dados.email.indexOf(".br") !== -1 && arroba == true){
-            console.log('Email Válido')
-        }else{
-            setEmailValido(true)                //Informando se o email é valido
-            console.log('Email Invalido')
+        if(!emailRegex.test(dados.email)){
+            setEmailValido(true);
             return;
         }
 
@@ -131,7 +119,7 @@ function Cadastro(){
 
         try {
             // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/api/cadastro_usuario', {
+            const response = await axios.post('http://localhost:5000/cadastro_usuario', {
                 nome: dados.nome,
                 email: dados.email,
                 CPF: dados.CPF,
@@ -159,6 +147,7 @@ function Cadastro(){
         } catch (error) {   
             console.error('Erro ao enviar dados para o servidor:', error);
         }
+    
     };
 
     return( 
