@@ -11,7 +11,6 @@ html{
 
 .checkout_box_informacoes{
     width: 152rem; 
-    
     margin: 3.2rem auto 10rem auto;
     display: flex;
     flex-direction: row;
@@ -77,6 +76,7 @@ html{
     letter-spacing: 0.08rem;
     text-align: center;  
     line-height: 4rem;
+    
     
 }
 .checkout_div_form span.azul{

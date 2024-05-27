@@ -300,11 +300,15 @@ def excluir_quadro_carrinho():
     return jsonify(response)
 
 
+#-------------------- Excluir produto -----------------------------
 
+@app.route('/produtos/<int:id>', methods=['DELETE'])
+def delete_produto(id):
+    conexao = mysql.connector.connect(**db_config)
+    cursor = conexao.cursor()
+    cursor.execute(f"DELETE FROM produtos WHERE ID_produtos = {id}")
+    conexao.commit()
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
-       
-
-
+    cursor.close()
+    conexao.close()
+    return jsonify({"message": "Produto deletado com sucesso"})

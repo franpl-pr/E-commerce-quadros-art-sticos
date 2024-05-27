@@ -12,7 +12,7 @@ import Produto from "./Page_Produto/Produto";
 import Checkout from "./Page_Checkout/Checkout"
 import CadastroProduto from "./Page_CadastroProduto/CadastroProduto";
 import DashboardProdutos from "./Page_Dashboard_Produtos/DashboardProdutos";
-
+import Pagamento from "./Page_Pagamento/Pagamento";
 
 function App(){
     
@@ -28,6 +28,7 @@ function App(){
                 <Route path="/Checkout" element={<Checkout/>}/>
                 <Route path="/CadastroProduto" element={<CadastroProduto/>}/>
                 <Route path="/DashboardProdutos" element={<DashboardProdutos/>}/>
+                <Route path="/Pagamento" element={<Pagamento/>}/>
             </Routes>
         </Router>
     )

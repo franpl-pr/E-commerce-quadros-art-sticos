@@ -65,7 +65,7 @@ function Navbar(){
                 <a href="#">Categorias</a>
                 <a href="#">Artistas</a>
                 <a onClick={() => navigate("/Quadros")}>Quadros</a>
-                <a href="#">Oferatas</a>
+                <a href="#">Ofertas</a>
             </div>
             <div className="div_icons">
                 <IoSearch className="icons" size={32}/>
@@ -82,7 +82,7 @@ function Navbar(){
                                             </div>
                                             <div className="carrinho_informacoes">
                                                 <h2>{item.nomeQuadro}</h2>
-                                                <span className="carrinho_informacoes_preco_normal">R$ 1.280.000</span>
+                                                <span className="carrinho_informacoes_preco_normal">R$ 128,00</span>
                                                 <span className="carrinho_informacoes_preco_promocao">R$ {item.precoQuadro}</span>
                                                 <span className="carrinho_tipo_moldura">Moldura {item.molduraQuadro}</span>
                                                 <span className="carrinho_tipo_categoria">Animais | Quadros Decorativos | Bulldog</span>
@@ -93,7 +93,7 @@ function Navbar(){
                                                 <button className="carrinho_diminuir_produto"><div/></button>
                                                 <input type="number"/>
                                                 <button className="carrinho_aumentar_produto"><img src={sinal_mais}/></button>
-                                                <span>R$ 2.048.000</span>
+                                                <span>R$ 204,80</span>
                                                 <button onClick={() => excluirQuadroCarrinho(item.IdQuadro)} className="carrinho_image_lixo"><img src={image_lixo}/></button>
                                             </div>
                                         </div>
@@ -111,11 +111,11 @@ function Navbar(){
                                         <div className="carrinho_div_desconto_subtotal">
                                             <div className="carrinho_div_desconto">
                                                 <span className="carrinho_span_desconto">Desconto</span>
-                                                <span className="carrinho_span_preco_normal">R$ 3.312.000</span>
+                                                <span className="carrinho_span_preco_normal">R$ 331,20</span>
                                             </div>
                                             <div className="carrinho_div_subtotal">
                                                 <span className="carrinho_span_subtotal">Subtotal</span>
-                                                <span className="carrinho_span_preco_promocao">R$ 2.152.000</span>
+                                                <span className="carrinho_span_preco_promocao">R$ 215,20</span>
                                             </div>
                                         </div>
                                     </div>

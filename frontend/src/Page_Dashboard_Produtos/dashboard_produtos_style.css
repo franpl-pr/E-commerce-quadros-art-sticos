@@ -41,14 +41,17 @@ html{
     text-align: left;
 }
 .conteudo-dashboard table tr th:first-child{
-    padding-left: 4.5rem;
+    padding-left: 3.6rem;
 }
 .conteudo-dashboard table tr th:last-child{
-    padding-right: 4.5rem;
+    padding-right: 3.6rem;
     border:none;
 }
 .conteudo-dashboard table tr td:first-child{
-    padding-left: 4.5rem;
+    padding-left: 3.6rem;
+}
+.conteudo-dashboard table tr td:last-child{
+    padding-right: 3.6rem;
 }
 .conteudo-dashboard .indicacao-dashboard{
     display: flex;
@@ -181,4 +184,101 @@ html{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color:rgb(51, 51, 51, 0.9);
+}
+.box-popup{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popup-excluir-produto{
+    width: 33rem;
+    padding: 2.5rem 3rem 3rem;
+    background-color: #ffffff;
+    box-shadow: 0 1.3rem 61px rgba(169, 169, 169, 0.37);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    color:#484848;
+    border-radius: 26px;
+}
+.popup-excluir-produto h4{
+    margin: 0 0 1.6rem;
+    font-weight: 600;
+    color: #333333;
+}
+.popup-excluir-produto p{
+    margin: 0;
+}
+.popup-excluir-produto span{
+    font-size: 1.2rem;
+}
+.popup-excluir-produto .align-center .info-produto{
+    display: flex;
+    justify-content: space-between;
+    height: 15.3rem;
+    width: 100%;
+}
+.popup-excluir-produto .info-produto span{
+    display: inline-block;
+}
+.popup-excluir-produto .info-produto img{
+    height: 100%;
+} 
+.popup-excluir-produto .info-produto .info-text-list{
+    justify-content: space-between;
+    display: flex;
+    flex-direction:column;
+}
+.popup-excluir-produto .acoes{
+    display: flex;
+    width: 14rem;
+    justify-content: space-between;
+}
+.popup-excluir-produto .acoes button{
+   width: 6.2rem;
+   height: 3.4rem; 
+   font-family: 'Poppins', sans-serif;
+   border-radius: 5px;
+   font-size: 1.2rem;
+   font-weight: 600;
+   border: none;
+   box-shadow: 0 0.4rem 12.9px rgba(0,0,0,0.25);
+   cursor: pointer;
+}
+.popup-excluir-produto .acoes button.botao-outline{
+    color:#0CADA7;
+    background-color: #ffffff;
+    border: 1px solid #0CADA7;
+}
+.popup-excluir-produto .acoes button.botao-color-solid{
+    color:#ffffff;
+    background-color: #0CADA7;
+}
+.popup-excluir-produto .align-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 21.1rem;
+    margin-top: 2.4rem;
+}
+.box-popup .close-popup{
+    position: relative;
+    left: 16.5rem;
+    top: 4.5rem;
+    width: 2.5rem;
+}
+.box-popup .close-popup button{
+    background-color: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    border: none;
+    height: 2.5rem;
+    cursor: pointer;
+}
+.box-popup .close-popup button:hover{
+    background-color: rgb(213, 213, 213);
 }

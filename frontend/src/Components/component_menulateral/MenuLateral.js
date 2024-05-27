@@ -29,13 +29,13 @@ function MenuLateral(){
             <div className="conteudo">
                 <div className="">
                     <ul>
-                        <li className="item-menu ativo">
+                        <li className="item-menu">
                             <a onClick={() => navigate("/CadastroProduto")}>
                                 <span><GoHome size={20}></GoHome></span>
                                 <span className="text-link">Dashboard</span>
                             </a>
                         </li>
-                        <li className="item-menu">
+                        <li className="item-menu ativo">
                             <a onClick={() => navigate("/Produtos")}>
                                 <span><PiGridFour size={20}></PiGridFour></span>
                                 <span className="text-link">Produtos</span>
