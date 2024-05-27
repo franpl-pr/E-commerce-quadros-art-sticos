@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { HandleProvider } from './context/HandleContext';
-import { HandleData } from './context/HandleContext';
+import { HandleDataProvider } from './context/HandleContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode> 
     <HandleProvider> 
-      <HandleData>
+      <HandleDataProvider>
         <App/> 
-      </HandleData>
+      </HandleDataProvider>
     </HandleProvider> 
   </React.StrictMode>
 );

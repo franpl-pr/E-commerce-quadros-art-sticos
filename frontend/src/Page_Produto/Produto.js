@@ -14,21 +14,25 @@ import Quadros_relacionados from "../Components/component_Promocoes/Promocoes";
 import image_menos from "../img/image_produto_menos.png";
 import image_mais from "../img/image_produto_mais.png";
 import {useNavigate} from "react-router-dom";
-import { HandleContext } from '../context/HandleContext';
+import { HandleDataContext } from '../context/HandleContext';
 import axios from "axios";
 
 
 function DetalheProduto(){
     const navigate = useNavigate()
-    const {dadosProduto, setDadosProduto} = useContext(HandleContext)
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
     const [numerosQuadros, setNumerosQuadros] = useState(1)
 
     const diminuirNumerosQuadros = () => {
-        if(numerosQuadros <= 0){
-            setNumerosQuadros(0)
+        if(numerosQuadros <= 1){
+            setNumerosQuadros(1)
         }else{
             setNumerosQuadros(numerosQuadros - 1)
         }
+    }
+
+    const aumentaNumeroQuadros = () => {
+        setNumerosQuadros(parseInt(numerosQuadros + 1))
     }
 
     const handleDataCarrinho = async () => {
@@ -66,7 +70,7 @@ function DetalheProduto(){
             </div>
             <div className="produto_box_informacoes_compra">
                 <div className="produto_div_informacoes_compra">
-                    <img src={dadosProduto.imagem} alt="image_bulldog"/>
+                    <img src={dadosProduto.imagem} alt={image_bulldog}/>
                     <div className="produto_informacoes">
                         <h2>{dadosProduto.nomeQuadro}</h2>
                         <div className="produto_div_avaliacoes_informacoes">
@@ -102,8 +106,8 @@ function DetalheProduto(){
                         <div className="produto_div_adicionar_carrinho">
                             <div className="produto_input_numero_quadros">
                                 <img onClick={diminuirNumerosQuadros} className="image_menos" src={image_menos} alt="image_menos"/>
-                                <input type="number" value={numerosQuadros}/>
-                                <img onClick={() => setNumerosQuadros(numerosQuadros + 1)} className="image_mais" src={image_mais} alt="image_mais"/>
+                                <input type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
+                                <img onClick={aumentaNumeroQuadros} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
                             <button onClick={handleDataCarrinho} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
                             <button className="produto_favoritar"><img src={image_coracao_favoritar} alt="coracao"/></button>

@@ -88,7 +88,7 @@
     width: 1000px;
     height: 20px;
     position: absolute;
-    top: 90px;
+    top: 70px;
     right: 225px;
     border-radius: 5px;
     display: inline-block;
@@ -179,7 +179,7 @@
 
 .carrinho_div_adicionar_remover button:hover{
     cursor: pointer;
-    transform: scale(1.07);
+    transform: scale(1.05);
     transition: 0.2s;
 }
 
@@ -207,25 +207,6 @@
 .carrinho_aumentar_produto img{
     width: 16px;
     height: 16px;
-}
-
-.carrinho_div_adicionar_remover input{
-    border: none;
-    background-color: transparent;
-    width: 28px;
-    font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    color: #333333;
-}
-
-.carrinho_div_adicionar_remover input[type="number"]::-webkit-inner-spin-button,
-.carrinho_div_adicionar_remover input[type="number"]::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.carrinho_div_adicionar_remover input:focus{
-    outline: none;
 }
 
 .carrinho_div_adicionar_remover span{
@@ -416,5 +397,52 @@
     transition: 0.2s;
 }
 
+.carrinho_numeros_quadros{
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.carrinho_numeros_quadros button{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.carrinho_numeros_quadros button:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: 0.2s;
+}
+
+.carrinho_numeros_quadros input{
+    border: none;
+    background-color: transparent;
+    width: 28px;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+}
+
+.carrinho_numeros_quadros input{
+    background: transparent;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    width: 30px;
+    height: 40px;
+    text-align: center;
+    border: none;
+}
+
+.carrinho_numeros_quadros input[type="number"]::-webkit-inner-spin-button,
+.carrinho_numeros_quadros input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.carrinho_numeros_quadros input:focus{
+    outline: none;
+}
 

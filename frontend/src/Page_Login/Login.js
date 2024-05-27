@@ -14,13 +14,9 @@ function Login() {
   const [notificacao, setNotificacao] = useState(false);
   const [msgCampos, setMsgCampos] = useState(false);
   const navigate = useNavigate();
-
-  const {variavel, mudarVariavel} = useContext(HandleContext);
+  const {variavel, setVariavel} = useContext(HandleContext);
 
   const handleSubmit = async () => {
-    
-    mudarVariavel(false)
-    console.log(variavel)
 
     if(email == '' || senha == ''){
       setMsgCampos(true)
@@ -33,9 +29,10 @@ function Login() {
         });
 
         const nota = response.data.mensagem
-        
+        console.log(nota)
+
         if(nota == 'Usuário encontrado'){
-          mudarVariavel()
+          setVariavel(true)
           console.log(variavel)
           navigate('/Home')
         }

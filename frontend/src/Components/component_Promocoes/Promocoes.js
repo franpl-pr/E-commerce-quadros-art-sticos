@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react";
 import './promocoes_style.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { HandleContext } from "../../context/HandleContext";
+import { HandleDataContext } from "../../context/HandleContext";
 
 function Promocoes(){
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ function Promocoes(){
     const [quadros, setQuadros] = useState([]);
     const [produto, setProduto] = useState(null)
 
-    const {dadosProduto, setDadosProduto} = useContext(HandleContext);
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext);
 
 
     useEffect(() => {

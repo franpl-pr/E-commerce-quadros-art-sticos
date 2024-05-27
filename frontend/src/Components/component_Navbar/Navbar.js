@@ -15,9 +15,17 @@ function Navbar(){
     const navigate = useNavigate();
     const [carrinhoAberto, setcarrinhoAberto] = useState(false);
     const [quadros, setQuadros] = useState([])
-    const [respostaExclusao, setRespostaExclusao] = useState(null)
-
+    const [respostaExclusao, setRespostaExclusao] = useState('')
     const {variavel, mudarVariavel} = useContext(HandleContext);
+    const [numerosQuadros, setNumerosQuadros] = useState(1)
+
+    const diminuirNumerosQuadros = () => {
+        if(numerosQuadros <= 1){
+            setNumerosQuadros(1)
+        }else{
+            setNumerosQuadros(numerosQuadros - 1)
+        }
+    }
     
     useEffect(() => {
         axios.get('http://localhost:5000/carrinhoQuadros')
@@ -74,11 +82,11 @@ function Navbar(){
                 {carrinhoAberto && (
                         <div onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="carrinho_box">
                             <div className="carrinho_div">
-                            {quadros.map((item, index) => (<div key={index} className="carrinho_inside_box">
+                            {quadros.map((item) => (<div key={item.IdQuadro} className="carrinho_inside_box">
                                     <div className="carrinho_inside_div">
                                         <div className="carrinho_detalhes_quadro">
                                             <div className="carrinho_fundo_img">
-                                                <img src={item.imagem} alt="Algum_Quadro"/>
+                                                <img src={item.imagem} alt={quadro_bulldog}/>
                                             </div>
                                             <div className="carrinho_informacoes">
                                                 <h2>{item.nomeQuadro}</h2>
@@ -90,9 +98,11 @@ function Navbar(){
                                         </div>
                                         <div className="carrinho_quadro_precos">
                                             <div className="carrinho_div_adicionar_remover">
-                                                <button className="carrinho_diminuir_produto"><div/></button>
-                                                <input type="number"/>
-                                                <button className="carrinho_aumentar_produto"><img src={sinal_mais}/></button>
+                                                <div className="carrinho_numeros_quadros">
+                                                    <button className="carrinho_diminuir_produto" onClick={diminuirNumerosQuadros}><div/></button>
+                                                    <input key={item.IdQuadro} type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
+                                                    <button className="carrinho_aumentar_produto" onClick={() => setNumerosQuadros(numerosQuadros + 1)}><img src={sinal_mais}/></button>
+                                                </div>
                                                 <span>R$ 2.048.000</span>
                                                 <button onClick={() => excluirQuadroCarrinho(item.IdQuadro)} className="carrinho_image_lixo"><img src={image_lixo}/></button>
                                             </div>

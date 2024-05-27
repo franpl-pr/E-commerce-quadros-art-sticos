@@ -1,27 +1,24 @@
 import React, {createContext, useState} from "react";
 
 export const HandleContext = createContext()
+export const HandleDataContext = createContext()
 
 export const HandleProvider = ({children}) => {
     const [variavel, setVariavel] = useState(false)
 
-    const mudarVariavel = () => {
-        setVariavel(variavel == false ? true : false);
-    }
-
     return(
-        <HandleContext.Provider value={{ variavel, mudarVariavel }}>
+        <HandleContext.Provider value={{ variavel, setVariavel }}>
             {children}
         </HandleContext.Provider>
     )
 }
 
-export const HandleData = ({children}) => {
+export const HandleDataProvider = ({children}) => {
     const [dadosProduto, setDadosProduto] = useState({})
 
     return(
-        <HandleContext.Provider value={{dadosProduto, setDadosProduto}}>
+        <HandleDataContext.Provider value={{dadosProduto, setDadosProduto}}>
             {children}
-        </HandleContext.Provider>
+        </HandleDataContext.Provider>
     )
 }

@@ -1,3 +1,3 @@
 @echo off
-cd D:\Projetos\projetos-react\E-commerce-quadros-art-sticos\server
+cd C:\Programas\quadrartes\frontend\server
 python App.py

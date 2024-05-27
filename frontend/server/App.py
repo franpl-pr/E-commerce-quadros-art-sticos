@@ -123,6 +123,7 @@ def inserir_produto():
     estoque = dados['estoque']
     tamanho = dados['tamanho']
     cor = dados['cor']
+    descricao = dados['descricao']
     # categoria = dados['categoria']
 
      # Conectar ao banco de dados

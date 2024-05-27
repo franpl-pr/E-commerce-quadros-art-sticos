@@ -186,9 +186,9 @@ function CadastroProduto(){
                                         <label>Categoria</label>
                                         <select id="categoriaSelect"  name="categoria" value={dados.categoria} onChange={(e) => setDados({...dados, categoria: e.target.value})}>
                                         <option value="">Selecione a categoria do quadro</option>
-                                            {categorias.map((categoria) => (
+                                            {/* {categorias.map((categoria) => (
                                                 <option key={categoria.ID_categoria} value={categoria.ID_categoria}>{categoria.tipoCategoria}</option>
-                                            ))}
+                                            ))} */}
                                         </select>
                                     </div>                                
                                     <div className="linha-input">
@@ -245,4 +245,5 @@ function CadastroProduto(){
     )
     
 }
+
 export default CadastroProduto;
