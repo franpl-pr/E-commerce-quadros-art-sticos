@@ -92,8 +92,10 @@ function Navbar(){
                                             </div>
                                             <div className="carrinho_informacoes">
                                                 <h2>{item.nomeQuadro}</h2>
+
                                                 <span className="carrinho_informacoes_preco_normal">R$ 1.280.000</span>
                                                 <span className="carrinho_informacoes_preco_promocao">{formatarDinheiro(item.preco)}</span>
+
                                                 <span className="carrinho_tipo_moldura">Moldura {item.molduraQuadro}</span>
                                                 <span className="carrinho_tipo_categoria">Animais | Quadros Decorativos | Bulldog</span>
                                             </div>
@@ -107,6 +109,7 @@ function Navbar(){
                                                 </div>
                                                 <span>{formatarDinheiro(item.preco)}</span>
                                                 <button onClick={removerProdutoCarrinho} className="carrinho_image_lixo"><img src={image_lixo}/></button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +126,7 @@ function Navbar(){
                                         <div className="carrinho_div_desconto_subtotal">
                                             <div className="carrinho_div_desconto">
                                                 <span className="carrinho_span_desconto">Desconto</span>
-                                                <span className="carrinho_span_preco_normal">R$ 3.312.000</span>
+                                                <span className="carrinho_span_preco_normal">R$ 331,20</span>
                                             </div>
                                             <div className="carrinho_div_subtotal">
                                                 <span className="carrinho_span_subtotal">Subtotal</span>

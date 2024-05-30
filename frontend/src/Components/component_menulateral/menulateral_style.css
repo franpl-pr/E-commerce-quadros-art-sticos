@@ -31,12 +31,15 @@
     padding: 0;
 }
 .conteudo ul li{
-    padding-left: 50px;
+    padding-left: 40px;
     height: 50px;
     margin: 0;
     display: flex;
     align-items: center;
     transition: .2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .conteudo ul li span{
     margin: 0;
@@ -56,6 +59,10 @@ ul li.ativo{
 .conteudo ul li:hover{
     background-color: rgba(255,255,255,0.25);
     cursor:pointer;
+}
+.conteudo ul li.ativo:hover{
+    background-color: #0CADA7;
+    cursor: default;
 }
 .divisor{
     border-bottom: 1px solid rgb(255, 255, 255, 20%);

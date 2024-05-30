@@ -161,8 +161,8 @@ function CadastroProduto(){
                                     setDados({...dados, imagem: e.target.files[0]})}/>
                             </div>
                             <div className="botoes-principais">
-                                <button type="reset" className="botao-no-form">Cancelar</button>
-                                <button onClick={handleSubmit} className="botao-yes-form">Cadastrar produto</button>
+                                <button type="reset" className="botao-no-form" onClick={() => navigate(-1)}>Cancelar</button>
+                                <button onClick={handleSubmit} type="submit" className="botao-yes-form">Cadastrar produto</button>
                             </div>
                         </div>
                         <div className="campos">
@@ -232,7 +232,7 @@ function CadastroProduto(){
                             </div>
                             <div className="div-textarea">
                                 <label>Descrição</label>
-                                <textarea name="descricao" placeholder="Escreva uma descrição breve sobre o produto. Ela aparecerá embaixo do nome do produto." onChange={(e) => setDados({...dados, descricao: e.target.value})}>
+                                <textarea name="descricao" maxLength={500} placeholder="Escreva uma descrição breve sobre o produto. Ela aparecerá embaixo do nome do produto." onChange={(e) => setDados({...dados, descricao: e.target.value})}>
                                 </textarea>
                                 <span>0/500 CARÁCTERES</span>
                             </div>

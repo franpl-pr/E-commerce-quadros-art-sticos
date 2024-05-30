@@ -16,8 +16,8 @@ function Quadros(){
     const [quadros, setQuadros] = useState([]);
     const [numQuadros, setNumQuadros] = useState(10)
     const [produto, setProduto] = useState(null)
-
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext);
+
 
     useEffect(() => {
         axios.get('http://localhost:5000/quadros')

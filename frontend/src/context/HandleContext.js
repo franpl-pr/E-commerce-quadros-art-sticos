@@ -6,7 +6,6 @@ export const HandleCarrinhoContext = createContext()
 
 export const HandleProvider = ({children}) => {
     const [variavel, setVariavel] = useState(false)
-
     return(
         <HandleContext.Provider value={{ variavel, setVariavel }}>
             {children}

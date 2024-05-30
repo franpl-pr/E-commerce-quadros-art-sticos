@@ -24,7 +24,11 @@ html{
 }
 .conteudo-dashboard h2{
     font-size: 3.2rem;
-    font-weight: 600px;
+    line-height: 4.8rem;
+    font-weight: 600;
+    margin-top:1.4rem;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 form{
