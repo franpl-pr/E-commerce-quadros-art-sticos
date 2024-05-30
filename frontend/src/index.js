@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import { HandleProvider } from './context/HandleContext';
 import { HandleDataProvider } from './context/HandleContext';
+import { HandleCarrinhoProvider } from './context/HandleContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode> 
     <HandleProvider> 
       <HandleDataProvider>
-        <App/> 
+        <HandleCarrinhoProvider>
+          <App/> 
+        </HandleCarrinhoProvider>
       </HandleDataProvider>
     </HandleProvider> 
   </React.StrictMode>

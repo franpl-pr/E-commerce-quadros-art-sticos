@@ -173,6 +173,7 @@ input[type="radio"].radio_endereco:checked{
     border-bottom: 1px solid #D9D9D9;
     padding-bottom: 1.4rem;
     font-size: 1.6rem;
+
 } 
 .produto_carrinho_checkout{
     display: flex;
@@ -187,8 +188,10 @@ input[type="radio"].radio_endereco:checked{
     width: 14.4rem;
     height: 14.4rem;
     background-color: #F1DDC9;
-    text-align: center;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
 }
 .checkout_div_carrinho_compra span{
     font-size: 1.6rem;
@@ -390,4 +393,10 @@ input[type="radio"].radio_endereco:checked{
 }
 .acoes_checkout span{
     letter-spacing: 0.08rem;
+}
+
+.checkout_div_carrinho_compra button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
 }

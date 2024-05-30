@@ -39,7 +39,6 @@ function CadastroProduto(){
             const fetchCategorias = async () => {
                 try {
                     const response = await axios.get('http://localhost:5000/api/consultar_categorias');
-                    console.log('Resposta recebida:', response);
                     setCategorias(response.data); 
                 } catch (error) {
                     console.error('Erro ao buscar categorias:', error);
@@ -92,8 +91,10 @@ function CadastroProduto(){
             return () => {
                 inputFile.removeEventListener('change', handleChange);
             };
-        }, 
+        },
         []);
+        
+
 
 
 
@@ -102,21 +103,21 @@ function CadastroProduto(){
     }
 
     const handleSubmit = async () => {
-        setNotifVazio(false);
-        setNotifEstoque(false);
-        setNotifImagem(false);
-        setNotifEstoque(false)
+        // setNotifVazio(false);
+        // setNotifEstoque(false);
+        // setNotifImagem(false);
+        // setNotifEstoque(false)
 
-        for(let valor in dados){
-            if(dados[valor] == ''){
-                setNotifVazio(true)
-                return;
-            }
-        }
-        if(dados.estoque <= 0 ) { 
-            setNotifEstoque(true)
-            return;
-        }
+        // for(let valor in dados){
+        //     if(dados[valor] == ''){
+        //         setNotifVazio(true)
+        //         return;
+        //     }
+        // }
+        // if(dados.estoque <= 0 ) { 
+        //     setNotifEstoque(true)
+        //     return;
+        // }
         
             try {
                 const response = await axios.post('http://localhost:5000/api/cadastro_produto',{
@@ -161,7 +162,7 @@ function CadastroProduto(){
                             </div>
                             <div className="botoes-principais">
                                 <button type="reset" className="botao-no-form">Cancelar</button>
-                                <button onClick={handleSubmit} type="submit" className="botao-yes-form">Cadastrar produto</button>
+                                <button onClick={handleSubmit} className="botao-yes-form">Cadastrar produto</button>
                             </div>
                         </div>
                         <div className="campos">
@@ -186,9 +187,9 @@ function CadastroProduto(){
                                         <label>Categoria</label>
                                         <select id="categoriaSelect"  name="categoria" value={dados.categoria} onChange={(e) => setDados({...dados, categoria: e.target.value})}>
                                         <option value="">Selecione a categoria do quadro</option>
-                                            {/* {categorias.map((categoria) => (
+                                            {categorias.map((categoria) => (
                                                 <option key={categoria.ID_categoria} value={categoria.ID_categoria}>{categoria.tipoCategoria}</option>
-                                            ))} */}
+                                            ))} 
                                         </select>
                                     </div>                                
                                     <div className="linha-input">

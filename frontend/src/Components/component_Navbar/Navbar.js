@@ -9,7 +9,9 @@ import quadro_bulldog from "../../img/image_produto_bulldog.png";
 import sinal_mais from "../../img/Vector 5.png";
 import image_lixo from "../../img/trash.png";
 import { HandleContext } from '../../context/HandleContext';
-import axios from "axios";
+import { HandleCarrinhoContext } from "../../context/HandleContext";
+import { HandleDataContext } from '../../context/HandleContext';
+import formatarDinheiro from "../../Utilidades/formartarDinheiro";
 
 function Navbar(){
     const navigate = useNavigate();
@@ -17,6 +19,10 @@ function Navbar(){
     const [quadros, setQuadros] = useState([])
     const [respostaExclusao, setRespostaExclusao] = useState('')
     const {variavel, mudarVariavel} = useContext(HandleContext);
+    const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext);
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+
+
     const [numerosQuadros, setNumerosQuadros] = useState(1)
 
     const diminuirNumerosQuadros = () => {
@@ -27,34 +33,19 @@ function Navbar(){
         }
     }
     
-    useEffect(() => {
-        axios.get('http://localhost:5000/carrinhoQuadros')
-        .then(response => {
-            setQuadros(response.data);
-            console.log(quadros)
-        })
-        .catch(error => {
-            console.error("Houve um erro!", error);
-        });
-    }, []);
+    const precoTotal = dadosCarrinho.reduce((acumulador, item) => {
+        return Number(item.preco) + acumulador;
+    }, 0)
 
-
-    const excluirQuadroCarrinho = async (item) => {
-        try {
-            // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/excluirQuadro', {
-                IdQuadro: item.IdQuadro
-            });
-
-            setRespostaExclusao(response.data.mensagem)
-            console.log(respostaExclusao)
-            
-            
-        } catch (error) {   
-            console.error('Erro ao enviar dados para o servidor:', error);
+    const removerProdutoCarrinho = () => {
+        const index = dadosCarrinho.findIndex(item => item.Id_produtos === dadosProduto.Id_produtos);
+        if (index !== -1) {
+            const novoArray = [...dadosCarrinho];
+            console.log(novoArray)
+            novoArray.splice(index, 1);
+            setDadosCarrinho(novoArray);
         }
-    }
-    
+    };
 
     const abrirCarrinho = () => {
         setcarrinhoAberto(true);
@@ -64,6 +55,16 @@ function Navbar(){
         setcarrinhoAberto(false);
     };
     
+    const verificaCompra = () => {
+        if(dadosCarrinho.length < 1){
+            alert('O carrinho está vazio ! Coloque algum produto no carrinho para prosseguir com a compra.')
+            return;
+        }
+        else{
+            navigate('/Checkout')
+        }
+    }
+
     return(
         <div className="navbar">
             <div className="div_logo">
@@ -74,15 +75,16 @@ function Navbar(){
                 <a href="#">Artistas</a>
                 <a onClick={() => navigate("/Quadros")}>Quadros</a>
                 <a href="#">Oferatas</a>
-            </div>
+            </div>  
             <div className="div_icons">
-                <IoSearch className="icons" size={32}/>
-                <FaRegHeart className="icons" size={32}/>
-                <HiOutlineShoppingCart onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="icons" size={32}/>
-                {carrinhoAberto && (
+                <button className="button_icons"><IoSearch className="icons" size={32}/></button>
+                <button className="button_icons"><FaRegHeart className="icons" size={32}/></button>
+                <button className="button_icons"><HiOutlineShoppingCart onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="icons" size={32}/>
+                {dadosCarrinho.length > 0 && <div className="notificacao_item_carrinho"><span>{dadosCarrinho.length}</span></div>}</button>
+                {carrinhoAberto && (    
                         <div onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="carrinho_box">
                             <div className="carrinho_div">
-                            {quadros.map((item) => (<div key={item.IdQuadro} className="carrinho_inside_box">
+                            {dadosCarrinho.map((item) => (<div key={item.Id_produtos} className="carrinho_inside_box">
                                     <div className="carrinho_inside_div">
                                         <div className="carrinho_detalhes_quadro">
                                             <div className="carrinho_fundo_img">
@@ -91,7 +93,7 @@ function Navbar(){
                                             <div className="carrinho_informacoes">
                                                 <h2>{item.nomeQuadro}</h2>
                                                 <span className="carrinho_informacoes_preco_normal">R$ 1.280.000</span>
-                                                <span className="carrinho_informacoes_preco_promocao">R$ {item.precoQuadro}</span>
+                                                <span className="carrinho_informacoes_preco_promocao">{formatarDinheiro(item.preco)}</span>
                                                 <span className="carrinho_tipo_moldura">Moldura {item.molduraQuadro}</span>
                                                 <span className="carrinho_tipo_categoria">Animais | Quadros Decorativos | Bulldog</span>
                                             </div>
@@ -103,8 +105,8 @@ function Navbar(){
                                                     <input key={item.IdQuadro} type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
                                                     <button className="carrinho_aumentar_produto" onClick={() => setNumerosQuadros(numerosQuadros + 1)}><img src={sinal_mais}/></button>
                                                 </div>
-                                                <span>R$ 2.048.000</span>
-                                                <button onClick={() => excluirQuadroCarrinho(item.IdQuadro)} className="carrinho_image_lixo"><img src={image_lixo}/></button>
+                                                <span>{formatarDinheiro(item.preco)}</span>
+                                                <button onClick={removerProdutoCarrinho} className="carrinho_image_lixo"><img src={image_lixo}/></button>
                                             </div>
                                         </div>
                                     </div>
@@ -125,16 +127,16 @@ function Navbar(){
                                             </div>
                                             <div className="carrinho_div_subtotal">
                                                 <span className="carrinho_span_subtotal">Subtotal</span>
-                                                <span className="carrinho_span_preco_promocao">R$ 2.152.000</span>
+                                                <span className="carrinho_span_preco_promocao">{formatarDinheiro(precoTotal)}</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <button onClick={() => navigate("/Checkout")}>Comprar</button>
+                                    <button onClick={verificaCompra}>Comprar</button>
                                 </div>
                             </div>
                         </div>
                 )}
-                {variavel ? <MdOutlinePerson className="icons" size={32}/> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
+                {variavel ? <button className="button_icons"><MdOutlinePerson className="icons" size={32}/></button> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>
     )

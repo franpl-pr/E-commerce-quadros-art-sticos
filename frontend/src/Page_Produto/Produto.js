@@ -15,12 +15,13 @@ import image_menos from "../img/image_produto_menos.png";
 import image_mais from "../img/image_produto_mais.png";
 import {useNavigate} from "react-router-dom";
 import { HandleDataContext } from '../context/HandleContext';
-import axios from "axios";
-
+import { HandleCarrinhoContext } from '../context/HandleContext';
+import formatarDinheiro from "../Utilidades/formartarDinheiro";
 
 function DetalheProduto(){
     const navigate = useNavigate()
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
     const [numerosQuadros, setNumerosQuadros] = useState(1)
 
     const diminuirNumerosQuadros = () => {
@@ -35,28 +36,11 @@ function DetalheProduto(){
         setNumerosQuadros(parseInt(numerosQuadros + 1))
     }
 
-    const handleDataCarrinho = async () => {
-        try {
-            // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/carrinhoProdutos', {
-                idQuadro: dadosProduto.ID_produtos,
-                nomeQuadro: dadosProduto.nomeQuadro,
-                precoQuadro: dadosProduto.preco,
-                imagemQuadro: dadosProduto.imagem,
-                molduraQuadro: dadosProduto.cor
-            });
-
-            const notifica_reposta = response.data.mensagem
-            console.log(notifica_reposta)
-
-            if(notifica_reposta = 'Quadro já está no carrinho'){
-                
-            }
-    
-        } catch (error) {   
-            console.error('Erro ao enviar dados para o servidor:', error);
-        }
+    const handleAddCart = () => {setDadosCarrinho([...dadosCarrinho, dadosProduto])
+        console.log(dadosProduto)
     }
+
+
 
     return(
         <div className="produto_container">
@@ -93,7 +77,7 @@ function DetalheProduto(){
                         </div>
                         <div className="produto_div_preco_promocao">
                             <span className="produto_por">Por:</span>
-                            <span className="produto_preco_promocao">R$ {dadosProduto.preco}</span>
+                            <span className="produto_preco_promocao">{formatarDinheiro(dadosProduto.preco)}</span>
                         </div>
                         <p>
                         {dadosProduto.descricao}
@@ -109,7 +93,7 @@ function DetalheProduto(){
                                 <input type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
                                 <img onClick={aumentaNumeroQuadros} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
-                            <button onClick={handleDataCarrinho} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
+                            <button onClick={handleAddCart} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
                             <button className="produto_favoritar"><img src={image_coracao_favoritar} alt="coracao"/></button>
                         </div>
                     </div>
@@ -156,7 +140,7 @@ function DetalheProduto(){
                 <div className="produtos_div_produtos_relacionados">
                     <h2>Produtos relacionados<div className="produto_linha"></div></h2>
                     <Quadros_relacionados/>
-                    <button>Ver mais</button>
+                    <button onClick={() => navigate('/Quadros')}>Ver mais</button>
                 </div>
             </div>
             <Footer/>

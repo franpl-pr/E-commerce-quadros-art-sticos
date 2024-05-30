@@ -124,7 +124,7 @@ def inserir_produto():
     tamanho = dados['tamanho']
     cor = dados['cor']
     descricao = dados['descricao']
-    # categoria = dados['categoria']
+    categoria = dados['categoria']
 
      # Conectar ao banco de dados
     conexao = mysql.connector.connect(**db_config)
@@ -133,7 +133,7 @@ def inserir_produto():
     cursor = conexao.cursor()
 
     # Montar e executar o comando SQL para inserir o usuário
-    comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, imagem, estoque, cor, tamanho, descricao) VALUES ('{quadro}', '{preco}', '{imagem}', {estoque}, '{cor}', '{tamanho}', '{descricao}')"
+    comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, imagem, estoque, categoria_id, cor, tamanho, descricao) VALUES ('{quadro}', '{preco}', '{imagem}', {estoque}, '{categoria}', '{cor}', '{tamanho}', '{descricao}')"
     cursor.execute(comando_inserir_dados)
     conexao.commit() # edita o banco de dados
 
@@ -152,9 +152,10 @@ def consultar_categorias():
     cursor = conexao.cursor()
     cursor.execute("SELECT ID_categoria, tipoCategoria FROM categoriasprodutos")
     result = cursor.fetchall()
+    categorias = [{'ID_categoria': row[0],'tipoCategoria': row[1]} for row in result]
     cursor.close()
     conexao.close()
-    return jsonify(result)
+    return jsonify(categorias)
 
 
 #-------------------- Quadros ----------------------

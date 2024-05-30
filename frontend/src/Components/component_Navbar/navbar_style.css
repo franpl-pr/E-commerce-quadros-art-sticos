@@ -75,7 +75,7 @@
     transition: 0.2s;
 }
 
-.icons:hover{
+.button_icons:hover{
     cursor: pointer;
     transform: scale(1.07);
     transition: 0.2s;
@@ -98,20 +98,24 @@
     margin-top: 20px;
     background-color: #FFFDF3;
     width: 1000px;
+    height: 500px;
     border-radius: 5px;
     position: absolute;
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow: auto;
 }
 
 .carrinho_inside_box{
     border-bottom: 2px solid #D9D9D9;
     width: 946px;
     height: 200px;
-    margin: 0 auto;
+    margin: 10px auto; 
     display: flex;
-    align-items: center;
+    padding-bottom: 20px;
 }
 
 .carrinho_inside_div{
@@ -127,6 +131,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .carrinho_quadro_precos{
@@ -389,6 +394,7 @@
     border: none;
     border-radius: 5px;
     background-color: #0CADA7;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .carrinho_box_total button:hover{
@@ -446,3 +452,28 @@
     outline: none;
 }
 
+.button_icons{
+    border: none;
+    background: transparent;
+    position: relative;
+}
+
+.notificacao_item_carrinho{
+    background: rgb(255, 72, 72);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.notificacao_item_carrinho span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
