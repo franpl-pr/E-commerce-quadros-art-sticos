@@ -162,7 +162,7 @@ def consultar_categorias():
 
 #----------------- Consultar categoria produto --------
 
-@app.route('http://localhost:5000/consultatcategoriaproduto', methods=['GET'])
+@app.route('/consultatcategoriaproduto', methods=['GET'])
 def consultar_categoria_produto():
     dados = request.json
     id_categoria = dados['id']
@@ -276,3 +276,7 @@ def delete_produto(id):
     cursor.close()
     conexao.close()
     return jsonify({"message": "Produto deletado com sucesso"})
+
+if __name__ == '__main__':
+    print("Iniciando o servidor Flask...")
+    app.run(debug=True)

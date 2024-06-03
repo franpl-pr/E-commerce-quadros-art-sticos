@@ -16,21 +16,25 @@ import formatarDinheiro from "../../Utilidades/formartarDinheiro";
 function Navbar(){
     const navigate = useNavigate();
     const [carrinhoAberto, setcarrinhoAberto] = useState(false);
-    const [quadros, setQuadros] = useState([])
-    const [respostaExclusao, setRespostaExclusao] = useState('')
     const {variavel, mudarVariavel} = useContext(HandleContext);
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext);
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const [quantidade, setQuantidade] = useState(dadosProduto.quantidade)
 
-
-    const [numerosQuadros, setNumerosQuadros] = useState(1)
-
-    const diminuirNumerosQuadros = () => {
-        if(numerosQuadros <= 1){
-            setNumerosQuadros(1)
-        }else{
-            setNumerosQuadros(numerosQuadros - 1)
+    const diminuirNumerosQuadros = (item) => {
+        if(item.quantidade <= 1){   
+            setQuantidade(1)
+            item.quantidade = quantidade
+            console.log('quantidade menor ou igual a 1')
+            return;
         }
+        item.quantidade = quantidade
+        setQuantidade(quantidade - 1)
+    }
+
+    const aumentaNumeroQuadros = (item) => {
+        setQuantidade(quantidade + 1)
+        item.quantidade = quantidade
     }
     
     const precoTotal = dadosCarrinho.reduce((acumulador, item) => {
@@ -65,6 +69,7 @@ function Navbar(){
         }
     }
 
+
     return(
         <div className="navbar">
             <div className="div_logo">
@@ -80,7 +85,7 @@ function Navbar(){
                 <button className="button_icons"><IoSearch className="icons" size={32}/></button>
                 <button className="button_icons"><FaRegHeart className="icons" size={32}/></button>
                 <button className="button_icons"><HiOutlineShoppingCart onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="icons" size={32}/>
-                {dadosCarrinho.length > 0 && <div className="notificacao_item_carrinho"><span>{dadosCarrinho.length}</span></div>}</button>
+                {dadosCarrinho.length > 0 && <div className="notificacao_item_carrinho"><span>{dadosCarrinho.length}</span></div>}
                 {carrinhoAberto && (    
                         <div onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="carrinho_box">
                             <div className="carrinho_div">
@@ -103,9 +108,9 @@ function Navbar(){
                                         <div className="carrinho_quadro_precos">
                                             <div className="carrinho_div_adicionar_remover">
                                                 <div className="carrinho_numeros_quadros">
-                                                    <button className="carrinho_diminuir_produto" onClick={diminuirNumerosQuadros}><div/></button>
-                                                    <input key={item.IdQuadro} type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
-                                                    <button className="carrinho_aumentar_produto" onClick={() => setNumerosQuadros(numerosQuadros + 1)}><img src={sinal_mais}/></button>
+                                                    <button className="carrinho_diminuir_produto" onClick={() => diminuirNumerosQuadros(item)}><div/></button>
+                                                    <span>{item.quantidade}</span>
+                                                    <button className="carrinho_aumentar_produto" onClick={() => aumentaNumeroQuadros(item)}><img src={sinal_mais}/></button>
                                                 </div>
                                                 <span>{formatarDinheiro(item.preco)}</span>
                                                 <button onClick={removerProdutoCarrinho} className="carrinho_image_lixo"><img src={image_lixo}/></button>
@@ -114,7 +119,7 @@ function Navbar(){
                                         </div>
                                     </div>
                                 </div>))}
-                                <div className="carrinho_box_total">
+                                {dadosCarrinho.length > 0 ? <div className="carrinho_box_total">
                                     <div className="carrinho_box_cupom_subtotal">
                                         <div className="carrinho_div_cupom_brasil">
                                             <span>Cupom</span>
@@ -135,10 +140,10 @@ function Navbar(){
                                         </div>
                                     </div>
                                     <button onClick={verificaCompra}>Comprar</button>
-                                </div>
+                                </div> : null}
                             </div>
                         </div>
-                )}
+                )}</button>
                 {variavel ? <button className="button_icons"><MdOutlinePerson className="icons" size={32}/></button> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>

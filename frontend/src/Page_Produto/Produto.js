@@ -22,25 +22,31 @@ function DetalheProduto(){
     const navigate = useNavigate()
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
-    const [numerosQuadros, setNumerosQuadros] = useState(1)
+    const [quantidade, setQuantidade] = useState(1)
+
+    dadosProduto.quantidade = quantidade;
+    dadosProduto.precoTotal = dadosProduto.preco
 
     const diminuirNumerosQuadros = () => {
-        if(numerosQuadros <= 1){
-            setNumerosQuadros(1)
-        }else{
-            setNumerosQuadros(numerosQuadros - 1)
+        if(dadosProduto.quantidade <= 1){
+            setQuantidade(1)
+            return;
         }
+        setQuantidade(quantidade - 1)
     }
 
     const aumentaNumeroQuadros = () => {
-        setNumerosQuadros(parseInt(numerosQuadros + 1))
+        setQuantidade(quantidade + 1)
     }
 
     const handleAddCart = () => {setDadosCarrinho([...dadosCarrinho, dadosProduto])
         console.log(dadosProduto)
     }
 
-
+    const verMais = () => {
+        navigate('/Quadros')
+        window.scrollTo(0, 2)
+    }
 
     return(
         <div className="produto_container">
@@ -90,7 +96,7 @@ function DetalheProduto(){
                         <div className="produto_div_adicionar_carrinho">
                             <div className="produto_input_numero_quadros">
                                 <img onClick={diminuirNumerosQuadros} className="image_menos" src={image_menos} alt="image_menos"/>
-                                <input type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
+                                <span>{dadosProduto.quantidade}</span>
                                 <img onClick={aumentaNumeroQuadros} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
                             <button onClick={handleAddCart} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
@@ -140,7 +146,7 @@ function DetalheProduto(){
                 <div className="produtos_div_produtos_relacionados">
                     <h2>Produtos relacionados<div className="produto_linha"></div></h2>
                     <Quadros_relacionados/>
-                    <button onClick={() => navigate('/Quadros')}>Ver mais</button>
+                    <button onClick={verMais}>Ver mais</button>
                 </div>
             </div>
             <Footer/>

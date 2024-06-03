@@ -237,7 +237,7 @@
     transition: 0.2s;
 }
 
-.produto_input_numero_quadros input{
+.produto_input_numero_quadros span{
     background: transparent;
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
@@ -245,12 +245,6 @@
     height: 40px;
     text-align: center;
     border: none;
-}
-
-.produto_input_numero_quadros input[type="number"]::-webkit-inner-spin-button,
-.produto_input_numero_quadros input[type="number"]::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 .produto_input_numero_quadros input:focus{
