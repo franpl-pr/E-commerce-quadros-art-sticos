@@ -8,7 +8,6 @@ import { HandleCarrinhoProvider } from './context/HandleContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode> 
     <HandleProvider> 
       <HandleDataProvider>
         <HandleCarrinhoProvider>
@@ -16,7 +15,7 @@ root.render(
         </HandleCarrinhoProvider>
       </HandleDataProvider>
     </HandleProvider> 
-  </React.StrictMode>
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

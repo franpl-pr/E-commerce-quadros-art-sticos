@@ -178,7 +178,7 @@ input[type="radio"].radio_endereco:checked{
 .produto_carrinho_checkout{
     display: flex;
     justify-content: space-between;
-
+    margin-bottom: 20px;
 }
 .produto_carrinho_checkout img{
     height: 12.5rem;
@@ -191,7 +191,6 @@ input[type="radio"].radio_endereco:checked{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
 }
 .checkout_div_carrinho_compra span{
     font-size: 1.6rem;
@@ -202,13 +201,23 @@ input[type="radio"].radio_endereco:checked{
     justify-content: space-between;
     display: flex;
     flex-direction: column;
+    width: 250px;
 }
 .produto_carrinho_checkout .dados_produto span{
     display: block;
     font-size: 2rem;
     letter-spacing: 0.02rem;
     line-height: 2.4rem;
+}
 
+.dados_produto p{
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
 }
 
 .produto_carrinho_checkout .dados_produto span.desconto_vermelho{
@@ -248,8 +257,8 @@ input[type="radio"].radio_endereco:checked{
     height: 2.4rem;
     border-radius: 3px;
     padding: 3px 3px;
-    border: 1px solid #B03014;
-    color:#B03014;
+    border: 1px solid red;
+    color:red;
     background-color: #FFFDF3;
     text-align: center;
     display: flex;
@@ -307,7 +316,7 @@ input[type="radio"].radio_endereco:checked{
 }
 .item_carrinho_checkout .dados_subtotal .subtotal_right span.desconto_vermelho{
     text-decoration: line-through;
-    color: #B03014;
+    color: red;
     font-size: 1.8rem;
 }
 .bold{

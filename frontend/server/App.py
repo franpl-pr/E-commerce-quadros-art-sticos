@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
 
-
-
 app = Flask(__name__)
 # CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 CORS(app, origins="*", supports_credentials=True)
@@ -12,9 +10,8 @@ db_config = {
     'host':'localhost',
     'user':'root',
     'password':'',  
-    'database':'teste_quadrartes',
+    'database':'testequadrartes',
 }
-
 
 #------------------------- Cadastro ----------------------------
 
@@ -125,7 +122,7 @@ def inserir_produto():
     tamanho = dados['tamanho']
     cor = dados['cor']
     descricao = dados ['descricao']
-    # categoria = dados['categoria']
+    categoria = dados['categoria']
 
      # Conectar ao banco de dados
     conexao = mysql.connector.connect(**db_config)

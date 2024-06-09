@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.35b36db1.css",
-    "main.js": "/static/js/main.2dea7f83.js",
+    "main.css": "/static/css/main.ccaee5e0.css",
+    "main.js": "/static/js/main.5ed3eb46.js",
     "static/media/image_inicial_quadros.png": "/static/media/image_inicial_quadros.2c07d0d2f2477b34f293.png",
     "static/media/image_login-cadastro.png": "/static/media/image_login-cadastro.7811deb97adf12b50684.png",
     "static/media/image_home_quadro_artista_semana.png": "/static/media/image_home_quadro_artista_semana.959c6cad29489a266647.png",
@@ -32,11 +32,11 @@
     "static/media/image_inicial_suporte.png": "/static/media/image_inicial_suporte.1e5b6a0c02f1a7770747.png",
     "static/media/image_inicial_qualidade.png": "/static/media/image_inicial_qualidade.db3b6f64d86cbe967523.png",
     "index.html": "/index.html",
-    "main.35b36db1.css.map": "/static/css/main.35b36db1.css.map",
-    "main.2dea7f83.js.map": "/static/js/main.2dea7f83.js.map"
+    "main.ccaee5e0.css.map": "/static/css/main.ccaee5e0.css.map",
+    "main.5ed3eb46.js.map": "/static/js/main.5ed3eb46.js.map"
   },
   "entrypoints": [
-    "static/css/main.35b36db1.css",
-    "static/js/main.2dea7f83.js"
+    "static/css/main.ccaee5e0.css",
+    "static/js/main.5ed3eb46.js"
   ]
 }

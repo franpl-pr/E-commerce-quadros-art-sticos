@@ -36,10 +36,12 @@ function DashboardProdutos(){
     }
     const yesDelete = (produto) =>{
         setProdutoSelecionado(produto);
+        console.log(produtoSelecionado);
         setNotifDelete(true);
     }
     const noDelete = () =>{
         setProdutoSelecionado(null);
+        console.log(produtoSelecionado);
         setNotifDelete(false);
     }
     
@@ -98,9 +100,9 @@ function DashboardProdutos(){
                                     <th>cor da moldura</th>
                                     <th>Acoes</th>
                                 </tr>
-                                {produtos.slice(0, 5).map((item) => (
-                                    <tr key={item.ID_produtos}>
-                                        <td>{item.imagem}</td>
+                                {produtos.slice(0, 5).map((item, index) => (
+                                    <tr key={index}>
+                                        <td><img src ={item.imagem} /></td>
                                         <td>{item.nomeQuadro}</td>
                                         <td>{() =>consultarCategoriaProduto(item.categoria_id)}</td>
                                         <td>{item.tamanho}</td>
@@ -170,7 +172,7 @@ function DashboardProdutos(){
                     </div>
                 </div>
                 {/* popupteste do design */}
-                {notifDelete && (
+                {/* {notifDelete && (
                     <div className="box-popup">
                         <div className="close-popup">
                                 <button onClick={noDelete}>
@@ -213,9 +215,9 @@ function DashboardProdutos(){
                     
                         </div>
                     </div>
-                )}
+                )} */}
                 {/* popup para conexao real dos dados do bd */}
-                {/* {notifDelete && produtoSelecionado && (
+                {notifDelete && produtoSelecionado && (
                     <div className="box-popup">
                         <div className="close-popup">
                             <button onClick={noDelete}>
@@ -253,7 +255,7 @@ function DashboardProdutos(){
                             </div>
                         </div>
                     </div>
-                )} */}
+                )}
         </div>
     )
 }

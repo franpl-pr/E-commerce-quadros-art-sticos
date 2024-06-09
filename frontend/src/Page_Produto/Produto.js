@@ -25,7 +25,7 @@ function DetalheProduto(){
     const [quantidade, setQuantidade] = useState(1)
 
     dadosProduto.quantidade = quantidade;
-    dadosProduto.precoTotal = dadosProduto.preco
+    dadosProduto.precoTotal = dadosProduto.quantidade * dadosProduto.preco;
 
     const diminuirNumerosQuadros = () => {
         if(dadosProduto.quantidade <= 1){
@@ -39,7 +39,18 @@ function DetalheProduto(){
         setQuantidade(quantidade + 1)
     }
 
-    const handleAddCart = () => {setDadosCarrinho([...dadosCarrinho, dadosProduto])
+    const handleAddCart = () => {
+        let resposta
+        dadosCarrinho.map(produto => {
+            if(produto.ID_produtos == dadosProduto.ID_produtos){
+                resposta = 'Produto encontrado'
+            }
+        })
+        if(resposta == 'Produto encontrado'){
+            alert('Este produto já está no carrinho !')
+            return;
+        }
+        setDadosCarrinho([...dadosCarrinho, dadosProduto])
         console.log(dadosProduto)
     }
 
@@ -58,7 +69,7 @@ function DetalheProduto(){
                     <div className="produto_localizar"><span>Animais</span></div>
                 </div>
             </div>
-            <div className="produto_box_informacoes_compra">
+            <div key={dadosProduto.ID_produtos} className="produto_box_informacoes_compra">
                 <div className="produto_div_informacoes_compra">
                     <img src={dadosProduto.imagem} alt={image_bulldog}/>
                     <div className="produto_informacoes">

@@ -357,7 +357,7 @@ function Cadastro(){
                     <a onClick={() => navigate("/Login")}>Faça login</a>
                 </div>
             </div>
-            <div className='cadastro_b ox_2'></div>
+            <div className='cadastro_box_2'></div>
             {notifSucesso && (
                 <div className='box_notificacao_sucesso'>
                     <div className='notificacao_sucesso'>

@@ -220,17 +220,12 @@
 }
 
 .carrinho_image_lixo{
+    color: red;
     border: 1px solid red;
     background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.carrinho_image_lixo img{
-    width: 28px;
-    height: 21px;
-}
+
 
 .carrinho_fundo_img{
     width: 144px;
@@ -256,11 +251,15 @@
 }
 
 .carrinho_informacoes h2{
+    width: 351px;
     font-size: 20px;
     font-family: 'Poppins', sans-serif;
     font-weight: normal;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
 }
 
 .carrinho_informacoes_preco_normal{

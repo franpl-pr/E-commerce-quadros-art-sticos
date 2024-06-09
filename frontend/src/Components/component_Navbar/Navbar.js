@@ -12,6 +12,9 @@ import { HandleContext } from '../../context/HandleContext';
 import { HandleCarrinhoContext } from "../../context/HandleContext";
 import { HandleDataContext } from '../../context/HandleContext';
 import formatarDinheiro from "../../Utilidades/formartarDinheiro";
+import { FaRegTrashAlt } from "react-icons/fa";
+
+
 
 function Navbar(){
     const navigate = useNavigate();
@@ -19,26 +22,26 @@ function Navbar(){
     const {variavel, mudarVariavel} = useContext(HandleContext);
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext);
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
-    const [quantidade, setQuantidade] = useState(dadosProduto.quantidade)
+    const [produtosNoCarrinho, setProdutosNoCarrinho] = useState(dadosCarrinho);
 
-    const diminuirNumerosQuadros = (item) => {
-        if(item.quantidade <= 1){   
-            setQuantidade(1)
-            item.quantidade = quantidade
-            console.log('quantidade menor ou igual a 1')
-            return;
-        }
-        item.quantidade = quantidade
-        setQuantidade(quantidade - 1)
-    }
+  const aumentaNumeroQuadros = (index) => {
+    const novosProdutos = [...dadosCarrinho];
+    novosProdutos[index].quantidade += 1;
+    novosProdutos[index].precoTotal = Number(novosProdutos[index].preco) * novosProdutos[index].quantidade;
+    setProdutosNoCarrinho(novosProdutos);
+  };
 
-    const aumentaNumeroQuadros = (item) => {
-        setQuantidade(quantidade + 1)
-        item.quantidade = quantidade
+  const diminuirNumerosQuadros = (index) => {
+    const novosProdutos = [...dadosCarrinho];
+    if (novosProdutos[index].quantidade > 1) {
+      novosProdutos[index].quantidade -= 1;
+      novosProdutos[index].precoTotal = Number(novosProdutos[index].precoTotal) - novosProdutos[index].preco;
+      setProdutosNoCarrinho(novosProdutos);
     }
+  };
     
     const precoTotal = dadosCarrinho.reduce((acumulador, item) => {
-        return Number(item.preco) + acumulador;
+        return Number(item.precoTotal) + acumulador;
     }, 0)
 
     const removerProdutoCarrinho = () => {
@@ -84,12 +87,12 @@ function Navbar(){
             <div className="div_icons">
                 <button className="button_icons"><IoSearch className="icons" size={32}/></button>
                 <button className="button_icons"><FaRegHeart className="icons" size={32}/></button>
-                <button className="button_icons"><HiOutlineShoppingCart onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="icons" size={32}/>
+                <div className="button_icons"><HiOutlineShoppingCart onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="icons" size={32}/>
                 {dadosCarrinho.length > 0 && <div className="notificacao_item_carrinho"><span>{dadosCarrinho.length}</span></div>}
                 {carrinhoAberto && (    
                         <div onMouseLeave={fecharCarrinho} onMouseOver={abrirCarrinho} className="carrinho_box">
                             <div className="carrinho_div">
-                            {dadosCarrinho.map((item) => (<div key={item.Id_produtos} className="carrinho_inside_box">
+                            {dadosCarrinho.map((item, index) => (<div key={index} className="carrinho_inside_box">
                                     <div className="carrinho_inside_div">
                                         <div className="carrinho_detalhes_quadro">
                                             <div className="carrinho_fundo_img">
@@ -108,13 +111,12 @@ function Navbar(){
                                         <div className="carrinho_quadro_precos">
                                             <div className="carrinho_div_adicionar_remover">
                                                 <div className="carrinho_numeros_quadros">
-                                                    <button className="carrinho_diminuir_produto" onClick={() => diminuirNumerosQuadros(item)}><div/></button>
+                                                    <button className="carrinho_diminuir_produto" onClick={() => diminuirNumerosQuadros(index)}><div/></button>
                                                     <span>{item.quantidade}</span>
-                                                    <button className="carrinho_aumentar_produto" onClick={() => aumentaNumeroQuadros(item)}><img src={sinal_mais}/></button>
+                                                    <button className="carrinho_aumentar_produto" onClick={() => aumentaNumeroQuadros(index)}><img src={sinal_mais}/></button>
                                                 </div>
-                                                <span>{formatarDinheiro(item.preco)}</span>
-                                                <button onClick={removerProdutoCarrinho} className="carrinho_image_lixo"><img src={image_lixo}/></button>
-
+                                                <span>{formatarDinheiro(item.precoTotal)}</span>
+                                                <button onClick={removerProdutoCarrinho} className="carrinho_image_lixo"><FaRegTrashAlt size={16}/></button>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +145,7 @@ function Navbar(){
                                 </div> : null}
                             </div>
                         </div>
-                )}</button>
+                )}</div>
                 {variavel ? <button className="button_icons"><MdOutlinePerson className="icons" size={32}/></button> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>

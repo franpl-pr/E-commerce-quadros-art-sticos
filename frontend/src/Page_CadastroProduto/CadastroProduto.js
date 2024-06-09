@@ -35,22 +35,23 @@ function CadastroProduto(){
         const [notifEstoque, setNotifEstoque] = useState(false);
         const [notifImagem, setNotifImagem] = useState(false);
 
+       
+
         useEffect(() => {
+            
             const fetchCategorias = async () => {
                 try {
                     const response = await axios.get('http://localhost:5000/api/consultar_categorias');
                     setCategorias(response.data); 
+                    console.log(categorias);
+                    console.log("repete 1 vez");
                 } catch (error) {
                     console.error('Erro ao buscar categorias:', error);
                 }
             };
     
             fetchCategorias();
-        }, []);
-
-        useEffect(() => {
             
-
             const inputFile = inputFileRef.current;
             const textSpan = textSpanRef.current;
             textSpan.innerHTML = textPadrao;
@@ -135,11 +136,11 @@ function CadastroProduto(){
                 console.log(notifica_reposta)
             
                 
-                // if(notifica_reposta == 'Quadro cadastrado com sucesso'){
-                //     setNotifSucesso(true)
-                // }if(notifica_reposta == 'Quadro já cadastrado tente novamente'){
-                //     setNotifImagem(true)
-                // }
+                if(notifica_reposta == 'Quadro cadastrado com sucesso'){
+                    setNotifSucesso(true)
+                }if(notifica_reposta == 'Quadro já cadastrado tente novamente'){
+                    setNotifImagem(true)
+                }
             } catch (error) {
                 console.error('Erro ao enviar dados para o servidor:', error);
             }
@@ -187,8 +188,8 @@ function CadastroProduto(){
                                         <label>Categoria</label>
                                         <select id="categoriaSelect"  name="categoria" value={dados.categoria} onChange={(e) => setDados({...dados, categoria: e.target.value})}>
                                         <option value="">Selecione a categoria do quadro</option>
-                                            {categorias.map((categoria) => (
-                                                <option key={categoria.ID_categoria} value={categoria.ID_categoria}>{categoria.tipoCategoria}</option>
+                                            {categorias.map((categoria, index) => (
+                                                <option key={index} value={categoria.ID_categoria}>{categoria.tipoCategoria}</option>
                                             ))} 
                                         </select>
                                     </div>                                
@@ -202,12 +203,12 @@ function CadastroProduto(){
                                         <label>Cor da moldura</label>
                                         <input type="text" name="cor" placeholder="Selecione a cor da moldura" onChange={(e) => setDados({...dados, cor: e.target.value})}></input>
                                     </div>                                
-                                    <div className="div-add-cor">
+                                    {/* <div className="div-add-cor">
                                         <button className="add-cor" onClick={handleAddColor}>
                                             <IoIosAdd size={35}></IoIosAdd>
                                         </button>
                                         <label>Adicionar outra cor</label>
-                                    </div>
+                                    </div> */}
                                 </div>  
                                 {notifEstoque && (
                                     <div className='notificacao'>

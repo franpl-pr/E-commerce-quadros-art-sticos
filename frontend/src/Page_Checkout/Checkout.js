@@ -16,10 +16,26 @@ import { HandleDataContext } from '../context/HandleContext';
 function Checkout(){
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const [produtosNoCarrinho, setProdutosNoCarrinho] = useState(dadosCarrinho);
 
+    const aumentaNumeroQuadros = (index) => {
+        const novosProdutos = [...dadosCarrinho];
+        novosProdutos[index].quantidade += 1;
+        novosProdutos[index].precoTotal = Number(novosProdutos[index].preco) * novosProdutos[index].quantidade;
+        setProdutosNoCarrinho(novosProdutos);
+      };
+    
+      const diminuirNumerosQuadros = (index) => {
+        const novosProdutos = [...dadosCarrinho];
+        if (novosProdutos[index].quantidade > 1) {
+          novosProdutos[index].quantidade -= 1;
+          novosProdutos[index].precoTotal = Number(novosProdutos[index].precoTotal) - novosProdutos[index].preco;
+          setProdutosNoCarrinho(novosProdutos);
+        }
+      };
 
     const precoTotal = dadosCarrinho.reduce((acumulador, item) => {
-        return Number(item.preco) + acumulador;
+        return Number(item.precoTotal) + acumulador;
     }, 0)
     
 
@@ -134,14 +150,14 @@ function Checkout(){
                 </div>
                 <div className="checkout_div_carrinho_compra">
                     <h2>Carrinho de compra<div className="checkout_linha"/></h2>
-                    {dadosCarrinho.map((item) => (<div key={item.Id_produtos} className="item_carrinho_checkout">
-                        <div className="produto_carrinho_checkout">
+                    <div className="item_carrinho_checkout">
+                        {dadosCarrinho.map((item, index) => (<div key={index} className="produto_carrinho_checkout">
                             <div className="fundo_imagem_checkout">
                                 <img src={item.imagem} alt="Algum_Quadro"></img>
                             </div>
                             <div className="dados_produto">
                                 <div>
-                                    <span>{item.nomeQuadro}</span>
+                                    <p>{item.nomeQuadro}</p>
                                     <span className="desconto_vermelho">R$ 128,00</span>
                                     <span className="preco">{formatarDinheiro(item.preco)}</span>
                                 </div>
@@ -156,28 +172,28 @@ function Checkout(){
                                     <FaRegTrashAlt size={16}></FaRegTrashAlt>
                                 </button>
                                 <div className="add_del_produto">
-                                    <button className="remover_produto_checkout">
+                                    <button onClick={() => diminuirNumerosQuadros(index)}className="remover_produto_checkout">
                                         <IoRemoveSharp size={17}></IoRemoveSharp>
                                     </button>
-                                    <span>2</span>
-                                    <button className="adicionar_produto_checkout">
+                                    <span>{item.quantidade}</span>
+                                    <button onClick={() => aumentaNumeroQuadros(index)} className="adicionar_produto_checkout">
                                         <IoAddSharp size={17}></IoAddSharp>
                                     </button>
                                     
                                 </div>
                             </div>
-                        </div>
+                        </div>))}
                         <div className="dados_subtotal">
                             <div className="subtotal_left">
-                                <span className="bold">Subtotal (2 items)</span>
+                                <span className="bold">Subtotal ({dadosCarrinho.length} items)</span>
                                 <span>Desconto</span>
                             </div>
                             <div className="subtotal_right">
-                                <span className="preco">R$ 204,80</span>
+                                <span className="preco">{formatarDinheiro(precoTotal)}</span>
                                 <span className="desconto_vermelho">R$ 51,20</span>
                             </div>
                         </div>
-                    </div>))}
+                    </div>
                     <div className="calcular_frete">
                         <span className="bold">Calcular frete</span>
                         <div className="flex_row">
@@ -187,7 +203,7 @@ function Checkout(){
                     </div>
                     <div className="flex_row dados_total">
                         <span className="bold">Total</span>
-                        <span className="preco bold">R$ 204,80</span>
+                        <span className="preco bold">{formatarDinheiro(precoTotal)}</span>
                     </div>
                     <div className="acoes_checkout">
                         <button>Ir para o pagamento</button>
