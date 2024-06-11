@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container_login{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+    
+}
+
+.box1{
+    width: 55%;
+    height: 100vh;
+    background-image: url(../img/image_login-cadastro.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.box2{
+    width: 45%;
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    background: #FFFDF3;
+}
+
+.box2_box{
+    width: 628px;
+    height: 100vh;
+}
+
+.box2_box h1{
+    font-size: 45px;
+    margin-top:50px;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: #484848;
+}
+
+.box2_box h2{
+    margin-bottom: 29px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.atalho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.atalho button{
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.atalho button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.inside{
+    width: 283px;
+    height: 55px;
+    background: white;
+    border: 1px solid #0B9692;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.inside img{
+    width: 36px;
+    margin: 5px;
+    display: inline;
+    margin-left: 25px;
+}
+
+.inside p{
+    display: inline;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin-left: 10px;
+    letter-spacing: 8%;
+}
+
+.or{
+    margin-bottom: 30px;
+}
+
+.or h2{
+    margin:0px auto;
+    padding: 0px;
+    width: 46px;
+    font-family: 'Poppins', sans-serif;
+    color: #9D9D9D;
+}
+
+.div_input input.senha{
+    width: 90%;
+}
+
+.olho{
+    background-color: transparent;
+    border: none;
+}
+
+.olho:hover{
+    cursor: pointer;
+}
+
+.div_input input{
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+}
+
+.div_input input::placeholder{
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    outline: none;
+    color: #484848;
+}
+
+.div_input input:focus{
+    outline: none;
+}
+
+.linha{
+    border-bottom: 1px solid #484848;
+    margin-bottom: 20px;
+}
+
+.linha2{
+    border-bottom: 1px solid #484848;
+}
+
+.div_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.entrar{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #0CADA7;
+    background: #0CADA7;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+    letter-spacing: 8%;
+}
+
+.cadastrar{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+    border-radius: 5px;
+    border: 1px solid #0CADA7;
+    background: transparent;
+    font-family: "Poppins", sans-serif;
+    color:#0CADA7 ;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+    letter-spacing: 8%;
+}
+
+.entrar:hover, .cadastrar:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.box_esqSenha_LembMim{
+    margin: 52px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lembrar_mim{
+    width: 180px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.lembrar_mim label{
+    font-size: 16px;
+}
+
+.Checkbox_LembMim[type="checkbox"]{
+    appearance: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #0CADA7;
+}
+
+.Checkbox_LembMim[type="checkbox"]:checked{
+    background-image: url(../img/Image_checkbox.png);
+    background-size: 110%;
+    background-position: center;
+}
+
+.lembrar_mim label{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+}
+
+.box_esqSenha_LembMim a{
+    color: #0CADA7 ;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.box_esqSenha_LembMim a:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.login_notificacao span{
+    color: red;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+

@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.cadastro_Container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background: #FFFDF3;
+}
+
+.cadastro_box_2{
+    width: 45%;
+    height: 100vh;
+    background-image: url(../img/image_login-cadastro.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.cadastro_box{
+    width: 850px;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.cadastro_box h1{
+    font-size: 45px;
+    margin-top:35px;
+    margin-bottom: 35px;
+    font-weight: normal;
+    font-family: "Montserrat", sans-serif;
+    color: #484848;
+    font-weight: bold;
+}
+
+.cadastro_box h2{
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.cadastro_atalho{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.cadastro_atalho button{
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.cadastro_atalho button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cadastro_atalho_inside{
+    width: 390px;
+    height: 55px;
+    background: white;
+    border: 1px solid #0B9692;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.cadastro_atalho_inside img{
+    width: 36px;
+    margin: 5px;
+    display: inline;
+    margin-left: 25px;
+}
+
+.cadastro_atalho_inside p{
+    display: inline;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin-left: 20px;
+    letter-spacing: 1px;
+}
+
+.cadastro_div_or{
+    margin-bottom: 20px;
+}
+
+.cadastro_div_or  h2{
+    margin:0px auto;
+    padding: 0px;
+    width: 46px;
+    font-family: 'Poppins', sans-serif;
+    color: #9D9D9D;
+    font-weight: normal;
+}
+
+.cadastro_divs_inputs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 23px;
+    justify-content: space-between;
+}
+
+.cadastro_divs_inputs input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cadastro_input_maior{
+    display: inline;
+    width: 411px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+}
+
+.cadastro_input_menor,
+.cadastro_input_menor_personalizado{
+    width: 190px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+    display: flex;
+    align-items: center;
+}
+
+.cadastro_input_personalizado{
+    width: 411px;
+    height: 47px;
+    border-bottom: 1px solid #484848;
+}
+
+.cadastro_termos{
+    margin-top: 30px;
+    width: 439px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro_checkbox_termos[type="checkbox"]{
+    appearance: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #0CADA7;
+}
+
+.cadastro_checkbox_termos[type="checkbox"]:checked{
+    background-image: url(../img/Image_checkbox.png);
+    background-size: 110%;
+    background-position: center;
+}
+
+.cadastro_termos label{
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.cadastro_cadastrar{
+    width: 100%;
+    margin-top: 20px;
+    height: 60px;
+    border-radius: 5px;
+    background: #0CADA7 ;
+    border: #0CADA7;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.cadastro_cadastrar:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.cadastro_div_conta{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cadastro_div_conta span{
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.cadastro_div_conta a{
+    text-decoration: none;
+    color: #0CADA7;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
+
+.cadastro_div_conta a:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.cadastro_input_maior input,
+.cadastro_input_menor input{
+    background: transparent;
+    border: none;
+    width: 100%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.cadastro_input_menor_personalizado input{
+    background: transparent;
+    border: none;
+    width: 75%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.cadastro_input_personalizado input{
+    background: transparent;
+    border: none;
+    width: 90%;
+    height: 47px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+
+.cadastro_input_personalizado input::placeholder,
+.cadastro_input_menor_personalizado input::placeholder,
+.cadastro_input_maior input::placeholder,
+.cadastro_input_menor input::placeholder{
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    outline: none;
+    color: #484848;
+}
+
+.cadastro_input_personalizado input:focus,
+.cadastro_input_menor_personalizado input:focus,
+.cadastro_input_maior input:focus,
+.cadastro_input_menor input:focus{
+    outline: none;
+}
+
+.notificacao{
+    display: flex;
+    justify-content: center;
+}
+
+.notificacao span{
+    color: red;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.notificacao_senhas{
+    display: flex;
+    justify-content: center;
+}
+
+.notificacao_senhas span{
+    color: red;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.box_notificacao_sucesso{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notificacao_sucesso{
+    width: 700px;
+    height: 400px;
+    background-color: #FFFDF3;
+    position: absolute;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.notificacao_sucesso h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    display: inline-block;
+    color: #333333;
+}
+
+.notificacao_sucesso button{
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    background-color: #0CADA7;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 250px;
+    height: 60px;
+    border: none;
+    color: white;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.notificacao_sucesso button:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.notificacao_termos span{
+    color: red;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.icon_pesquisar_cep{
+    border: none;
+    background-color: transparent;
+}
+
+.icon_pesquisar_cep:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: 0.2s;
+}
+    
+.olho:hover{
+    cursor: pointer;
+    transform: scale(1.07);
+    transition: 0.2s;
+}
+

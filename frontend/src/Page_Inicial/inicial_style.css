@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.inicial_container{
+    background-color: #FFFDF3;
+}
+
+.inicial_box_bemvindo{
+    height: 660px;
+    background-color: #A8AFA9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inicial_div_image_sol{
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.inicial_div_bemvindo{
+    width: 51%;
+    height: 100%;
+    background-image: url(../img/inicial_grupo_quadrados.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicial_bemvindo{
+    width: 827px;
+    height: 530px;
+}
+
+.inicial_bemvindo_header{
+    font-size: 96px;
+    font-weight: normal;
+    font-family: 'Taviraj', serif;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.inicial_bemvindo_span1{
+    display: inline-block;
+    font-size: 24px;
+    font-family: 'Taviraj', serif;
+    margin-left: 68px;
+}
+
+.inicial_bemvindo_span2{
+    width: 419px;
+    font-size: 32px;
+    font-family: 'Taviraj', serif;
+    margin-left: 68px;
+    display: inline-block;
+    padding: 0px;
+    margin-top: 40px;
+    line-height: 35px;
+}
+
+.inicial_bemvindo_div_button{
+    width: 667px;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inicial_bemvindo_div_button button{
+    width: 208px;
+    height: 60px;
+    background-color: #0CADA7;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.inicial_bemvindo_div_button button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.inicial_box_quadros{
+    background: #FFFDF3;
+}
+
+.inicial_box_quadros h2{
+    background-color: #FFFDF3;
+    width: 729px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 100px;
+}
+
+.inicial_quadros_linha{
+    width: 128px;
+    border: 1px solid black;
+}
+
+.inicial_box_quadros img{
+    width: 100%;
+}
+
+.inicial_box_informacoes{
+    height: 270px;
+    background-color: #F9F1E7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicial_div_informacoes{
+    width: 1394px;
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagem_qualidade{
+    width: 373px;
+}
+
+.imagem_garantia{
+    width: 480px;
+}
+
+.imagem_suporte{
+    width: 390px;
+}
+
+.home_div_text_quadro_descontos h2{
+    background-color: #FFFDF3;
+    width: 900px;
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 100px;
+    margin-left: 196px;
+}   
+
+
+

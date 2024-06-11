@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35b36db1.css",
+    "main.js": "/static/js/main.2dea7f83.js",
+    "static/media/image_inicial_quadros.png": "/static/media/image_inicial_quadros.2c07d0d2f2477b34f293.png",
+    "static/media/image_login-cadastro.png": "/static/media/image_login-cadastro.7811deb97adf12b50684.png",
+    "static/media/image_home_quadro_artista_semana.png": "/static/media/image_home_quadro_artista_semana.959c6cad29489a266647.png",
+    "static/media/image_produto_paisagem_quadro.png": "/static/media/image_produto_paisagem_quadro.e2652c5d2f0f1a935881.png",
+    "static/media/image_inicio_sol.png": "/static/media/image_inicio_sol.9c0837615546090fd824.png",
+    "static/media/image_produto_bulldog.png": "/static/media/image_produto_bulldog.7bd57b561b6363aacdd2.png",
+    "static/media/image_sala_home_comentario.png": "/static/media/image_sala_home_comentario.b33027b0dfb8c7ff8aa3.png",
+    "static/media/image_leao_home_comentario.png": "/static/media/image_leao_home_comentario.4180e998552dca865115.png",
+    "static/media/image_home_quadro.png": "/static/media/image_home_quadro.652063b948836c8fc7ee.png",
+    "static/media/image_home_cores.png": "/static/media/image_home_cores.33f5a5ac4cd5536627d0.png",
+    "static/media/image_google.png": "/static/media/image_google.a6a557bec05fc14ff631.png",
+    "static/media/image_home_categorias_natureza.png": "/static/media/image_home_categorias_natureza.f1e7e9af273131bc6d3a.png",
+    "static/media/image-home_categorias_lugares.png": "/static/media/image-home_categorias_lugares.7fa0076ad766de84ae48.png",
+    "static/media/image_home_categorias_fashion.png": "/static/media/image_home_categorias_fashion.ccee3739e76d2a5ac9bb.png",
+    "static/media/image_home_artista_destaque.png": "/static/media/image_home_artista_destaque.8ed39f8cd3618e9e21aa.png",
+    "static/media/image_home_categorias_musicas.png": "/static/media/image_home_categorias_musicas.ffd53290cf79540d9e1a.png",
+    "static/media/image_email.png": "/static/media/image_email.8c1f844b144320cc455a.png",
+    "static/media/image_home_categorias_plantas.png": "/static/media/image_home_categorias_plantas.a817ee2544d3efd6c4df.png",
+    "static/media/image_home_categorias_frases.png": "/static/media/image_home_categorias_frases.aa2be1fcff690d069b1f.png",
+    "static/media/image_home_categorias_animais.png": "/static/media/image_home_categorias_animais.384f5763b8acf73e28d7.png",
+    "static/media/image-home_categorias_comidas.png": "/static/media/image-home_categorias_comidas.febe83122769ce632dc6.png",
+    "static/media/inicial_grupo_quadrados.png": "/static/media/inicial_grupo_quadrados.11be9236a98fa8231fd6.png",
+    "static/media/image_home_compra_segura.png": "/static/media/image_home_compra_segura.a5b9fdf5e5bb9bd27b3a.png",
+    "static/media/image_home_frete_gratis.png": "/static/media/image_home_frete_gratis.b4d4a0bf8c2b3e59b2e1.png",
+    "static/media/image_home_linhas_comentarios.png": "/static/media/image_home_linhas_comentarios.51a3606b14d361dcdb77.png",
+    "static/media/image_home_sem_juros.png": "/static/media/image_home_sem_juros.2f09387d11aad5f9e4c4.png",
+    "static/media/image_inicial_garantia.png": "/static/media/image_inicial_garantia.50a3c0c14a15d7abf5eb.png",
+    "static/media/image_inicial_suporte.png": "/static/media/image_inicial_suporte.1e5b6a0c02f1a7770747.png",
+    "static/media/image_inicial_qualidade.png": "/static/media/image_inicial_qualidade.db3b6f64d86cbe967523.png",
+    "index.html": "/index.html",
+    "main.35b36db1.css.map": "/static/css/main.35b36db1.css.map",
+    "main.2dea7f83.js.map": "/static/js/main.2dea7f83.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35b36db1.css",
+    "static/js/main.2dea7f83.js"
+  ]
+}

@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Viaoda+Libre&display=swap');
+
+html{
+    font-size: 62.5%;
+}
+.barraDb{
+    background-color:#F9F1E7;
+    height: 5.6rem;
+    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #E0E0E0;
+    width: 100%;
+    justify-content: end;
+}
+
+.perfil-completo{
+    margin-left: 30px;
+    display: flex;
+    margin-right: 42px;
+    align-items: center;
+    
+}
+.pesquisa{
+    align-items: center;
+    display: flex;
+}
+.img-perfil{
+    background-color: aquamarine;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.texto-perfil{
+    font-family: "Poppins", sans-serif;
+    color: #333333;
+}
+.nome{
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.tipo{
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+}
