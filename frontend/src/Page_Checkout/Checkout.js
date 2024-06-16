@@ -3,14 +3,13 @@ import "./checkout_style.css";
 import Navbar from "../Components/component_Navbar/Navbar"
 import Footer from "../Components/component_Footer/Footer"
 import SessaoCheckout from "../Components/component_sessaoCheckout/SessaoCheckout";
-import image_produto_bulldog from '../img/image_produto_bulldog.png'
 import { IoAddSharp } from "react-icons/io5";
 import { IoRemoveSharp } from "react-icons/io5";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { BsFillTrash3Fill } from "react-icons/bs";
 import { HandleCarrinhoContext } from  '../context/HandleContext';  
 import  formatarDinheiro from '../Utilidades/formartarDinheiro'
 import { HandleDataContext } from '../context/HandleContext';
+import axios from "axios";
 
 
 function Checkout(){
@@ -48,6 +47,22 @@ function Checkout(){
             setDadosCarrinho(novoArray);
         }
     };
+
+    const handlePayment = async () => {
+        try {
+            // Faça a requisição POST para o backend
+            const response = await axios.post('http://localhost:5000/api/pagamento', {
+                dadosCarrinho: dadosCarrinho
+            });
+    
+            const nota = response.data.mensagem
+            console.log(nota)
+
+          } catch (error) {
+            console.error('Erro ao enviar dados para o servidor:', error);
+          }
+    }
+    
 
     return(
         <div className="checkout_container">
@@ -206,7 +221,7 @@ function Checkout(){
                         <span className="preco bold">{formatarDinheiro(precoTotal)}</span>
                     </div>
                     <div className="acoes_checkout">
-                        <button>Ir para o pagamento</button>
+                        <button onClick={handlePayment}>Ir para o pagamento</button>
                         <span>Cancelar compra</span>
                     </div>
                 </div>

@@ -41,8 +41,6 @@ function Cadastro(){
     const [termos, setTermos] = useState(false)
     const [EmailValido, setEmailValido] = useState(false)
 
-    const [arroba, setArroba] = useState(false)
-
     const handleSearch = async () => {
         try {
           const response = await api.get(`${dados.CEP}/json`);

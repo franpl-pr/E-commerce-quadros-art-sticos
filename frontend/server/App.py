@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
+from apiMercadoPago import gerar_link_pagamento
 
 app = Flask(__name__)
 # CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
@@ -10,7 +11,7 @@ db_config = {
     'host':'localhost',
     'user':'root',
     'password':'',  
-    'database':'testequadrartes',
+    'database':'dbquadrartes',
 }
 
 #------------------------- Cadastro ----------------------------
@@ -273,6 +274,31 @@ def delete_produto(id):
     cursor.close()
     conexao.close()
     return jsonify({"message": "Produto deletado com sucesso"})
+
+
+
+#--------------------- Pagamento --------------------------
+
+@app.route('/api/pagamento', methods=['POST'])
+def pagamento():
+    
+    dados = request.json
+    dadosCarrinho = dados['dadosCarrinho']
+
+    gerar_link_pagamento(dadosCarrinho)
+
+    return jsonify({"message": "Sucesso"})
+
+
+# Configuração CORS global para todas as rotas
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Credentials', 'true')
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    return response
+
 
 if __name__ == '__main__':
     print("Iniciando o servidor Flask...")
