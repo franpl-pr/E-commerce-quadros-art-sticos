@@ -1,0 +1,123 @@
+.finalizacao_box_informacoes{
+    margin: 3.2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    background-image: url('../img/background_finalizacao.png');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+}
+.conteudo_finalizacao_informacoes, .div_dados_pedido{
+    margin: auto;
+    color:#ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.div_dados_pedido{
+    width: 55.2rem;
+}
+.conteudo_finalizacao_informacoes p.info{
+    font-size: 1.8rem;
+    width: 100%;
+    margin: 0;
+}
+.conteudo_finalizacao_informacoes .h1_status_pedido{
+    font-size: 6rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+.conteudo_finalizacao_informacoes .box_pedido{
+    border: 1px solid #d9d9d9; 
+    background-color: #ffffff;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 3rem 3rem;
+    border-radius: 5px;
+    width: 49rem;
+}
+.conteudo_finalizacao_informacoes .box_pedido :is(p, span){
+    margin: 0;
+    font-size: 1.6rem;
+}
+.conteudo_finalizacao_informacoes .box_pedido .info_pedido{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #D9D9D9;
+}
+.box_pedido .info_pedido .linha_pedido{
+    display: flex;
+    justify-content: space-between;
+
+}
+.linha_pedido .titulo p{
+    font-weight: 600;
+    width: 17.5rem;
+}
+.box_pedido .info_pedido .linha_pedido .coluna2{
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.box_pedido .info_pedido .linha_pedido .coluna2 p{
+    width: 100%;
+}
+.box_pedido .info_pedido .linha_pedido .coluna2 > p.sub{
+    margin-top: -0.5rem;
+}
+.info_pedido .linha_pedido .coluna2 .sub{
+    font-size: 1.5rem;
+    color: #555555;
+}
+.conteudo_finalizacao_informacoes .acoes_checkout{
+    margin: 0;
+    color: #ffffff;
+}
+.box_pedido .subtotal{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+
+.box_pedido .subtotal .subtotal_left{
+    height: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box_pedido .subtotal .subtotal_right{
+    height: 7.5rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+p.preco_bold{
+    font-weight: 600;
+    line-height: 3.2rem !important;
+    font-size: 2.4rem !important;
+}
+.box_pedido .total{
+    display: flex;
+    justify-content: space-between;
+    color: #000000;
+}
+.box_pedido .total span.preco{
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+}
+
+.box_pedido .total span{
+    font-size: 2rem;
+}

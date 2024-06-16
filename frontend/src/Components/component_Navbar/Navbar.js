@@ -19,33 +19,8 @@ function Navbar(){
 
     const {variavel, mudarVariavel} = useContext(HandleContext);
     
-    useEffect(() => {
-        axios.get('http://localhost:5000/carrinhoQuadros')
-        .then(response => {
-            setQuadros(response.data);
-            console.log(quadros)
-        })
-        .catch(error => {
-            console.error("Houve um erro!", error);
-        });
-    }, []);
 
-
-    const excluirQuadroCarrinho = async (item) => {
-        try {
-            // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/excluirQuadro', {
-                IdQuadro: item.IdQuadro
-            });
-
-            setRespostaExclusao(response.data.mensagem)
-            console.log(respostaExclusao)
-            
-            
-        } catch (error) {   
-            console.error('Erro ao enviar dados para o servidor:', error);
-        }
-    }
+    
     
 
     const abrirCarrinho = () => {
@@ -94,7 +69,7 @@ function Navbar(){
                                                 <input type="number"/>
                                                 <button className="carrinho_aumentar_produto"><img src={sinal_mais}/></button>
                                                 <span>R$ 204,80</span>
-                                                <button onClick={() => excluirQuadroCarrinho(item.IdQuadro)} className="carrinho_image_lixo"><img src={image_lixo}/></button>
+                                                <button className="carrinho_image_lixo"><img src={image_lixo}/></button>
                                             </div>
                                         </div>
                                     </div>

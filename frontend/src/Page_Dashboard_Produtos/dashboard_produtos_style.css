@@ -48,7 +48,7 @@ html{
     border:none;
 }
 .conteudo-dashboard table tr td:first-child{
-    padding-left: 3.6rem;
+    padding-left: 2.2rem;
 }
 .conteudo-dashboard table tr td:last-child{
     padding-right: 3.6rem;
@@ -272,7 +272,7 @@ html{
     width: 2.5rem;
 }
 .box-popup .close-popup button{
-    background-color: none;
+    background-color: #ffffff;
     border-radius: 50%;
     width: 2.5rem;
     border: none;
@@ -280,5 +280,5 @@ html{
     cursor: pointer;
 }
 .box-popup .close-popup button:hover{
-    background-color: rgb(213, 213, 213);
+    background-color: rgb(240, 240, 240);
 }

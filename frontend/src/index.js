@@ -5,15 +5,17 @@ import App from './App';
 import { HandleProvider } from './context/HandleContext';
 import { HandleData } from './context/HandleContext';
 
+const link_pagamento = window.link_pagamento;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode> 
+  
     <HandleProvider> 
       <HandleData>
         <App/> 
       </HandleData>
     </HandleProvider> 
-  </React.StrictMode>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

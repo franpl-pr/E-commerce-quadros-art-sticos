@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect, useContext} from "react";
 import "./checkout_style.css";
 import Navbar from "../Components/component_Navbar/Navbar"
 import Footer from "../Components/component_Footer/Footer"
@@ -8,8 +8,22 @@ import { IoAddSharp } from "react-icons/io5";
 import { IoRemoveSharp } from "react-icons/io5";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { BsFillTrash3Fill } from "react-icons/bs";
+import axios from "axios";
+import { HandleContext } from "../context/HandleContext";
 
 function Checkout(){
+    const {setDadosProduto} = useContext(HandleContext);
+    const [link_pagamento, setLinkPagamento] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/link_pagamento')
+            .then(response => {
+                setLinkPagamento(response.data.link_pagamento);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar o link de pagamento:', error);
+            });
+    }, []);
     return(
         <div className="checkout_container">
             <Navbar/>
@@ -156,7 +170,7 @@ function Checkout(){
                         </div>
                     </div>
                     <div className="calcular_frete">
-                        <span class="bold">Calcular frete</span>
+                        <span className="bold">Calcular frete</span>
                         <div className="flex_row">
                             <input type="number" id="cep" name="cep" placeholder="CEP"/>
                             <button>Calcular</button>
@@ -167,7 +181,13 @@ function Checkout(){
                         <span className="preco bold">R$ 204,80</span>
                     </div>
                     <div className="acoes_checkout">
-                        <button>Ir para o pagamento</button>
+                        {link_pagamento ? (
+                            <a href={link_pagamento}>
+                                <button>Ir para o pagamento</button>
+                            </a>
+                        ) : (
+                            <button disabled>Carregando...</button>
+                        )}
                         <span>Cancelar compra</span>
                     </div>
                 </div>

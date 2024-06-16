@@ -302,10 +302,10 @@ input[type="radio"].radio_endereco:checked{
     height: 7.2rem;
     text-align: right;
 }
-.item_carrinho_checkout .dados_subtotal .subtotal_right span.desconto_vermelho{
+p.desconto_vermelho, .desconto_vermelho{
     text-decoration: line-through;
     color: #B03014;
-    font-size: 1.8rem;
+    font-size: 1.8rem !important; 
 }
 .bold{
     font-weight: 600;
@@ -372,11 +372,11 @@ input[type="radio"].radio_endereco:checked{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 10.9rem;
+    height: 9.6rem;
     width: 100%;
     color: #000000;
 }
-.acoes_checkout button{
+.acoes_checkout button, .acoes_checkout a{
     background-color: #0CADA7;
     border: none;
     border-radius: 5px;
@@ -385,9 +385,11 @@ input[type="radio"].radio_endereco:checked{
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.08rem;
     color:#ffffff;
-    width: 100%;
     font-size: 1.6rem;
+    cursor: pointer;
+    width: 100%;
 }
 .acoes_checkout span{
     letter-spacing: 0.08rem;
+    font-size: 1.6rem;
 }
