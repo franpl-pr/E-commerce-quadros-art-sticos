@@ -89,8 +89,10 @@ function CadastroProduto(){
             return () => {
                 inputFile.removeEventListener('change', handleChange);
             };
-        }, 
+        },
         []);
+        
+
 
 
 
@@ -106,6 +108,16 @@ function CadastroProduto(){
         setNotifEstoque(false)
         console.log(dados.categoria);
 
+        // for(let valor in dados){
+        //     if(dados[valor] == ''){
+        //         setNotifVazio(true)
+        //         return;
+        //     }
+        // }
+        // if(dados.estoque <= 0 ) { 
+        //     setNotifEstoque(true)
+        //     return;
+        // }
         // for(let valor in dados){
         //     if(dados[valor] == ''){
         //         setNotifVazio(true)
@@ -246,4 +258,5 @@ function CadastroProduto(){
     )
     
 }
+
 export default CadastroProduto;

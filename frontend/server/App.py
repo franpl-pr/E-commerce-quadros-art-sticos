@@ -179,6 +179,7 @@ def consultar_categoria_produto():
     conexao.close()
     return jsonify(result)
 
+
 #-------------------- Quadros ----------------------
 
 @app.route('/quadros', methods=['GET'])
@@ -269,6 +270,43 @@ def inserir_produtoCarrinho():
 
 
 
+# --------------------- Mostrar Dados Carriho --------------------
+
+@app.route('/carrinhoQuadros', methods=['GET'])
+def get_carrinhoQuadros():
+    conexao = mysql.connector.connect(**db_config)
+    cursor = conexao.cursor()
+    cursor.execute("SELECT IdQuadro, nomeQuadro, imagemQuadro, precoQuadro, molduraQuadro FROM carrinho")
+    result = cursor.fetchall()
+    quadros = [{'IdQuadro': row[0],'nomeQuadro': row[1], 'imagem': row[2], 'precoQuadro': row[3], 'molduraQuadro': row[4]} for row in result]
+    cursor.close()
+    conexao.close()
+    return jsonify(quadros)
+
+
+# -------------------- Excluir Quadro Carrinho ----------------------
+
+@app.route('/excluirQuadro', methods=['POST'])
+def excluir_quadro_carrinho():
+    dados = request.json
+    IdQuadro = dados['IdQuadro']
+
+    conexao = mysql.connector.connect(**db_config)
+    cursor = conexao.cursor()
+
+    # Corrigindo a consulta SQL para usar o nome correto da coluna
+    cursor.execute(f"DELETE FROM carrinho WHERE IdQuadro = '{IdQuadro}'")
+
+    result = cursor.fetchone()
+
+    if result:
+        response = {'mensagem': 'Quadro excluido com sucesso'}
+    else:
+        response = {'mensagem': 'Erro ao excluir o quadro'}
+
+    cursor.close()
+    conexao.close()
+    return jsonify(response)
 
 
 #-------------------- Excluir produto -----------------------------

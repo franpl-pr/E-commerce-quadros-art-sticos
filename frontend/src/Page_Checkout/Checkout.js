@@ -125,25 +125,25 @@ function Checkout(){
                 </div>
                 <div className="checkout_div_carrinho_compra">
                     <h2>Carrinho de compra<div className="checkout_linha"/></h2>
-                    <div className="item_carrinho_checkout">
+                    {dadosCarrinho.map((item) => (<div key={item.Id_produtos} className="item_carrinho_checkout">
                         <div className="produto_carrinho_checkout">
                             <div className="fundo_imagem_checkout">
-                                <img src={image_produto_bulldog} alt="Quadro Bulldog"></img>
+                                <img src={item.imagem} alt="Algum_Quadro"></img>
                             </div>
                             <div className="dados_produto">
                                 <div>
-                                    <span>Quadro Bulldog Frances</span>
+                                    <span>{item.nomeQuadro}</span>
                                     <span className="desconto_vermelho">R$ 128,00</span>
-                                    <span className="preco">R$102,40</span>
+                                    <span className="preco">{formatarDinheiro(item.preco)}</span>
                                 </div>
                                 <div>
                                     <select>
-                                        <option value={1}>Moldura Tradicional</option>
+                                        <option value={1}>Moldura {item.cor}</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="acoes_produto">
-                                <button>
+                                <button onClick={removerProdutoCarrinho}>
                                     <FaRegTrashAlt size={16}></FaRegTrashAlt>
                                 </button>
                                 <div className="add_del_produto">
@@ -168,8 +168,9 @@ function Checkout(){
                                 <span className="desconto_vermelho">R$ 51,20</span>
                             </div>
                         </div>
-                    </div>
+                    </div>))}
                     <div className="calcular_frete">
+                        <span className="bold">Calcular frete</span>
                         <span className="bold">Calcular frete</span>
                         <div className="flex_row">
                             <input type="number" id="cep" name="cep" placeholder="CEP"/>

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { HandleProvider } from './context/HandleContext';
-import { HandleData } from './context/HandleContext';
+import { HandleDataProvider } from './context/HandleContext';
+import { HandleCarrinhoProvider } from './context/HandleContext'
 
 const link_pagamento = window.link_pagamento;
 
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
     <HandleProvider> 
-      <HandleData>
-        <App/> 
-      </HandleData>
+      <HandleDataProvider>
+        <HandleCarrinhoProvider>
+          <App/> 
+        </HandleCarrinhoProvider>
+      </HandleDataProvider>
     </HandleProvider> 
   
 );

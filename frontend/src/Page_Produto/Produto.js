@@ -14,45 +14,33 @@ import Quadros_relacionados from "../Components/component_Promocoes/Promocoes";
 import image_menos from "../img/image_produto_menos.png";
 import image_mais from "../img/image_produto_mais.png";
 import {useNavigate} from "react-router-dom";
-import { HandleContext } from '../context/HandleContext';
-import axios from "axios";
-
+import { HandleDataContext } from '../context/HandleContext';
+import { HandleCarrinhoContext } from '../context/HandleContext';
+import formatarDinheiro from "../Utilidades/formartarDinheiro";
 
 function DetalheProduto(){
     const navigate = useNavigate()
-    const {dadosProduto, setDadosProduto} = useContext(HandleContext)
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
     const [numerosQuadros, setNumerosQuadros] = useState(1)
 
     const diminuirNumerosQuadros = () => {
-        if(numerosQuadros <= 0){
-            setNumerosQuadros(0)
+        if(numerosQuadros <= 1){
+            setNumerosQuadros(1)
         }else{
             setNumerosQuadros(numerosQuadros - 1)
         }
     }
 
-    const handleDataCarrinho = async () => {
-        try {
-            // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/carrinhoProdutos', {
-                idQuadro: dadosProduto.ID_produtos,
-                nomeQuadro: dadosProduto.nomeQuadro,
-                precoQuadro: dadosProduto.preco,
-                imagemQuadro: dadosProduto.imagem,
-                molduraQuadro: dadosProduto.cor
-            });
-
-            const notifica_reposta = response.data.mensagem
-            console.log(notifica_reposta)
-
-            if(notifica_reposta = 'Quadro já está no carrinho'){
-                
-            }
-    
-        } catch (error) {   
-            console.error('Erro ao enviar dados para o servidor:', error);
-        }
+    const aumentaNumeroQuadros = () => {
+        setNumerosQuadros(parseInt(numerosQuadros + 1))
     }
+
+    const handleAddCart = () => {setDadosCarrinho([...dadosCarrinho, dadosProduto])
+        console.log(dadosProduto)
+    }
+
+
 
     return(
         <div className="produto_container">
@@ -66,7 +54,7 @@ function DetalheProduto(){
             </div>
             <div className="produto_box_informacoes_compra">
                 <div className="produto_div_informacoes_compra">
-                    <img src={dadosProduto.imagem} alt="image_bulldog"/>
+                    <img src={dadosProduto.imagem} alt={image_bulldog}/>
                     <div className="produto_informacoes">
                         <h2>{dadosProduto.nomeQuadro}</h2>
                         <div className="produto_div_avaliacoes_informacoes">
@@ -89,7 +77,7 @@ function DetalheProduto(){
                         </div>
                         <div className="produto_div_preco_promocao">
                             <span className="produto_por">Por:</span>
-                            <span className="produto_preco_promocao">R$ {dadosProduto.preco}</span>
+                            <span className="produto_preco_promocao">{formatarDinheiro(dadosProduto.preco)}</span>
                         </div>
                         <p>
                         {dadosProduto.descricao}
@@ -102,10 +90,10 @@ function DetalheProduto(){
                         <div className="produto_div_adicionar_carrinho">
                             <div className="produto_input_numero_quadros">
                                 <img onClick={diminuirNumerosQuadros} className="image_menos" src={image_menos} alt="image_menos"/>
-                                <input type="number" value={numerosQuadros}/>
-                                <img onClick={() => setNumerosQuadros(numerosQuadros + 1)} className="image_mais" src={image_mais} alt="image_mais"/>
+                                <input type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
+                                <img onClick={aumentaNumeroQuadros} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
-                            <button onClick={handleDataCarrinho} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
+                            <button onClick={handleAddCart} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
                             <button className="produto_favoritar"><img src={image_coracao_favoritar} alt="coracao"/></button>
                         </div>
                     </div>
@@ -152,7 +140,7 @@ function DetalheProduto(){
                 <div className="produtos_div_produtos_relacionados">
                     <h2>Produtos relacionados<div className="produto_linha"></div></h2>
                     <Quadros_relacionados/>
-                    <button>Ver mais</button>
+                    <button onClick={() => navigate('/Quadros')}>Ver mais</button>
                 </div>
             </div>
             <Footer/>

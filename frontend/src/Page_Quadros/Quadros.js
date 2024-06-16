@@ -7,7 +7,7 @@ import image_retangulos from "../img/image_retangulos.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Components/component_Footer/Footer";
-import { HandleContext } from "../context/HandleContext";
+import { HandleDataContext } from "../context/HandleContext";
 
 
 function Quadros(){
@@ -16,9 +16,8 @@ function Quadros(){
     const [quadros, setQuadros] = useState([]);
     const [numQuadros, setNumQuadros] = useState(10)
     const [produto, setProduto] = useState(null)
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext);
 
-    const {dadosProduto, setDadosProduto} = useContext(HandleContext);
-    
 
     useEffect(() => {
         axios.get('http://localhost:5000/quadros')
@@ -28,7 +27,6 @@ function Quadros(){
         .catch(error => {
             console.error("Houve um erro!", error);
         });
-        console.log(quadros)
     }, []);
 
     const handleSelectChange = (event) => {

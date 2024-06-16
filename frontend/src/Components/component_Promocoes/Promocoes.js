@@ -2,7 +2,8 @@ import React, {useState, useEffect, useContext} from "react";
 import './promocoes_style.css';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { HandleContext } from "../../context/HandleContext";
+import { HandleDataContext } from "../../context/HandleContext";
+import formatarDinheiro from "../../Utilidades/formartarDinheiro";
 
 function Promocoes(){
     const navigate = useNavigate();
@@ -10,8 +11,7 @@ function Promocoes(){
     const [quadros, setQuadros] = useState([]);
     const [produto, setProduto] = useState(null)
 
-    const {dadosProduto, setDadosProduto} = useContext(HandleContext);
-
+    const {dadosProduto, setDadosProduto} = useContext(HandleDataContext);
 
     useEffect(() => {
         axios.get('http://localhost:5000/quadros')
@@ -59,7 +59,7 @@ function Promocoes(){
                             <span className="inicial_promocoes_titulos">{item.nomeQuadro}</span><br/>
                             <span className="inicial_promocoes_autores">Criado por Algum autor</span><br/>
                             <div className="inicial_promocoes_div_precos">
-                                <span className="inicial_promocoes_precos">R$ {item.preco}</span>
+                                <span className="inicial_promocoes_precos">{formatarDinheiro(item.preco)}</span>
                                 <span className="inicial_promocoes_descontos">R$ 300,00</span>
                             </div>
                         </div>

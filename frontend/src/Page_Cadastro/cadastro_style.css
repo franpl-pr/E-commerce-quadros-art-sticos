@@ -169,6 +169,7 @@ input[type=number]::-webkit-inner-spin-button {
     padding: 0px;
     margin: 0px;
     font-family: "Poppins", sans-serif;
+    font-size: 16px;
     letter-spacing: 2px;
 }
 
@@ -314,6 +315,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .notificacao_sucesso h1{
     font-family: 'Poppins', sans-serif;
+    font-size: 30px;
     font-weight: 500;
     display: inline-block;
     color: #333333;

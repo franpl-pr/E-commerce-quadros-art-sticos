@@ -1,6 +1,8 @@
 import React, {createContext, useState} from "react";
 
 export const HandleContext = createContext()
+export const HandleDataContext = createContext()
+export const HandleCarrinhoContext = createContext()
 
 export const HandleProvider = ({children}) => {
     const [variavel, setVariavel] = useState(false);
@@ -17,13 +19,23 @@ export const HandleProvider = ({children}) => {
     )
 }
 
-export const HandleData = ({children}) => {
+export const HandleDataProvider = ({children}) => {
     const [dadosProduto, setDadosProduto] = useState({})
 
     return(
-        <HandleContext.Provider value={{dadosProduto, setDadosProduto}}>
+        <HandleDataContext.Provider value={{dadosProduto, setDadosProduto}}>
             {children}
-        </HandleContext.Provider>
+        </HandleDataContext.Provider>
+    )
+}
+
+export const HandleCarrinhoProvider = ({children}) => {
+    const [dadosCarrinho, setDadosCarrinho] = useState([])
+
+    return(
+        <HandleCarrinhoContext.Provider value={{dadosCarrinho, setDadosCarrinho}}>
+            {children}
+        </HandleCarrinhoContext.Provider>
     )
 }
 
