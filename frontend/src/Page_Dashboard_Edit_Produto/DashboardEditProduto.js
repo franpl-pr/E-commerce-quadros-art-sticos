@@ -251,6 +251,7 @@ function EditProduto(){
             {notifSucesso && (
                 <div className='box_notificacao_sucesso'>
                     <div className='notificacao_sucesso'>
+                        
                         <h1>Quadro atualizado com sucesso!</h1>
                         <button onClick={() => navigate(-1)}>Continuar</button>
                     </div>

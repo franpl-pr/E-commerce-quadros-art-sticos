@@ -211,7 +211,7 @@
 
 .inicial_quadro_elementos{
     width: 358px;
-    height: 450px;
+    height: 430px;
     background-color: white;
     margin-top: 59px;
     box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
@@ -240,9 +240,15 @@
 }
 
 .inicial_quadro_titulos{
+    margin: 0;
+    padding: 0;
     font-size: 24px;
     font-family: "Poppins", sans-serif;
-    font-weight: 600;
+    text-overflow: ellipsis;  
+    display: inline-block;     
+    width: 307px;         
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .inicial_quadro_autores{

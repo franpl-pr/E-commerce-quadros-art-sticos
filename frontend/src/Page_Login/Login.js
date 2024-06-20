@@ -30,15 +30,20 @@ function Login() {
 
         const nota = response.data.mensagem
         console.log(nota)
+        if (nota === 'Usuário cliente encontrado' || nota === 'Usuário vendedor encontrado') {
+          const idUsuario = response.data.id_usuario;
 
-        if(nota == 'Usuário encontrado'){
-          setVariavel(true)
-          console.log(variavel)
-          navigate('/Home')
-        }
-        if(nota == 'Usuário não encontrado'){
-          setNotificacao(true)
-          setMsgCampos(false)
+          if(nota == 'Usuário cliente encontrado'){
+            setVariavel(true)
+            console.log(variavel)
+            navigate('/Home')
+          }else if(nota == 'Usuário vendedor encontrado'){
+            navigate('/DashboardProdutos', { state: { idUsuario: idUsuario } })
+          }
+          if(nota == 'Usuário não encontrado'){
+            setNotificacao(true)
+            setMsgCampos(false)
+          }
         }
       } catch (error) {
         console.error('Erro ao enviar dados para o servidor:', error);

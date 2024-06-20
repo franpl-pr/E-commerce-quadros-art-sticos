@@ -3,17 +3,13 @@ import React, {createContext, useState} from "react";
 export const HandleContext = createContext()
 export const HandleDataContext = createContext()
 export const HandleCarrinhoContext = createContext()
+export const HandleTipoUsuario = createContext()
 
 export const HandleProvider = ({children}) => {
     const [variavel, setVariavel] = useState(false);
-    const [statusCompra, setStatusCompra] = useState('');
-
-    const mudarVariavel = () => {
-        setVariavel(variavel === false ? true : false);
-    }
 
     return(
-        <HandleContext.Provider value={{ variavel, mudarVariavel, statusCompra, setStatusCompra }}>
+        <HandleContext.Provider value={{ variavel, setVariavel}}>
             {children}
         </HandleContext.Provider>
     )
@@ -39,4 +35,12 @@ export const HandleCarrinhoProvider = ({children}) => {
     )
 }
 
+export const HandleTipoUsuarioProvider = ({children}) => {
+    const [tipoUsuario, setTipoUsuario] = useState('')
 
+    return(
+        <HandleTipoUsuario.Provider value={{tipoUsuario, setTipoUsuario}}>
+            {children}
+        </HandleTipoUsuario.Provider>
+    )
+}

@@ -8,6 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Components/component_Footer/Footer";
 import { HandleDataContext } from "../context/HandleContext";
+import formatarDinheiro from "../Utilidades/formartarDinheiro";
 
 
 function Quadros(){
@@ -30,7 +31,7 @@ function Quadros(){
     }, []);
 
     const handleSelectChange = (event) => {
-        setNumQuadros(parseInt(event.target.value, 10)); // Garante que o valor seja interpretado como decimal
+        setNumQuadros(parseInt(event.target.value, 10)); // Garante que o valor seja interpretado como inteiro
     };
 
 
@@ -96,15 +97,15 @@ function Quadros(){
             <div className="quadro_container">
                 <div className="inicial_box_quadro">
                     <div className="inicial_quadro">
-                        {quadros.slice(0, numQuadros).map((item) => (<div key={item.ID_produtos} onClick={() => clicarQuadro(item)} className="inicial_quadro_elementos">
+                        {quadros.slice(0, numQuadros).map((item, index) => (<div key={index} onClick={() => clicarQuadro(item)} className="inicial_quadro_elementos">
                             <div className="inicial_imagem_quadro">
                                 <img src={item.imagem} alt="Algum quadro"/>
                             </div>
                             <div className="inicial_informacoes_quadro">
-                                <span className="inicial_quadro_titulos">{item.nomeQuadro}</span><br/>
+                                <p className="inicial_quadro_titulos">{item.nomeQuadro}</p><br/>
                                 <span className="inicial_quadro_autores">Criado por Algum autor</span><br/>
                                 <div className="inicial_quadro_div_precos">
-                                    <span className="inicial_quadro_precos">R$ {item.preco}</span>
+                                    <span className="inicial_quadro_precos">{formatarDinheiro(item.preco)}</span>
                                     <span className="inicial_quadro_descontos">R$ 300,00</span>
                                 </div>
                             </div>

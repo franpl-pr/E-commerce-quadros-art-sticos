@@ -11,6 +11,7 @@ import { LiaEdit } from "react-icons/lia";
 import { FaRegTrashAlt } from "react-icons/fa";
 import image_produto_bulldog from '../img/image_produto_bulldog.png';
 import { IoClose } from "react-icons/io5";
+import { useLocation } from "react-router-dom";
 
 function DashboardProdutos(){
     const [produtos, setProdutos] = useState([]);
@@ -19,6 +20,8 @@ function DashboardProdutos(){
     const [notifDelete, setNotifDelete] = useState(false);
     const [produtoSelecionado, setProdutoSelecionado] = useState(null);
     const [popUpNotifDel, setPopUpNotifDel] = useState(false);
+    const location = useLocation();
+    const idUsuario = location.state.idUsuario;
 
     const handleDelete = async () =>{
         if (produtoSelecionado) {
@@ -38,10 +41,12 @@ function DashboardProdutos(){
     }
     const yesDelete = (produto) =>{
         setProdutoSelecionado(produto);
+        console.log(produtoSelecionado);
         setNotifDelete(true);
     }
     const noDelete = () =>{
         setProdutoSelecionado(null);
+        console.log(produtoSelecionado);
         setNotifDelete(false);
     }
     
@@ -62,7 +67,7 @@ function DashboardProdutos(){
         <div className="dashboard">
                 <MenuLateral/>
                 <div className="container">
-                    <BarraDb/>
+                    <BarraDb idUsuario={idUsuario}/>
                     <div className="conteudo-dashboard">
                         <div className="indicacao-dashboard">
                             <h2>Produtos</h2>
@@ -99,6 +104,7 @@ function DashboardProdutos(){
                                         <td><span>{item.preco}</span></td>
                                         <td><span>{item.estoque}</span></td>
                                         <td><span>{item.cor}</span></td>
+
                                         <td className="acoes">
                                             <div className="botoes-acao">
                                                 <div className="botao-esquerda botao-editar">
@@ -127,51 +133,7 @@ function DashboardProdutos(){
                         </div>
                     </div>
                 </div>
-                {/* popupteste do design */}
-                {/* {notifDelete && (
-                    <div className="box-popup">
-                        <div className="close-popup">
-                                <button onClick={noDelete}>
-                                    <IoClose/>     
-                                </button>
-                            </div>
-                            <div className="popup-excluir-produto">
-                            
-                                <h4>Excluir produto</h4>
-                                <p>Deseja excluir o produto abaixo?</p>
-                                <span>*Voce nao podera desfazer a acao depois</span>
-                                <div className="align-center">
-                                    <div className="info-produto">
-                                    <div className="bold info-text-list">
-                                        <span>Quadro</span>
-                                        <span>Categoria</span>
-                                        <span>Tamanho</span>
-                                        <span>preco</span>
-                                        <span>estoque</span>
-                                        <span>Cor da moldura</span>
-                                    </div>
-                                    <div className="info-text-list">
-                                        <span>Bulldog Frances</span>
-                                        <span>Animais</span>
-                                        <span>A15 (15 x 20 cm)</span>
-                                        <span>R$ 102,40</span>
-                                        <span>1</span>
-                                        <span>Preta, cinza</span>
-                                    </div>
-                                    <img src={image_produto_bulldog}/>
-                                </div>
-                                
-                                <div className="acoes">
-                                    <button className="botao-outline" onClick={handleDelete}>Sim</button>
-                                    <button className="botao-color-solid" onClick={noDelete}>Não</button>
-                                </div>
-                                
-                            
-                            </div>
-                    
-                        </div>
-                    </div>
-                )} */}
+                
                 {/* popup para conexao real dos dados do bd */}
                 {notifDelete && produtoSelecionado && (
                     <div className="box-popup">

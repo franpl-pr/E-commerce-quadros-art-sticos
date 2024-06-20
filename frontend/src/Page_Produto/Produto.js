@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, {useState, useContext} from "react";
 import "./produto_style.css"
 import Navbar from "../Components/component_Navbar/Navbar";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -22,25 +22,43 @@ function DetalheProduto(){
     const navigate = useNavigate()
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
-    const [numerosQuadros, setNumerosQuadros] = useState(1)
+    const [quantidade, setQuantidade] = useState(1)
+
+    dadosProduto.quantidade = quantidade;
+    dadosProduto.precoTotal = dadosProduto.quantidade * dadosProduto.preco;
 
     const diminuirNumerosQuadros = () => {
-        if(numerosQuadros <= 1){
-            setNumerosQuadros(1)
-        }else{
-            setNumerosQuadros(numerosQuadros - 1)
+        if(dadosProduto.quantidade <= 1){
+            setQuantidade(1)
+            return;
         }
+        setQuantidade(quantidade - 1)
     }
 
     const aumentaNumeroQuadros = () => {
-        setNumerosQuadros(parseInt(numerosQuadros + 1))
+        setQuantidade(quantidade + 1)
     }
 
-    const handleAddCart = () => {setDadosCarrinho([...dadosCarrinho, dadosProduto])
+    const handleAddCart = () => {
+        let resposta
+        dadosCarrinho.map(produto => {
+            if(produto.ID_produtos == dadosProduto.ID_produtos){
+                resposta = 'Produto encontrado'
+            }
+        })
+        if(resposta == 'Produto encontrado'){
+            alert('Este produto já está no carrinho !')
+            return;
+        }
+        setDadosCarrinho([...dadosCarrinho, dadosProduto])
         console.log(dadosProduto)
+        console.log(dadosCarrinho)
     }
 
-
+    const verMais = () => {
+        navigate('/Quadros')
+        window.scrollTo(0, 2)
+    }
 
     return(
         <div className="produto_container">
@@ -52,7 +70,7 @@ function DetalheProduto(){
                     <div className="produto_localizar"><span>Animais</span></div>
                 </div>
             </div>
-            <div className="produto_box_informacoes_compra">
+            <div key={dadosProduto.ID_produtos} className="produto_box_informacoes_compra">
                 <div className="produto_div_informacoes_compra">
                     <img src={dadosProduto.imagem} alt={image_bulldog}/>
                     <div className="produto_informacoes">
@@ -90,7 +108,7 @@ function DetalheProduto(){
                         <div className="produto_div_adicionar_carrinho">
                             <div className="produto_input_numero_quadros">
                                 <img onClick={diminuirNumerosQuadros} className="image_menos" src={image_menos} alt="image_menos"/>
-                                <input type="number" value={numerosQuadros} onChange={(e) => setNumerosQuadros(e.target.value)}/>
+                                <span>{dadosProduto.quantidade}</span>
                                 <img onClick={aumentaNumeroQuadros} className="image_mais" src={image_mais} alt="image_mais"/>
                             </div>
                             <button onClick={handleAddCart} className="produto_adicionar_carrinho">Adicionar ao carrinho</button>
@@ -133,14 +151,14 @@ function DetalheProduto(){
                     Cor da moldura: {dadosProduto.cor}</p>
                 </div>
                 <div className="produto_div_quadro_parede">
-                    <img src={image_quadro_parede} alt="quadro_parede"/>
+                    <img src={dadosProduto.imagem} alt="quadro_parede"/>
                 </div>
             </div>
             <div className="produtos_box_produtos_relacionados">
                 <div className="produtos_div_produtos_relacionados">
                     <h2>Produtos relacionados<div className="produto_linha"></div></h2>
                     <Quadros_relacionados/>
-                    <button onClick={() => navigate('/Quadros')}>Ver mais</button>
+                    <button onClick={verMais}>Ver mais</button>
                 </div>
             </div>
             <Footer/>

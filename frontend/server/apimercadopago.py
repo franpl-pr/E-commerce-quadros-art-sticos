@@ -1,30 +1,32 @@
 import mercadopago
 
-def gerar_link_pagamento():
+def gerar_link_pagamento(dadosCarrinho):
 
-    sdk = mercadopago.SDK("TEST-2558284894951529-052219-50351c0fab25a3249c4e6f55fdd0f33a-205750426")
+    sdk = mercadopago.SDK("APP_USR-4692194312027696-061914-be26f913d8c7cf6b08fdc3f83188f3d0-623516088")
+    items = [
+        {
+            "id": item["ID_produtos"],
+            "title": item['nomeQuadro'],
+            "description": item['descricao'],
+            "quantity": item['quantidade'],
+            "currency_id": "BRL",
+            "unit_price": item['preco']
+        }
+        for item in dadosCarrinho
+    ]
 
-    #REQUISIÇÃO - intesn que vão ser incluídos na requisição
-    request = {
-        "items": [
-            {
-                "id": "1",  # id_produto
-                "title": "Bauhaus Geométrico – Vermelho",
-                "quantity": 1,
-                "currency_id": "BRL",
-                "unit_price": 259.99
-            }
-        ],
+
+    payment_data = {
+        "items": [{ "id":1, "title":"camisa", "quantity":1, "currency_id":"BRL", "unit_price": 159.99 }],
         "back_urls": {
-        "success": "http://127.0.0.1:5000/compracerta",
-        "pending": "http:/http:/127.0.0.1:5000/comprapendente",
-        "failure": "http:/http:/127.0.0.1:5000/compraerrada"
-    },
-    "auto_return": "all"
+            "sucess": "http://http://localhost:3000/FinalizacaoCompra",
+            "failure": "",
+            "pending": ""
+        },
+        "auto_return": "all"
     }
-
-    resultado = sdk.preference().create(request)
-    pagamento = resultado["response"]
-    link_iniciar_pagamento = pagamento["init_point"]
-
+    result = sdk.preference().create(payment_data)
+    payment = result["response"]  
+    link_iniciar_pagamento = payment["init_point"]
     return link_iniciar_pagamento
+

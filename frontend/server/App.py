@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
-from apimercadopago import gerar_link_pagamento
+# from apimercadopago import gerar_link_pagamento
+import mercadopago
 
 
 app = Flask(__name__)
@@ -13,8 +14,8 @@ db_config = {
     'user':'root',
     'password':'1234',  
     'database':'quadrartes',
-}
 
+}
 
 #------------------------- Cadastro ----------------------------
 
@@ -34,7 +35,7 @@ def inserir_usuario():
     cidade = dados['cidade']
     bairro = dados['bairro']
     senha = dados['senha']
-    confSenha = dados['confSenha']
+    tipo = dados['tipo']
     
     # Conectar ao banco de dados
     conexao = mysql.connector.connect(**db_config)
@@ -50,7 +51,7 @@ def inserir_usuario():
 
     else:
         # Montar e executar o comando SQL para inserir o usuário
-        comando_inserir_dados = f"INSERT INTO usuarios (nomeCompleto, email, senha, telefone) VALUES ('{nome}', '{email}', '{senha}', {telefone})"
+        comando_inserir_dados = f"INSERT INTO usuarios (nomeCompleto, email, senha, telefone, tipo) VALUES ('{nome}', '{email}', '{senha}', '{telefone}', '{tipo}')"
         cursor.execute(comando_inserir_dados)
         conexao.commit() # edita o banco de dados
             
@@ -81,15 +82,47 @@ def consultar_usuario():
     comando_consultar_dados = f"SELECT * FROM usuarios WHERE email = '{email}' AND senha = '{senha}';"
     cursor.execute(comando_consultar_dados)
     resultado = cursor.fetchall()  # Recupera o primeiro resultado encontrado
+    print(resultado)
 
     cursor.close()
     conexao.close()
 
     # Verifica se o usuário foi encontrado
     if resultado:
-        return jsonify({'mensagem': 'Usuário encontrado'})
+        usuario = resultado [0]
+        tipo_usuario = resultado[0][6]
+        id_usuario = usuario[0]
+        if tipo_usuario == 'Cliente':
+            return jsonify({'mensagem': 'Usuário cliente encontrado','id_usuario': id_usuario})
+        elif tipo_usuario == 'Vendedor':
+            return jsonify({'mensagem': 'Usuário vendedor encontrado', 'id_usuario': id_usuario})
+        else:
+            return jsonify({'mensagem': 'Tipo de usuário desconhecido'})
     else:
         return jsonify({'mensagem': 'Usuário não encontrado'})
+
+#------------------------- Obter dados usuario ----------------------------
+
+@app.route('/procurar_usuario/<int:id_usuario>', methods=['GET'])
+def procurar_usuario(id_usuario):
+    # Obter os dados do corpo da requisição
+    # Conectar ao banco de dados
+    conexao = mysql.connector.connect(**db_config)
+
+    cursor = conexao.cursor()
+
+    # Montar e executar o comando SQL para consultar o usuário
+    comando_consultar_dados = f"SELECT nomeCompleto, genero FROM usuarios WHERE ID_usuarios = {id_usuario};"
+    cursor.execute(comando_consultar_dados)
+    resultado = cursor.fetchall()  # Recupera o primeiro resultado encontrado
+    usuario = [{'nomeCompleto': row[0],'genero': row[1]} for row in resultado]
+    print(usuario)
+
+    cursor.close()
+    conexao.close()
+
+    
+    return jsonify(resultado)
 
 
 
@@ -328,6 +361,13 @@ def delete_produto(id):
     return jsonify({"mensagem": "Produto deletado com sucesso"})
 
 
+
+#--------------------- Pagamento --------------------------
+
+# # @app.route("/api/link_pagamento", methods = ['GET'])
+# # def get_link_pagamento():
+# #     link_iniciar_pagamento = gerar_link_pagamento()
+# #     return jsonify({"link_pagamento": link_iniciar_pagamento})
 #--------------------Editar produto --------------------------------
 
 @app.route('/edit_produto', methods=['POST'])
@@ -366,9 +406,6 @@ def edit_produto():
 
 
 @app.route("/api/link_pagamento", methods = ['GET'])
-# def get_link_pagamento():
-#     link_iniciar_pagamento = gerar_link_pagamento()
-#     return jsonify({"link_pagamento": link_iniciar_pagamento})
 def get_link_pagamento():
     link_iniciar_pagamento = gerar_link_pagamento()
     return jsonify({"link_pagamento": link_iniciar_pagamento, "status": "success"})
@@ -381,6 +418,54 @@ def compra_certa():
 def compra_errada():
     return render_template("FinalizacaoCompra.js")
 
+# @app.route('/api/pagamentos', methods=['POST'])
+# def pagamento_apimercadoPago():
+#     dados = request.json
+#     dadosCarrinho = dados['dadosCarrinho']
+
+#     try:
+#         link = gerar_link_pagamento(dadosCarrinho)
+#         return jsonify({'link': link}), 200
+#     except KeyError as e:
+#         return jsonify({'error': f"KeyError: {str(e)}", 'response': e.response}), 500
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
+
+# def gerar_link_pagamento(dadosCarrinho):
+
+#     sdk = mercadopago.SDK("APP_USR-4692194312027696-061914-be26f913d8c7cf6b08fdc3f83188f3d0-623516088")
+
+#     for item in dadosCarrinho:
+#         "id": item.ID_produtos,
+#         "title": item.nomeQuadro,
+#         "description": item.descricao,
+#         "quantity": item.quantidade,
+#         "currency_id": "BRL",
+#         "unit_price": item.precoTotal
+        
+    
+
+#     payment_data = {
+#         "items": items,
+#         "back_urls": {
+#             "success": "http://localhost:3000/FinalizacaoCompra",
+#             "failure": "",
+#             "pending": ""
+#         },
+#         "auto_return": "all"
+#     }
+
+#     result = sdk.preference().create(payment_data)
+#     payment = result["response"]
+
+#     # Adicione log para verificar a resposta completa
+#     print(f"Resposta da API Mercado Pago: {payment}")
+
+#     if "init_point" in payment:
+#         return payment["init_point"]
+#     else:
+#         raise KeyError("'init_point' não encontrado na resposta da API")    
 
 if __name__ == '__main__':
+    print("Iniciando o servidor Flask...")
     app.run(debug=True)

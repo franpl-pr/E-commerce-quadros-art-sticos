@@ -237,7 +237,7 @@
     transition: 0.2s;
 }
 
-.produto_input_numero_quadros input{
+.produto_input_numero_quadros span{
     background: transparent;
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
@@ -245,12 +245,6 @@
     height: 40px;
     text-align: center;
     border: none;
-}
-
-.produto_input_numero_quadros input[type="number"]::-webkit-inner-spin-button,
-.produto_input_numero_quadros input[type="number"]::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
 }
 
 .produto_input_numero_quadros input:focus{
@@ -350,11 +344,18 @@
     margin-top: 70px;
     display: flex;
     justify-content: center;
+    width: 820px;
+    height: 744px;
+    background-image: url(../img/image_fundo_sala_quadro.jpeg);
+    background-size: cover;
+    background-position: top;
+    box-shadow: 2px 3px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .produto_div_quadro_parede img{
-    width: 820px;
-    height: 744px;
+    margin-top: 30px;
+    width: 415px;
+    height: 415px;
 }
 
 .produtos_box_produtos_relacionados{
