@@ -824,7 +824,7 @@
 	--
 
 	CREATE TABLE `usuarios` (
-	`ID_usuarios` int(11) NOT NULL,
+	`ID_usuarios` int(11) NOT NULL AUTO_INCREMENT,
 	`nomeCompleto` varchar(100) NOT NULL,
 	`email` varchar(100) NOT NULL,
 	`senha` varchar(100) NOT NULL,
@@ -1042,9 +1042,9 @@
 	--
 	-- AUTO_INCREMENT de tabela `usuarios`
 	--
-	ALTER TABLE `usuarios`
-	MODIFY `ID_usuarios` int(11) NOT NULL AUTO_INCREMENT;
-	COMMIT;
+	-- ALTER TABLE `usuarios`
+	-- MODIFY `ID_usuarios` int(11) NOT NULL AUTO_INCREMENT;
+	-- COMMIT;
 
 	/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 	/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

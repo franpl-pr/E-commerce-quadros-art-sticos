@@ -26,6 +26,10 @@
     font-size: 32px;
 }
 
+.logo:hover{
+    cursor: pointer;
+}
+
 .div_navegar{
     width: 570px;
     height: 27px;

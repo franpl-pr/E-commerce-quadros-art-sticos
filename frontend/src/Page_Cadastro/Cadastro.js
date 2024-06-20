@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './cadastro_style.css';
 import image_google from '../img/image_google.png';
 import image_email from '../img/image_email.png';
 import { useNavigate } from 'react-router-dom';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { HandleTipoUsuario } from "../context/HandleContext"
 import { IoSearch } from "react-icons/io5";
 import api from './api';
 import axios from "axios";
@@ -12,6 +13,7 @@ function Cadastro(){
     const navigate = useNavigate();
     const [alterarSenha, setAlterarSenha] = useState(true);
     const [cep, setCep] = useState({});
+    const {tipoUsuario, setTipoUsuario } = useContext(HandleTipoUsuario);
 
     // Criando um objeto useState(), para os inputs    
 
@@ -28,7 +30,8 @@ function Cadastro(){
         cidade: '',
         bairro: '',
         senha: '',
-        confSenha: ''
+        confSenha: '',
+        tipo: tipoUsuario
     })
 
     // Criando as variáveis de notficação useState()
@@ -130,7 +133,7 @@ function Cadastro(){
                 cidade: dados.cidade,
                 bairro: dados.bairro,
                 senha: dados.senha,
-                confSenha: dados.confSenha
+                tipo: dados.tipo,
             });
 
             const notifica_reposta = response.data.mensagem

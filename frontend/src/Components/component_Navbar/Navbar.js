@@ -9,6 +9,7 @@ import quadro_bulldog from "../../img/image_produto_bulldog.png";
 import sinal_mais from "../../img/Vector 5.png";
 import image_lixo from "../../img/trash.png";
 import { HandleContext } from '../../context/HandleContext';
+import { HandleTipoUsuario } from "../../context/HandleContext";
 import { HandleCarrinhoContext } from "../../context/HandleContext";
 import { HandleDataContext } from '../../context/HandleContext';
 import formatarDinheiro from "../../Utilidades/formartarDinheiro";
@@ -22,6 +23,7 @@ function Navbar(){
     const {variavel, mudarVariavel} = useContext(HandleContext);
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext);
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const {tipoUsuario, setTipoUsuario} = useContext(HandleTipoUsuario)
     const [produtosNoCarrinho, setProdutosNoCarrinho] = useState(dadosCarrinho);
 
   const aumentaNumeroQuadros = (index) => {
@@ -72,17 +74,20 @@ function Navbar(){
         }
     }
 
+    const desceFooter = () => {
+        window.scrollTo(0, 3200)
+    }
 
     return(
         <div className="navbar">
             <div className="div_logo">
-                <h1 className="logo">Quadrartes</h1>
+                <h1 onClick={() => navigate('/Home')} className="logo">Quadrartes</h1>
             </div>
             <div className="div_navegar">
                 <a href="#">Categorias</a>
                 <a href="#">Artistas</a>
                 <a onClick={() => navigate("/Quadros")}>Quadros</a>
-                <a href="#">Oferatas</a>
+                <a onClick={desceFooter}>Fale Conosco</a>
             </div>  
             <div className="div_icons">
                 <button className="button_icons"><IoSearch className="icons" size={32}/></button>
@@ -144,8 +149,8 @@ function Navbar(){
                                     <button onClick={verificaCompra}>Comprar</button>
                                 </div> : null}
                             </div>
-                        </div>
-                )}</div>
+                        </div>)}
+                    </div>
                 {variavel ? <button className="button_icons"><MdOutlinePerson className="icons" size={32}/></button> : <button onClick={() => navigate('/Login')} className="button_entrar">Entrar</button>}
             </div>
         </div>

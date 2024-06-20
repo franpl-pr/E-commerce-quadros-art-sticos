@@ -31,10 +31,12 @@ function Login() {
         const nota = response.data.mensagem
         console.log(nota)
 
-        if(nota == 'Usuário encontrado'){
+        if(nota == 'Usuário cliente encontrado'){
           setVariavel(true)
           console.log(variavel)
           navigate('/Home')
+        }else if(nota == 'Usuário vendedor encontrado'){
+          navigate('/DashboardProdutos')
         }
         if(nota == 'Usuário não encontrado'){
           setNotificacao(true)

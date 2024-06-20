@@ -1,21 +1,27 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import "./checkout_style.css";
 import Navbar from "../Components/component_Navbar/Navbar"
 import Footer from "../Components/component_Footer/Footer"
 import SessaoCheckout from "../Components/component_sessaoCheckout/SessaoCheckout";
 import { IoAddSharp } from "react-icons/io5";
 import { IoRemoveSharp } from "react-icons/io5";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa"; 
+import { HandleContext } from "../context/HandleContext";
 import { HandleCarrinhoContext } from  '../context/HandleContext';  
 import  formatarDinheiro from '../Utilidades/formartarDinheiro'
 import { HandleDataContext } from '../context/HandleContext';
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 
 function Checkout(){
     const {dadosCarrinho, setDadosCarrinho} = useContext(HandleCarrinhoContext)
     const {dadosProduto, setDadosProduto} = useContext(HandleDataContext)
+    const {variavel, setVariavel} = useContext(HandleContext)
+    const [cadastroAberto, setCadastroAberto] = useState(variavel)
     const [produtosNoCarrinho, setProdutosNoCarrinho] = useState(dadosCarrinho);
+    const [link_pagamento, setLinkPagamento] = useState('');
+    const navigate = useNavigate()
 
     const aumentaNumeroQuadros = (index) => {
         const novosProdutos = [...dadosCarrinho];
@@ -48,55 +54,76 @@ function Checkout(){
         }
     };
 
-    const handlePayment = async () => {
-        try {
-            // Faça a requisição POST para o backend
-            const response = await axios.post('http://localhost:5000/api/pagamento', {
-                dadosCarrinho: dadosCarrinho
-            });
-    
-            const nota = response.data.mensagem
-            console.log(nota)
 
-          } catch (error) {
-            console.error('Erro ao enviar dados para o servidor:', error);
-          }
-    }
-    
+    const irParaPagamento = async () => {
+
+        if(variavel == false){
+            navigate('/Login')
+            return
+        }else if(dadosCarrinho.length < 1){
+            alert('Carrinho vazio ! Adicione produtos no carrinho para prosseguir com a compra')
+            return
+        }else{
+            try {
+                // Faça a requisição POST para o backend
+                const response = await axios.post('http://localhost:5000/api/pagamentos', {
+                    dadosCarrinho: dadosCarrinho
+                });
+
+                const notifica_reposta = response.data.mensagem
+                console.log(notifica_reposta)
+        
+            } catch (error) {   
+                console.error('Erro ao enviar dados para o servidor:', error);
+            }
+        }
+    }   
+
+    // function Checkout(){
+    //     useEffect(() => {
+    //         axios.get('http://localhost:5000/api/link_pagamento')
+    //             .then(response => {
+    //                 setLinkPagamento(response.data.link_pagamento);
+    //             })
+    //             .catch(error => {
+    //                 console.error('Erro ao buscar o link de pagamento:', error);
+    //             });
+    //     }, []);
+    // }
 
     return(
         <div className="checkout_container">
             <Navbar/>
             <SessaoCheckout/>
-            
-                <div className="checkout_box_informacoes">
-            
-            
+            <div className="checkout_box_informacoes">
                 <div className="checkout_div_cadastro_entrega">
-                    <h2>Informações de cadastro<div className="checkout_linha"/></h2>
-                    <div className="checkout_div_form div_cadastro">
-                        <input 
-                            type="text" 
-                            name="nome_completo" 
-                            placeholder="Nome completo"
-                        />
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="E-mail"
-                        />
-                        <input 
-                            type="text" 
-                            name="CPF" 
-                            placeholder="CPF"
-                        />
-                        <input 
-                            type="text" 
-                            name="Celular" 
-                            placeholder="Telefone celular"
-                        />
-                        <span>Já possui uma conta? <span className="azul">Faça login</span></span>
-                    </div>
+                    {!cadastroAberto && (
+                        <div>
+                        <h2>Informações de cadastro<div className="checkout_linha"/></h2>
+                        <div className="checkout_div_form div_cadastro">
+                            <input 
+                                type="text" 
+                                name="nome_completo" 
+                                placeholder="Nome completo"
+                            />
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="E-mail"
+                            />
+                            <input 
+                                type="text" 
+                                name="CPF" 
+                                placeholder="CPF"
+                            />
+                            <input 
+                                type="text" 
+                                name="Celular" 
+                                placeholder="Telefone celular"
+                            />
+                            <span>Já possui uma conta? <span className="azul">Faça login</span></span>
+                        </div>
+                        </div>)}
                     <h2 className="title2">Endereço de entrega<div className="checkout_linha"/></h2>
                     <div className="checkout_div_form">
                         <div className="div_opcao_endereco">
@@ -221,7 +248,7 @@ function Checkout(){
                         <span className="preco bold">{formatarDinheiro(precoTotal)}</span>
                     </div>
                     <div className="acoes_checkout">
-                        <button onClick={handlePayment}>Ir para o pagamento</button>
+                        <button onClick={irParaPagamento}>Ir para o pagamento</button>
                         <span>Cancelar compra</span>
                     </div>
                 </div>

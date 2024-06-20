@@ -45,20 +45,7 @@ function DashboardProdutos(){
         setNotifDelete(false);
     }
     
-    const consultarCategoriaProduto = async (id) => {
-        try{
-            const response = await axios.get('http://localhost:5000/consultarcategoriaproduto', {
-                    id: id
-                });
-            setCategoria(response.data);
-
-            console.log('ID da categoria:', id);
-            console.log('Categoria do quadro:', response.data)
-
-        } catch (error) {   
-            console.error('Erro ao enviar dados para o servidor:', error);
-        }
-    };
+    
     useEffect (()=>{
         
         axios.get('http://localhost:5000/quadros')
@@ -90,6 +77,7 @@ function DashboardProdutos(){
                         </div>
                         <div className="table-container">
                             <table>
+                                <thead>
                                 <tr className="table-head">
                                     <th className="border-radius-left">Imagem</th>
                                     <th>Quadro</th>
@@ -100,15 +88,18 @@ function DashboardProdutos(){
                                     <th>cor da moldura</th>
                                     <th>Acoes</th>
                                 </tr>
+                                </thead>
+                                <tbody>
                                 {produtos.slice(0, 5).map((item, index) => (
                                     <tr key={index}>
-                                        <td><img src ={item.imagem} /></td>
-                                        <td>{item.nomeQuadro}</td>
-                                        <td>{() =>consultarCategoriaProduto(item.categoria_id)}</td>
-                                        <td>{item.tamanho}</td>
-                                        <td>{item.preco}</td>
-                                        <td>{item.estoque}</td>
-                                        <td>{item.cor}</td>
+                                        <td><img src={item.imagem}/></td>
+                                        <td><span>{item.nomeQuadro}</span></td>
+                                        <td><span>{item.tipoCategoria}</span></td>
+                                        <td><span>{item.tamanho}</span></td>
+                                        <td><span>{item.preco}</span></td>
+                                        <td><span>{item.estoque}</span></td>
+                                        <td><span>{item.cor}</span></td>
+
                                         <td className="acoes">
                                             <div className="botoes-acao">
                                                 <div className="botao-esquerda botao-editar">
@@ -155,7 +146,7 @@ function DashboardProdutos(){
                                     </td>
                                     
                                 </tr>
-    
+                                </tbody>
                             </table>
                         </div>
                         <div className="acoes">

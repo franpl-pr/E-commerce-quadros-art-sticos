@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
-from apiMercadoPago import gerar_link_pagamento
+# from apimercadopago import gerar_link_pagamento
+import mercadopago
+
 
 app = Flask(__name__)
 # CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
@@ -12,6 +14,7 @@ db_config = {
     'user':'root',
     'password':'',  
     'database':'dbquadrartes',
+
 }
 
 #------------------------- Cadastro ----------------------------
@@ -32,7 +35,7 @@ def inserir_usuario():
     cidade = dados['cidade']
     bairro = dados['bairro']
     senha = dados['senha']
-    confSenha = dados['confSenha']
+    tipo = dados['tipo']
     
     # Conectar ao banco de dados
     conexao = mysql.connector.connect(**db_config)
@@ -48,7 +51,7 @@ def inserir_usuario():
 
     else:
         # Montar e executar o comando SQL para inserir o usuário
-        comando_inserir_dados = f"INSERT INTO usuarios (nomeCompleto, email, senha, telefone) VALUES ('{nome}', '{email}', '{senha}', {telefone})"
+        comando_inserir_dados = f"INSERT INTO usuarios (nomeCompleto, email, senha, telefone, tipo) VALUES ('{nome}', '{email}', '{senha}', '{telefone}', '{tipo}')"
         cursor.execute(comando_inserir_dados)
         conexao.commit() # edita o banco de dados
             
@@ -79,13 +82,20 @@ def consultar_usuario():
     comando_consultar_dados = f"SELECT * FROM usuarios WHERE email = '{email}' AND senha = '{senha}';"
     cursor.execute(comando_consultar_dados)
     resultado = cursor.fetchall()  # Recupera o primeiro resultado encontrado
+    print(resultado)
 
     cursor.close()
     conexao.close()
 
     # Verifica se o usuário foi encontrado
     if resultado:
-        return jsonify({'mensagem': 'Usuário encontrado'})
+        tipo_usuario = resultado[0][6]
+        if tipo_usuario == 'Cliente':
+            return jsonify({'mensagem': 'Usuário cliente encontrado'})
+        elif tipo_usuario == 'Vendedor':
+            return jsonify({'mensagem': 'Usuário vendedor encontrado'})
+        else:
+            return jsonify({'mensagem': 'Tipo de usuário desconhecido'})
     else:
         return jsonify({'mensagem': 'Usuário não encontrado'})
 
@@ -93,7 +103,7 @@ def consultar_usuario():
 
 #------------------------- Cadastro Produtos----------------------------
 
-@app.route('/api/cadastro_produto', methods=['POST'])
+@app.route('/cadastro_produto', methods=['POST'])
 def inserir_produto():
     # print('Entrado no app.py')
     # # Verifique se a imagem foi enviada
@@ -125,42 +135,46 @@ def inserir_produto():
     descricao = dados ['descricao']
     categoria = dados['categoria']
 
-     # Conectar ao banco de dados
-    conexao = mysql.connector.connect(**db_config)
+    try:
+        # Conectar ao banco de dados
+        conexao = mysql.connector.connect(**db_config)
 
 
-    cursor = conexao.cursor()
+        cursor = conexao.cursor()
 
-    # Montar e executar o comando SQL para inserir o usuário
-    comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, imagem, estoque, categoria_id, cor, tamanho, descricao) VALUES ('{quadro}', '{preco}', '{imagem}', {estoque}, '{categoria}', '{cor}', '{tamanho}', '{descricao}')"
-    cursor.execute(comando_inserir_dados)
-    conexao.commit() # edita o banco de dados
+        # Montar e executar o comando SQL para inserir o usuário
+        comando_inserir_dados = f"INSERT INTO produtos (nomeQuadro, preco, estoque, cor, tamanho, descricao, imagem, categoria_id) VALUES ('{quadro}', '{preco}', {estoque}, '{cor}', '{tamanho}', '{descricao}', '{imagem}', '{categoria}')"
+        cursor.execute(comando_inserir_dados)
+        conexao.commit() # edita o banco de dados
 
-    cursor.close()
-    conexao.close()
+        resposta = {'mensagem': 'Quadro cadastrado com sucesso'}
+    except mysql.connector.Error as err:
+        print(f"Erro: {err}")
+        resposta = {'mensagem': 'Erro ao cadastrar quadro'}
+    finally:
+        cursor.close()
+        conexao.close()
     
-    # Retornar uma resposta JSON indicando sucesso
-    return jsonify({'mensagem': 'Quadro cadastrado com sucesso'})
-
-
+    # Retornar uma resposta JSON 
+    return jsonify(resposta)
+    
 
 #----------------- Consultar categorias ------------+
 
-@app.route('/api/consultar_categorias', methods=['GET'])
+@app.route('/consultar_categorias', methods=['GET'])
 def consultar_categorias():
     conexao = mysql.connector.connect(**db_config) 
     cursor = conexao.cursor()
     cursor.execute("SELECT ID_categoria, tipoCategoria FROM categoriasprodutos")
     result = cursor.fetchall()
-    categorias = [{'ID_categoria': row[0],'tipoCategoria': row[1]} for row in result]
+    categorias = [{'Id_categoria': row[0],'tipoCategoria': row[1]} for row in result]
     cursor.close()
     conexao.close()
     return jsonify(categorias)
 
-
 #----------------- Consultar categoria produto --------
 
-@app.route('/consultatcategoriaproduto', methods=['GET'])
+@app.route('/consultarcategoriaproduto', methods=['GET'])
 def consultar_categoria_produto():
     dados = request.json
     id_categoria = dados['id']
@@ -168,6 +182,7 @@ def consultar_categoria_produto():
     cursor = conexao.cursor()
     cursor.execute(f"SELECT tipoCategoria FROM categoriasProdutos WHERE ID_categoria = '{id_categoria}'")
     result = cursor.fetchall()
+    
     cursor.close()
     conexao.close()
     return jsonify(result)
@@ -179,9 +194,9 @@ def consultar_categoria_produto():
 def get_quadros():
     conexao = mysql.connector.connect(**db_config)
     cursor = conexao.cursor()
-    cursor.execute("SELECT ID_produtos, nomeQuadro, descricao, preco, imagem, estoque, avaliacaoMedia, categoria_id, cor FROM produtos")
+    cursor.execute("SELECT p.ID_produtos, p.nomeQuadro, p.descricao, p.preco, p.imagem, p.estoque, p.avaliacaoMedia, p.categoria_id, p.cor, c.tipoCategoria, p.tamanho FROM produtos p INNER JOIN categoriasprodutos c ON p.categoria_id = c.ID_categoria")
     result = cursor.fetchall()
-    quadros = [{'ID_produtos': row[0],'nomeQuadro': row[1], 'descricao': row[2], 'preco': row[3], 'imagem': row[4], 'estoque': row[5], 'avaliacaoMedia': row[6], 'categoria_id': row[7],  'cor': row[8]} for row in result]
+    quadros = [{'ID_produtos': row[0],'nomeQuadro': row[1], 'descricao': row[2], 'preco': row[3], 'imagem': row[4], 'estoque': row[5], 'avaliacaoMedia': row[6], 'categoria_id': row[7],  'cor': row[8], 'tipoCategoria': row[9], 'tamanho': row[10]} for row in result]
     cursor.close()
     conexao.close()
     return jsonify(quadros)
@@ -262,6 +277,46 @@ def inserir_produtoCarrinho():
         return jsonify({'mensagem': 'Dados do quadro inserido no carrinho'})
 
 
+
+# --------------------- Mostrar Dados Carriho --------------------
+
+@app.route('/carrinhoQuadros', methods=['GET'])
+def get_carrinhoQuadros():
+    conexao = mysql.connector.connect(**db_config)
+    cursor = conexao.cursor()
+    cursor.execute("SELECT IdQuadro, nomeQuadro, imagemQuadro, precoQuadro, molduraQuadro FROM carrinho")
+    result = cursor.fetchall()
+    quadros = [{'IdQuadro': row[0],'nomeQuadro': row[1], 'imagem': row[2], 'precoQuadro': row[3], 'molduraQuadro': row[4]} for row in result]
+    cursor.close()
+    conexao.close()
+    return jsonify(quadros)
+
+
+# -------------------- Excluir Quadro Carrinho ----------------------
+
+@app.route('/excluirQuadro', methods=['POST'])
+def excluir_quadro_carrinho():
+    dados = request.json
+    IdQuadro = dados['IdQuadro']
+
+    conexao = mysql.connector.connect(**db_config)
+    cursor = conexao.cursor()
+
+    # Corrigindo a consulta SQL para usar o nome correto da coluna
+    cursor.execute(f"DELETE FROM carrinho WHERE IdQuadro = '{IdQuadro}'")
+
+    result = cursor.fetchone()
+
+    if result:
+        response = {'mensagem': 'Quadro excluido com sucesso'}
+    else:
+        response = {'mensagem': 'Erro ao excluir o quadro'}
+
+    cursor.close()
+    conexao.close()
+    return jsonify(response)
+
+
 #-------------------- Excluir produto -----------------------------
 
 @app.route('/produtos/<int:id>', methods=['DELETE'])
@@ -279,26 +334,69 @@ def delete_produto(id):
 
 #--------------------- Pagamento --------------------------
 
-@app.route('/api/pagamento', methods=['POST'])
-def pagamento():
+# # @app.route("/api/link_pagamento", methods = ['GET'])
+# # def get_link_pagamento():
+# #     link_iniciar_pagamento = gerar_link_pagamento()
+# #     return jsonify({"link_pagamento": link_iniciar_pagamento})
+# def get_link_pagamento():
+#     link_iniciar_pagamento = gerar_link_pagamento()
+#     return jsonify({"link_pagamento": link_iniciar_pagamento, "status": "success"})
+
+# @app.route("/compracerta")
+# def compra_certa():
+#     return render_template("FinalizacaoCompra.js")
+
+# @app.route("/compraerrada")
+# def compra_errada():
+#     return render_template("FinalizacaoCompra.js")
+
+# @app.route('/api/pagamentos', methods=['POST'])
+# def pagamento_apimercadoPago():
+#     dados = request.json
+#     dadosCarrinho = dados['dadosCarrinho']
+
+#     try:
+#         link = gerar_link_pagamento(dadosCarrinho)
+#         return jsonify({'link': link}), 200
+#     except KeyError as e:
+#         return jsonify({'error': f"KeyError: {str(e)}", 'response': e.response}), 500
+#     except Exception as e:
+#         return jsonify({'error': str(e)}), 500
+
+# def gerar_link_pagamento(dadosCarrinho):
+
+#     sdk = mercadopago.SDK("APP_USR-4692194312027696-061914-be26f913d8c7cf6b08fdc3f83188f3d0-623516088")
+
+#     for item in dadosCarrinho:
+#         "id": item.ID_produtos,
+#         "title": item.nomeQuadro,
+#         "description": item.descricao,
+#         "quantity": item.quantidade,
+#         "currency_id": "BRL",
+#         "unit_price": item.precoTotal
+        
     
-    dados = request.json
-    dadosCarrinho = dados['dadosCarrinho']
 
-    gerar_link_pagamento(dadosCarrinho)
+#     payment_data = {
+#         "items": items,
+#         "back_urls": {
+#             "success": "http://localhost:3000/FinalizacaoCompra",
+#             "failure": "",
+#             "pending": ""
+#         },
+#         "auto_return": "all"
+#     }
 
-    return jsonify({"message": "Sucesso"})
+#     result = sdk.preference().create(payment_data)
+#     payment = result["response"]
 
+#     # Adicione log para verificar a resposta completa
+#     print(f"Resposta da API Mercado Pago: {payment}")
 
-# Configuração CORS global para todas as rotas
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Credentials', 'true')
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    return response
-
+#     if "init_point" in payment:
+#         return payment["init_point"]
+#     else:
+#         raise KeyError("'init_point' não encontrado na resposta da API")    
 
 if __name__ == '__main__':
     print("Iniciando o servidor Flask...")

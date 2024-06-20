@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, {useState, useContext} from "react";
 import "./produto_style.css"
 import Navbar from "../Components/component_Navbar/Navbar";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -52,6 +52,7 @@ function DetalheProduto(){
         }
         setDadosCarrinho([...dadosCarrinho, dadosProduto])
         console.log(dadosProduto)
+        console.log(dadosCarrinho)
     }
 
     const verMais = () => {
@@ -150,7 +151,7 @@ function DetalheProduto(){
                     Cor da moldura: {dadosProduto.cor}</p>
                 </div>
                 <div className="produto_div_quadro_parede">
-                    <img src={image_quadro_parede} alt="quadro_parede"/>
+                    <img src={dadosProduto.imagem} alt="quadro_parede"/>
                 </div>
             </div>
             <div className="produtos_box_produtos_relacionados">

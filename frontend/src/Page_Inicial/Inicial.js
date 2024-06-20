@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import './inicial_style.css';
 import Navbar from "../Components/component_Navbar/Navbar";
 import Footer from "../Components/component_Footer/Footer";
@@ -9,10 +9,25 @@ import image_inicial_qualidade from "../img/image_inicial_qualidade.png";
 import image_inicial_garantia from "../img/image_inicial_garantia.png";
 import image_inicial_suporte from "../img/image_inicial_suporte.png";
 import { useNavigate } from "react-router-dom";
+import { HandleTipoUsuario } from "../context/HandleContext";
 
 
 function Inicial(){
     const navigate = useNavigate();
+    const {tipoUsuario, setTipoUsuario} = useContext(HandleTipoUsuario)
+
+    const tipoVendedor = () => {
+        setTipoUsuario('Vendedor')
+        navigate('/Cadastro')
+        console.log('Cadastrando como Vendedor')
+    }
+
+    const tipoCliente = () => {
+        setTipoUsuario('Cliente')
+        navigate('/Cadastro')
+        console.log('/Cadastrando como Cliente')
+    }
+
 
     return(
         <div className="inicial_container">
@@ -27,8 +42,8 @@ function Inicial(){
                         <span className="inicial_bemvindo_span1">Novo Usuário, comece por aqui</span>
                         <span className="inicial_bemvindo_span2">Compre e venda quadros para todo o Brasil</span>
                         <div className="inicial_bemvindo_div_button">
-                            <button onClick={() => navigate("/Cadastro")} className="inicial_bemvindo_button">Sou cliente</button>
-                            <button onClick={() => navigate("/Cadastro")} className="inicial_bemvindo_button">Sou vendedor</button>
+                            <button onClick={tipoCliente} className="inicial_bemvindo_button">Sou cliente</button>
+                            <button onClick={tipoVendedor} className="inicial_bemvindo_button">Sou vendedor</button>
                         </div>
                     </div>
                 </div>
