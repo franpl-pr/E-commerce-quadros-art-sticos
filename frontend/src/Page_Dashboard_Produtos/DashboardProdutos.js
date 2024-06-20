@@ -18,7 +18,7 @@ function DashboardProdutos(){
     const navigate = useNavigate();
     const [notifDelete, setNotifDelete] = useState(false);
     const [produtoSelecionado, setProdutoSelecionado] = useState(null);
-    
+    const [popUpNotifDel, setPopUpNotifDel] = useState(false);
 
     const handleDelete = async () =>{
         if (produtoSelecionado) {
@@ -27,7 +27,9 @@ function DashboardProdutos(){
                 // Atualizar a lista de produtos após a exclusão
                 setProdutos(produtos.filter(p => p.ID_produtos !== produtoSelecionado.ID_produtos));
                 setNotifDelete(false);
+                setPopUpNotifDel(true);
                 setProdutoSelecionado(null);
+                
                 console.log('Produto deletado com sucesso');
             } catch (error) {
                 console.error('Erro ao deletar o produto:', error);
@@ -53,7 +55,7 @@ function DashboardProdutos(){
         .catch(error => {
             console.error("Houve um erro!", error);
         });
-        console.log(produtos)
+        console.log(produtos);
     }, []);
     
     return(
@@ -100,7 +102,7 @@ function DashboardProdutos(){
                                         <td className="acoes">
                                             <div className="botoes-acao">
                                                 <div className="botao-esquerda botao-editar">
-                                                    <LiaEdit size={24}/>
+                                                    <LiaEdit size={24} onClick={() => navigate("/EditProduto", {state: {produto: item}})}/>
                                                 </div>
                                                 <div className="botao-direita botao-excluir" onClick={() => yesDelete(item)}>
                                                     <FaRegTrashAlt size={18}/>
@@ -109,40 +111,6 @@ function DashboardProdutos(){
                                     </td>
                                     </tr>
                                 ))}
-                                <tr>
-                                    <td>
-                                        <img src={image_produto_bulldog}/>
-                                    </td>
-                                    <td>
-                                        <span>Bulldog Frances</span>
-                                    </td>
-                                    <td>
-                                        <span>Animais</span>
-                                    </td>
-                                    <td>
-                                        <span>A15(15 x 20cm)</span>
-                                    </td>
-                                    <td>
-                                        <span>R$ 102,40</span>
-                                    </td>
-                                    <td>
-                                        <span>2</span>
-                                    </td>
-                                    <td>
-                                        <span>Preta, cinza</span>
-                                    </td>
-                                    <td className="acoes">
-                                            <div className="botoes-acao">
-                                                <div className="botao-esquerda botao-editar">
-                                                    <LiaEdit size={24}/>
-                                                </div>
-                                                <div className="botao-direita botao-excluir" onClick={() => yesDelete(1)}>
-                                                    <FaRegTrashAlt size={18}/>
-                                                </div>
-                                            </div>
-                                    </td>
-                                    
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -244,6 +212,14 @@ function DashboardProdutos(){
                         </div>
                     </div>
                 )}
+                {popUpNotifDel &&(
+                <div className='box_notificacao_sucesso'>
+                    <div className='notificacao_sucesso'>
+                        <h1>Quadro deletado com sucesso!</h1>
+                        <button onClick={setPopUpNotifDel(false)}>Fechar</button>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

@@ -1,6 +1,10 @@
 html{
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+.dashboard{
+    height: 100vh;
 }
 .conteudo-dashboard{
     color: #333333;

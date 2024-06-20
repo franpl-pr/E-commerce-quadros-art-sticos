@@ -166,18 +166,23 @@ def consultar_categorias():
 
 #----------------- Consultar categoria produto --------
 
-@app.route('/consultarcategoriaproduto', methods=['GET'])
+@app.route('/consultar_categoria_produto', methods=['GET'])
 def consultar_categoria_produto():
-    dados = request.json
-    id_categoria = dados['id']
+    id_categoria = request.args.get('id')
+    if id_categoria is None:
+        return jsonify({'error': 'ID da categoria não fornecido'})
     conexao = mysql.connector.connect(**db_config)
     cursor = conexao.cursor()
-    cursor.execute(f"SELECT tipoCategoria FROM categoriasProdutos WHERE ID_categoria = '{id_categoria}'")
+    cursor.execute(f"SELECT tipoCategoria FROM categoriasprodutos WHERE ID_categoria = '{id_categoria}'")
     result = cursor.fetchall()
     
     cursor.close()
     conexao.close()
-    return jsonify(result)
+
+    if result:
+            return jsonify({'tipoCategoria': result[0][0]})
+    else:
+            return jsonify({'error': 'Categoria não encontrada'})
 
 
 #-------------------- Quadros ----------------------
@@ -320,12 +325,47 @@ def delete_produto(id):
 
     cursor.close()
     conexao.close()
-    return jsonify({"message": "Produto deletado com sucesso"})
+    return jsonify({"mensagem": "Produto deletado com sucesso"})
 
 
+#--------------------Editar produto --------------------------------
+
+@app.route('/edit_produto', methods=['POST'])
+def edit_produto():
+    try:
+        dados = request.form
+        id = dados['id']
+        quadro = dados['quadro']
+        imagem = dados['imagem']
+        preco = dados['preco']
+        estoque = dados['estoque']
+        tamanho = dados['tamanho']
+        cor = dados['cor']
+        descricao = dados ['descricao']
+        categoria = dados['categoria']
+
+        conexao = mysql.connector.connect(**db_config)
+        cursor = conexao.cursor()
+
+        query = """
+        UPDATE produtos 
+        SET nomeQuadro = %s, descricao = %s, preco = %s, imagem = %s, estoque = %s, cor = %s, tamanho = %s, categoria_id = %s 
+        WHERE ID_produtos = %s
+        """
+        valores = (quadro, descricao, preco, imagem, estoque, cor, tamanho, categoria, id)
+        cursor.execute(query, valores)
+
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+        return jsonify({"mensagem": "Produto atualizado com sucesso"})
+    
+    except Exception as erro:
+        return jsonify({"erro":str(erro)})
 
 
-# @app.route("/api/link_pagamento", methods = ['GET'])
+@app.route("/api/link_pagamento", methods = ['GET'])
 # def get_link_pagamento():
 #     link_iniciar_pagamento = gerar_link_pagamento()
 #     return jsonify({"link_pagamento": link_iniciar_pagamento})

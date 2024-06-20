@@ -39,4 +39,4 @@ export const HandleCarrinhoProvider = ({children}) => {
     )
 }
 
-export const useHandleContext = () => useContext(HandleContext);
+

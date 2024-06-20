@@ -13,6 +13,7 @@ import Checkout from "./Page_Checkout/Checkout"
 import CadastroProduto from "./Page_CadastroProduto/CadastroProduto";
 import DashboardProdutos from "./Page_Dashboard_Produtos/DashboardProdutos";
 import FinalizacaoCompra from "./Page_FinalizacaoCompra/FinalizacaoCompra";
+import EditProduto from "./Page_Dashboard_Edit_Produto/DashboardEditProduto";
 function App(){
     
     return(
@@ -28,6 +29,7 @@ function App(){
                 <Route path="/CadastroProduto" element={<CadastroProduto/>}/>
                 <Route path="/DashboardProdutos" element={<DashboardProdutos/>}/>
                 <Route path="/FinalizacaoCompra" element={<FinalizacaoCompra/>}/>
+                <Route path="/EditProduto" element={<EditProduto/>}/>
             </Routes>
         </Router>
     )

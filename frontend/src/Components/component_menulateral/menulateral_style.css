@@ -9,7 +9,7 @@
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
     color: #ffffff;
-    height: 100vh;
+    max-height: max-content;
 }
 .logo-db{
     font-family: 'Montserrat', sans-serif;

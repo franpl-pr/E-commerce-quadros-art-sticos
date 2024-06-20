@@ -36,24 +36,25 @@ function MenuLateral(){
                             </a>
                         </li>
                         <li className="item-menu ativo">
-                            <a onClick={() => navigate("/Produtos")}>
+                            <a onClick={() => navigate("/DashboardProdutos")}>
                                 <span><PiGridFour size={20}></PiGridFour></span>
                                 <span className="text-link">Produtos</span>
                             </a>
                         </li>
                         <li className="item-menu">
-                            <a onClick={() => navigate("/ListaPedidos")}>
+                            <a>
                                 <span><TbListCheck size={20}></TbListCheck></span>
                                 <span className="text-link">Lista de pedidos</span>
                             </a>
                         </li>
                         <li className="item-menu">
-                            <a onClick={() => navigate("/RelatoriosVenda")}>
+                            <a>
                                 <span><SlChart size={20}></SlChart></span>
                                 <span className="text-link">Relatórios de venda</span>
                             </a>
                         </li>
-                        <li className="item-menu"><a onClick={() => navigate("/Perfil")}>
+                        <li className="item-menu">
+                            <a>
                                 <span><IoPersonOutline size={20}></IoPersonOutline></span>
                                 <span className="text-link">Perfil</span>
                             </a>
@@ -63,12 +64,14 @@ function MenuLateral(){
                 <div className="divisor"></div>
                 <div className="secao2">
                     <ul>
-                        <li className="item-menu"><a onClick={() => navigate("/Perfil")}>
+                        <li className="item-menu">
+                            <a>
                                 <span><IoIosHelpCircleOutline size={20}></IoIosHelpCircleOutline></span>
                                 <span className="text-link">Ajuda</span>
                             </a>
                         </li>
-                        <li className="item-menu"><a onClick={() => navigate("/Perfil")}>
+                        <li className="item-menu">
+                            <a>
                                 <span><IoSettingsOutline size={20}></IoSettingsOutline></span>
                                 <span className="text-link">Configurações</span>
                             </a>

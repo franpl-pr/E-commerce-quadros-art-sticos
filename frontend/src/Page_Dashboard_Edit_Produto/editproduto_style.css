@@ -1,0 +1,10 @@
+.acoes-img{
+    display: flex;
+}
+.img-pequena-quadro{
+    height: 12rem;
+    margin-right: 3rem;
+}
+.img-pequena-quadro img{
+    height: 100%;
+}

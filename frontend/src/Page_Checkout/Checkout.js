@@ -14,6 +14,9 @@ import { HandleContext } from "../context/HandleContext";
 function Checkout(){
     const {setDadosProduto} = useContext(HandleContext);
     const [link_pagamento, setLinkPagamento] = useState('');
+    const [dadosCarrinho, setDadosCarrinho] = useState('');
+    const [formatarDinheiro, setFormatarDinheiro] = useState('');
+    const [removerProdutoCarrinho, setRemoverProdutoCarrinho] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/link_pagamento')
